@@ -3,12 +3,17 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" href="img/hecate.ico" type="image/x-icon" />
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="css/ilustraciones.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<title>LastXanadu</title>
-	<script src="ckeditor/ckeditor.js"></script>
+	<!--
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+	-->
+<link rel="stylesheet" type="text/css" href="css/ilustraciones.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<title>LastXanadu</title>
+<script src="ckeditor/ckeditor.js"></script>
 </head>
 <body>
 	<nav class="navbar navbar-inverse navbar-fixed-top">
@@ -19,12 +24,12 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span> 
 				</button>
-				<a class="navbar-brand" href="#">Last<span style="color: crimson; font-size: 19px;">Xanadu</span></a>
+				<a class="navbar-brand" href="#">Last<span>Xanadu</span></a>
 			</div>
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="#">Inicio</a></li>
-					<li><a href="#">Ultimas Aportaciones</a></li>
+					<li><a href="#">Novedades</a></li>
 					<li class="dropdown">
 						<a class="dropdown-toggle" data-toggle="dropdown" href="#">Música <span class="caret"></span></a>
 						<ul class="dropdown-menu">
@@ -39,19 +44,8 @@
 							<li><a href="#">Galeria de Imagenes</a></li>
 						</ul>
 					</li>
-					<li><a href="#">Noticias</a></li>
-					<li><a href="#">Ranking</a></li>
+					<li><a href="#">Popular</a></li>
 				</ul>
-				<form class="navbar-form navbar-left">
-					<div class="input-group">
-						<input type="text" class="form-control" placeholder="Search">
-						<div class="input-group-btn">
-							<button class="btn btn-default" type="submit">
-								<i class="glyphicon glyphicon-search"></i>
-							</button>
-						</div>
-					</div>
-				</form>
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="#"><span class="glyphicon glyphicon-user"></span> Registrate</a></li>
 					<li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Iniciar Sesion</a></li>
@@ -60,12 +54,12 @@
 		</div>
 	</nav>
 
-	<div class="container-fluid illust-container" style="margin-top:50px;">
+	<div class="container illust-container" style="margin-top:50px;">
 		<div class="row">
 			<div class="col-sm-8 illust-box">
 				<div class="desc-box-illust">
-					<h2>Titulo de la Ilustración</h2>
-					<p>Descripción de la Ilustración.</p>
+					<h3>Titulo de la Ilustración</h3>
+					<p>No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure.</p>
 					<p>Tags:</p>
 				</div>
 				<div>
@@ -75,7 +69,62 @@
 					
 				</div>
 			</div>
-			<div class="col-sm-4 comment-box-illust">Comentarios</div>
+			<div class="col-sm-4 comment-box-illust">
+				<h3>Comentarios</h3><br>
+				<div class="comment">
+					<div class="media">
+						<div class="media-left">
+							<img id="user-avatar-comment" class="media-object img-rounded" src="img/solid.jpg">
+						</div>
+						<div class="media-body">
+							<h4 class="media-heading"> User #1 </h4>
+							<p>	What I love and what I believe rots away; even what was broken before. Even if I held it close it’d turn to ashes. Is dead salvation? Is dead compensation? Living can also be a curse after all. I mean, people are born while crying, aren’t they?
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="comment">
+					<div class="media">
+						<div class="media-left">
+							<img id="user-avatar-comment" class="media-object img-rounded" src="img/solid3.jpg">
+						</div>
+						<div class="media-body">
+							<h4 class="media-heading"> User #2 </h4>
+							<p>	I’m falling endlessly. They are lined up, with their needle blades over their heads.
+								They twist around my body. Ah, their bodies are burning with real love…
+								They are my soul. Myself in my cursed dolls…
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="comment">
+					<div class="media">
+						<div class="media-left">
+							<img id="user-avatar-comment" class="media-object img-rounded" src="img/solid4.jpg">
+						</div>
+						<div class="media-body">
+							<h4 class="media-heading"> User #3 </h4>
+							<p>	Ah, can’t you see it? Can’t you feel it?
+								If that’s the worst end, kneel down and pray.
+								It’s too late for regrets, repentance and the like now.
+								Hell is not just one place – where do you want to go?
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="comment">
+					<div class="media">
+						<div class="media-left">
+							<img id="user-avatar-comment" class="media-object img-rounded" src="img/solid2.jpg">
+						</div>
+						<div class="media-body">
+							<h4 class="media-heading"> User #4 </h4>
+							<p>	Yeah, It's Lunatic Time! Welcome to the Madness World!
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 		<div class="row ckeditor-box">
 			<div class="col-sm-12">

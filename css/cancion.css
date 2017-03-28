@@ -1,0 +1,43 @@
+body {
+	background: url('../img/silkbrush8.png');
+	background-repeat: space;
+	background-color: #303030;
+	background-attachment: fixed;
+	color: white;
+}
+
+/*
+body {
+	background-color: #D0D0D0;
+	color: black;
+}*/
+
+.navbar span {
+	color: crimson; 
+}
+
+.comment-section {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.comment-section .comment {
+	margin: 10px 0 10px 0;
+}
+
+#song-cover {
+	width:250px;
+}
+
+#user-avatar-comment {
+	width:100px;
+}
+
+#song-info-container {
+	margin-top:75px;
+}
+
+.song-section {
+	margin-top:15px;
+	margin-bottom: 15px;
+}

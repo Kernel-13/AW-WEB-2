@@ -1,5 +1,8 @@
 body {
+	background: url('../img/silkbrush8.png');
+	background-repeat: space;
 	background-color: #303030;
+	background-attachment: fixed;
 	color: white;
 }
 
@@ -9,6 +12,10 @@ body {
 	color: black;
 }*/
 
+.navbar span {
+	color: crimson; 
+}
+
 #ilust {
 	max-width: 100%; 
 	display: block; 
@@ -17,8 +24,7 @@ body {
 }
 
 .illust-box {
-	padding-top: 5px;
-	padding-bottom: 15px;
+
 }
 
 .desc-box-illust {
@@ -26,7 +32,7 @@ body {
 }
 
 .comment-box-illust {
-	padding: 20px 4px 10px 4px;
+	padding: 20px 10px 10px 10px;
 }
 
 .illust-container{
@@ -35,4 +41,13 @@ body {
 
 .ckeditor-box {
 	padding: 15px 0 15px 0; 
+}
+
+#user-avatar-comment {
+	width:75px;
+}
+
+.comment {
+	margin: 10px 0 10px 0;
+	padding-right: 10px;
 }
