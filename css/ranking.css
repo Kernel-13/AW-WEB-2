@@ -1,0 +1,77 @@
+body {
+	background: url('../img/silkbrush8.png');
+	background-repeat: space;
+	background-color: #303030;
+	background-attachment: fixed;
+	color: white;
+}
+
+/*
+body {
+	background-color: #D0D0D0;
+	color: black;
+}*/
+
+.navbar span {
+	color: crimson; 
+}
+
+.comment-section {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.comment-section .comment {
+	margin: 10px 0 10px 0;
+}
+
+#song-cover {
+	width:250px;
+}
+
+#user-avatar-comment {
+	width:100px;
+}
+
+#song-info-container {
+	margin-top:75px;
+}
+
+.song-section {
+	margin-top:15px;
+	margin-bottom: 15px;
+}
+
+/*Desde aquí*/
+
+.tamanio{
+    width: 300px;
+    height: 300px;
+}
+
+.page-header{
+    margin-top: 70px;    
+}
+
+div h3{
+    font-size: 4em;
+    font-family: fantasy;
+}
+
+div h4{
+    font-size: 2em;
+}
+
+div p{
+    font-size: 2em;
+    color: #A9A9A9;
+}
+
+img:hover{ /*Cuándo pasas el ratón sale un efecto adelante*/
+    -webkit-transform: scale(1.1);
+    
+}
+
+img{    
+    -webkit-transition:-webkit-transform 0.3s ease-in-out 0.1s; /*Cuánto tarda en ejecutar el efecto por completo*/     
+}
