@@ -1,0 +1,47 @@
+.uploadIllust {
+	text-align: center;
+}
+
+.section {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+
+
+#descBox {
+	width: 100%;
+	height: 350px;
+	color: black;
+	padding-right: 10px;
+	padding-left: 10px;
+}
+
+#text {
+	width: auto;
+	color: black;
+}
+
+
+.selection-left {
+	display: inline-block;
+	vertical-align: top;
+	text-align: right;
+}
+
+
+.selection-right {
+	display: inline-block;
+	vertical-align: top;
+	text-align: left;
+}
+
+#submitButton {
+	color: black;
+	width: 50%;
+	height: 50px;
+}
+
+#preview {
+	width: 250px;
+}

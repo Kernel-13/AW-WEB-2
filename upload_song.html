@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/body-style.css">
+	<link rel="stylesheet" type="text/css" href="css/upload-style.css">
+	<link rel="icon" href="img/hecate.ico" type="image/x-icon" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<title>LastXanadu</title>
+</head>
+<body>
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span> 
+				</button>
+				<a class="navbar-brand" href="#">Last<span>Xanadu</span></a>
+			</div>
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav">
+					<li><a href="#">Inicio</a></li>
+					<li><a href="#">Novedades</a></li>
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#">Música <span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="#">Nuestros Músicos</a></li>
+							<li><a href="#">Biblioteca de Canciones</a></li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#">Ilustraciones <span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="#">Nuestros Ilustradores</a></li>
+							<li><a href="#">Galeria de Imagenes</a></li>
+						</ul>
+					</li>
+					<li><a href="#">Popular</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#">Mi Cuenta <span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="user.html">Mi Perfil</a></li>
+							<li><a href="#">Mis Aportaciones</a></li>
+							<li><a href="#">Mis Mensajes</a></li>
+							<li><a href="#">My Timeline</a></li>
+							<li><a href="upload_illust.html">Subir Ilustración</a></li>
+							<li><a href="upload_song.html">Subir Canción</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<div class="container-fluid uploadIllust">
+		<h1>Sube aquí tu Canción</h1>
+		<form>
+			<div class="row">
+				<div class="col-lg-5">
+					<div class="row section">
+						<div class="col-lg-6 col-xs-6 col-sm-6 selection-left">
+							<div>
+								Selecciona la canción que deseas subir:
+							</div>				
+						</div>
+						<div class="col-lg-6 col-xs-6 col-sm-6 selection-right">
+							<div>
+								<input id="song" type="file" name="file" required="required">
+							</div>		
+						</div>
+					</div>
+					<div class="row section">
+						<div class="col-lg-6 col-xs-6 col-sm-6 selection-left">
+							<div>
+								Puedes escoger una imagen para usarla como 'cover' de tu canción:
+							</div>				
+						</div>
+						<div class="col-lg-6 col-xs-6 col-sm-6 selection-right">
+							<div>
+								<input id="cover" type="file" name="file" required="required" onchange="previewFile()">
+							</div>		
+						</div>
+					</div>
+					<div class="row section">
+						<div class="col-lg-6 col-xs-6 col-sm-6 selection-left">
+							<div>
+								Escoge un título:
+							</div>				
+						</div>
+						<div class="col-lg-6 col-xs-6 col-sm-6 selection-right">
+							<div>
+								<input id="text" type="text" name="title" required="required">
+							</div>		
+						</div>
+					</div>
+					<div class="row section">
+						<div class="col-lg-6 col-xs-6 col-sm-6 selection-left">
+							<div>
+								Etiquetas de tu Ilustración: <br>(Separadas por comas)
+							</div>					
+						</div>
+						<div class="col-lg-6 col-xs-6 col-sm-6 selection-right">
+							<div>
+								<input id="text" type="text" name="tags" required="required">
+							</div>			
+						</div>
+					</div>
+					<div class="row section">
+						<div class="col-lg-12">
+							<img id="preview" src="img/preview.png" alt="Tu Ilustración" />
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4">
+					<div class="row section">
+						<div class="col-lg-3 col-sm-3 col-xs-6 selection-left">
+							<div>
+								Escribe una pequeña descripción: 
+							</div>				
+						</div>
+						<div class="col-lg-9 col-sm-9 col-xs-6  selection-right">
+							<div>
+								<textarea id="descBox" name="description" required="required"></textarea>	
+							</div>		
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3">
+					<div class="row section">
+						<div class="col-lg-12">
+							<div >
+								<input id="submitButton" type="submit" name="submit" value="Subir Ilustración">
+							</div>				
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+</body>
+<script type="text/javascript">
+	function previewFile() {
+		var preview = document.querySelector('#preview');
+		var file    = document.querySelector('#cover').files[0];
+		var reader  = new FileReader();
+
+		reader.addEventListener("load", function () {
+			preview.src = reader.result;
+		}, false);
+
+		if (file) {
+			reader.readAsDataURL(file);
+		}
+	}
+</script>
+</html>
