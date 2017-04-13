@@ -16,32 +16,6 @@ body {
 	color: crimson; 
 }
 
-.comment-section {
-	margin-top: 20px;
-	margin-bottom: 20px;
-}
-
-.comment-section .comment {
-	margin: 10px 0 10px 0;
-}
-
-#song-cover {
-	width:250px;
-}
-
-#user-avatar-comment {
-	width:100px;
-}
-
-#song-info-container {
-	margin-top:75px;
-}
-
-.song-section {
-	margin-top:15px;
-	margin-bottom: 15px;
-}
-
 /*Desde aquí*/
 
 .tamanio{
@@ -50,11 +24,11 @@ body {
 }
 
 .page-header{
-    margin-top: 70px;    
+    margin-top: 80px;    
 }
 
 div h3{
-    font-size: 4em;
+    font-size: 3em;
     font-family: fantasy;
 }
 
@@ -63,12 +37,12 @@ div h4{
 }
 
 div p{
-    font-size: 2em;
+    font-size: 1.1em;
     color: #A9A9A9;
 }
 
 img:hover{ /*Cuándo pasas el ratón sale un efecto adelante*/
-    -webkit-transform: scale(1.1);
+    -webkit-transform: scale(1.05);
     
 }
 
