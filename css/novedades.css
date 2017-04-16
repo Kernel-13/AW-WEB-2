@@ -6,6 +6,9 @@ body {
 	color: white;
 }
 
+p{
+	text-align: center;
+}
 .navbar span {
 	color: crimson; 
 }
@@ -32,7 +35,7 @@ body {
 }
 
 #audio-img-carusel {
-	width: 300px;
+	width: 70%;
 	height: 180px;
 	display: block; 
 	margin: auto;
@@ -40,7 +43,7 @@ body {
 }
 
 #audio-player-carusel{
-	width: 300px;
+	width: 70%;
 }
 
 #ilust-carusel {
