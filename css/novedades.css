@@ -63,3 +63,12 @@ p{
 .desc-box-illust {
 	padding: 10px 4px 15px 4px;
 }
+
+#boton-paginado{
+	padding-bottom: 2px;
+}
+
+#botones-numericos{
+	padding-left: 150px;
+	padding-right: 150px;
+}
