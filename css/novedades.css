@@ -17,13 +17,9 @@ h1 span {
 	color: crimson;
 }
 
-h1{
-
-}
-
 #ilust {
 	max-width: 320px;
-	height: 217px;
+	height: 216px;
 	display: block; 
 	margin: auto;
 	background-color: black;
@@ -76,7 +72,7 @@ div h3{
 }
 
 #textoDescripcion{
-	padding-top: 20px;
+	padding-top: 30px;
 	background-color: white;
 	color: black;
 }
