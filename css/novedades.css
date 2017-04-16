@@ -11,11 +11,50 @@ body {
 }
 
 #ilust {
-	max-width: 300px;
-	max-height: 210px;
+	max-width: 320px;
+	height: 205px;
 	display: block; 
 	margin: auto;
 	background-color: black;
+}
+
+#audio-img {
+	width: 300px;
+	height: 180px;
+	display: block; 
+	margin: auto;
+	background-color: black;
+}
+
+#audio-player{
+	width: 300px;
+	align-self: center;
+}
+
+#audio-img-carusel {
+	width: 300px;
+	height: 180px;
+	display: block; 
+	margin: auto;
+	background-color: black;
+}
+
+#audio-player-carusel{
+	width: 300px;
+}
+
+#ilust-carusel {
+	width: auto;
+	height: 217px;
+	display: block; 
+	margin: auto;
+	background-color: black;
+}
+
+#box {
+	text-align: center;
+	align-items: center;
+	align-self: center;
 }
 
 .desc-box-illust {
