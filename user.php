@@ -13,52 +13,7 @@
 	<title>LastXanadu</title>
 </head>
 <body>
-	<nav class="navbar navbar-inverse navbar-fixed-top">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span> 
-				</button>
-				<a class="navbar-brand" href="#">Last<span>Xanadu</span></a>
-			</div>
-			<div class="collapse navbar-collapse" id="myNavbar">
-				<ul class="nav navbar-nav">
-					<li><a href="#">Inicio</a></li>
-					<li><a href="#">Novedades</a></li>
-					<li class="dropdown">
-						<a class="dropdown-toggle" data-toggle="dropdown" href="#">Música <span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li><a href="#">Nuestros Músicos</a></li>
-							<li><a href="#">Biblioteca de Canciones</a></li>
-						</ul>
-					</li>
-					<li class="dropdown">
-						<a class="dropdown-toggle" data-toggle="dropdown" href="#">Ilustraciones <span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li><a href="#">Nuestros Ilustradores</a></li>
-							<li><a href="#">Galeria de Imagenes</a></li>
-						</ul>
-					</li>
-					<li><a href="#">Popular</a></li>
-				</ul>
-				<ul class="nav navbar-nav navbar-right">
-					<li class="dropdown">
-						<a class="dropdown-toggle" data-toggle="dropdown" href="#">Mi Cuenta <span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li><a href="user.html">Mi Perfil</a></li>
-							<li><a href="#">Mis Aportaciones</a></li>
-							<li><a href="#">Mis Mensajes</a></li>
-							<li><a href="#">My Timeline</a></li>
-							<li><a href="upload_illust.html">Subir Ilustración</a></li>
-							<li><a href="upload_song.html">Subir Canción</a></li>
-						</ul>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</nav>
+	<?php require 'navbar-logged.php';?>
 
 	<div class="container">
 		<!-- User Pic / Description -->
@@ -95,30 +50,30 @@
 							<div class="col-lg-12 flex">
 								
 								<div class="thumbnail">
-									<a href=""><img class="img-responsive" src="img/a1.jpg" alt=""></a>
+									<a href="illust.php"><img class="img-responsive" src="img/a1.jpg" alt=""></a>
 									<div class="caption">
-										<a href=""> Ejemplo 1 </a>
+										<a href="illust.php"> Ejemplo 1 </a>
 									</div>
 								</div>
 								
 								<div class="thumbnail">
-									<a href=""><img class="img-responsive" src="img/a2.jpg" alt=""></a>
+									<a href="illust.php"><img class="img-responsive" src="img/a2.jpg" alt=""></a>
 									<div class="caption">
-										<a href=""> Ejemplo 2 </a>
+										<a href="illust.php"> Ejemplo 2 </a>
 									</div>
 								</div>
 
 								<div class="thumbnail">
-									<a href=""><img class="img-responsive" src="img/a3.jpg" alt=""></a>
+									<a href="illust.php"><img class="img-responsive" src="img/a3.jpg" alt=""></a>
 									<div class="caption">
-										<a href=""> Ejemplo 3 </a>
+										<a href="illust.php"> Ejemplo 3 </a>
 									</div>
 								</div>
 
 								<div class="thumbnail">
-									<a href=""><img class="img-responsive" src="img/a4.jpg" alt=""></a>
+									<a href="illust.php"><img class="img-responsive" src="img/a4.jpg" alt=""></a>
 									<div class="caption">
-										<a href=""> Ejemplo 4 </a>
+										<a href="illust.php"> Ejemplo 4 </a>
 									</div>
 								</div>
 							</div>
@@ -127,30 +82,30 @@
 							<div class="col-lg-12 flex">
 								
 								<div class="thumbnail">
-									<a href=""><img class="img-responsive"  src="img/a5.jpg" alt=""></a>
+									<a href="illust.php"><img class="img-responsive"  src="img/a5.jpg" alt=""></a>
 									<div class="caption">
-										<a href=""> Ejemplo 1 </a>
+										<a href="illust.php"> Ejemplo 1 </a>
 									</div>
 								</div>
 								
 								<div class="thumbnail">
-									<a href=""><img class="img-responsive"  src="img/a6.jpg" alt=""></a>
+									<a href="illust.php"><img class="img-responsive"  src="img/a6.jpg" alt=""></a>
 									<div class="caption">
-										<a href=""> Ejemplo 2 </a>
+										<a href="illust.php"> Ejemplo 2 </a>
 									</div>
 								</div>
 
 								<div class="thumbnail">
-									<a href=""><img class="img-responsive"  src="img/a7.jpg" alt=""></a>
+									<a href="illust.php"><img class="img-responsive"  src="img/a7.jpg" alt=""></a>
 									<div class="caption">
-										<a href=""> Ejemplo 3 </a>
+										<a href="illust.php"> Ejemplo 3 </a>
 									</div>
 								</div>
 
 								<div class="thumbnail">
-									<a href=""><img class="img-responsive"  src="img/a8.jpg" alt=""></a>
+									<a href="illust.php"><img class="img-responsive"  src="img/a8.jpg" alt=""></a>
 									<div class="caption">
-										<a href=""> Ejemplo 4 </a>
+										<a href="illust.php"> Ejemplo 4 </a>
 									</div>
 								</div>
 							</div>
@@ -159,30 +114,30 @@
 							<div class="col-lg-12 flex">
 								
 								<div class="thumbnail">
-									<a href=""><img class="img-responsive"  src="img/a9.jpg" alt=""></a>
+									<a href="illust.php"><img class="img-responsive"  src="img/a9.jpg" alt=""></a>
 									<div class="caption">
-										<a href=""> Ejemplo 1 </a>
+										<a href="illust.php"> Ejemplo 1 </a>
 									</div>
 								</div>
 								
 								<div class="thumbnail">
-									<a href=""><img class="img-responsive"  src="img/a10.jpg" alt=""></a>
+									<a href="illust.php"><img class="img-responsive"  src="img/a10.jpg" alt=""></a>
 									<div class="caption">
-										<a href=""> Ejemplo 2 </a>
+										<a href="illust.php"> Ejemplo 2 </a>
 									</div>
 								</div>
 
 								<div class="thumbnail">
-									<a href=""><img class="img-responsive"  src="img/a11.jpg" alt=""></a>
+									<a href="illust.php"><img class="img-responsive"  src="img/a11.jpg" alt=""></a>
 									<div class="caption">
-										<a href=""> Ejemplo 3 </a>
+										<a href="illust.php"> Ejemplo 3 </a>
 									</div>
 								</div>
 
 								<div class="thumbnail">
-									<a href=""><img class="img-responsive"  src="img/a12.jpg" alt=""></a>
+									<a href="illust.php"><img class="img-responsive"  src="img/a12.jpg" alt=""></a>
 									<div class="caption">
-										<a href=""> Ejemplo 4 </a>
+										<a href="illust.php"> Ejemplo 4 </a>
 									</div>
 								</div>
 							</div>
@@ -191,30 +146,30 @@
 							<div class="col-lg-12 flex">
 								
 								<div class="thumbnail">
-									<a href=""><img class="img-responsive"  src="img/a13.jpg" alt=""></a>
+									<a href="illust.php"><img class="img-responsive"  src="img/a13.jpg" alt=""></a>
 									<div class="caption">
-										<a href=""> Ejemplo 1 </a>
+										<a href="illust.php"> Ejemplo 1 </a>
 									</div>
 								</div>
 								
 								<div class="thumbnail">
-									<a href=""><img class="img-responsive"  src="img/a14.jpg" alt=""></a>
+									<a href="illust.php"><img class="img-responsive"  src="img/a14.jpg" alt=""></a>
 									<div class="caption">
-										<a href=""> Ejemplo 2 </a>
+										<a href="illust.php"> Ejemplo 2 </a>
 									</div>
 								</div>
 
 								<div class="thumbnail">
-									<a href=""><img class="img-responsive"  src="img/a15.jpg" alt=""></a>
+									<a href="illust.php"><img class="img-responsive"  src="img/a15.jpg" alt=""></a>
 									<div class="caption">
-										<a href=""> Ejemplo 3 </a>
+										<a href="illust.php"> Ejemplo 3 </a>
 									</div>
 								</div>
 
 								<div class="thumbnail">
-									<a href=""><img class="img-responsive"  src="img/a16.jpg" alt=""></a>
+									<a href="illust.php"><img class="img-responsive"  src="img/a16.jpg" alt=""></a>
 									<div class="caption">
-										<a href=""> Ejemplo 4 </a>
+										<a href="illust.php"> Ejemplo 4 </a>
 									</div>
 								</div>
 							</div>
@@ -227,30 +182,30 @@
 							<div class="col-lg-12 flex">
 								
 								<div class="thumbnail">
-									<a href=""><img class="img-responsive" src="img/a1.jpg" alt=""></a>
+									<a href="illust.php"><img class="img-responsive" src="img/a1.jpg" alt=""></a>
 									<div class="caption">
-										<a href=""> Ejemplo 1 </a>
+										<a href="illust.php"> Ejemplo 1 </a>
 									</div>
 								</div>
 								
 								<div class="thumbnail">
-									<a href=""><img class="img-responsive" src="img/a2.jpg" alt=""></a>
+									<a href="illust.php"><img class="img-responsive" src="img/a2.jpg" alt=""></a>
 									<div class="caption">
-										<a href=""> Ejemplo 2 </a>
+										<a href="illust.php"> Ejemplo 2 </a>
 									</div>
 								</div>
 
 								<div class="thumbnail">
-									<a href=""><img class="img-responsive" src="img/a3.jpg" alt=""></a>
+									<a href="illust.php"><img class="img-responsive" src="img/a3.jpg" alt=""></a>
 									<div class="caption">
-										<a href=""> Ejemplo 3 </a>
+										<a href="illust.php"> Ejemplo 3 </a>
 									</div>
 								</div>
 
 								<div class="thumbnail">
-									<a href=""><img class="img-responsive" src="img/a4.jpg" alt=""></a>
+									<a href="illust.php"><img class="img-responsive" src="img/a4.jpg" alt=""></a>
 									<div class="caption">
-										<a href=""> Ejemplo 4 </a>
+										<a href="illust.php"> Ejemplo 4 </a>
 									</div>
 								</div>
 							</div>
@@ -259,30 +214,30 @@
 							<div class="col-lg-12 flex">
 								
 								<div class="thumbnail">
-									<a href=""><img class="img-responsive"  src="img/a5.jpg" alt=""></a>
+									<a href="illust.php"><img class="img-responsive"  src="img/a5.jpg" alt=""></a>
 									<div class="caption">
-										<a href=""> Ejemplo 1 </a>
+										<a href="illust.php"> Ejemplo 1 </a>
 									</div>
 								</div>
 								
 								<div class="thumbnail">
-									<a href=""><img class="img-responsive"  src="img/a6.jpg" alt=""></a>
+									<a href="illust.php"><img class="img-responsive"  src="img/a6.jpg" alt=""></a>
 									<div class="caption">
-										<a href=""> Ejemplo 2 </a>
+										<a href="illust.php"> Ejemplo 2 </a>
 									</div>
 								</div>
 
 								<div class="thumbnail">
-									<a href=""><img class="img-responsive"  src="img/a7.jpg" alt=""></a>
+									<a href="illust.php"><img class="img-responsive"  src="img/a7.jpg" alt=""></a>
 									<div class="caption">
-										<a href=""> Ejemplo 3 </a>
+										<a href="illust.php"> Ejemplo 3 </a>
 									</div>
 								</div>
 
 								<div class="thumbnail">
-									<a href=""><img class="img-responsive"  src="img/a8.jpg" alt=""></a>
+									<a href="illust.php"><img class="img-responsive"  src="img/a8.jpg" alt=""></a>
 									<div class="caption">
-										<a href=""> Ejemplo 4 </a>
+										<a href="illust.php"> Ejemplo 4 </a>
 									</div>
 								</div>
 							</div>
@@ -291,30 +246,30 @@
 							<div class="col-lg-12 flex">
 								
 								<div class="thumbnail">
-									<a href=""><img class="img-responsive"  src="img/a9.jpg" alt=""></a>
+									<a href="illust.php"><img class="img-responsive"  src="img/a9.jpg" alt=""></a>
 									<div class="caption">
-										<a href=""> Ejemplo 1 </a>
+										<a href="illust.php"> Ejemplo 1 </a>
 									</div>
 								</div>
 								
 								<div class="thumbnail">
-									<a href=""><img class="img-responsive"  src="img/a10.jpg" alt=""></a>
+									<a href="illust.php"><img class="img-responsive"  src="img/a10.jpg" alt=""></a>
 									<div class="caption">
-										<a href=""> Ejemplo 2 </a>
+										<a href="illust.php"> Ejemplo 2 </a>
 									</div>
 								</div>
 
 								<div class="thumbnail">
-									<a href=""><img class="img-responsive"  src="img/a11.jpg" alt=""></a>
+									<a href="illust.php"><img class="img-responsive"  src="img/a11.jpg" alt=""></a>
 									<div class="caption">
-										<a href=""> Ejemplo 3 </a>
+										<a href="illust.php"> Ejemplo 3 </a>
 									</div>
 								</div>
 
 								<div class="thumbnail">
-									<a href=""><img class="img-responsive"  src="img/a12.jpg" alt=""></a>
+									<a href="illust.php"><img class="img-responsive"  src="img/a12.jpg" alt=""></a>
 									<div class="caption">
-										<a href=""> Ejemplo 4 </a>
+										<a href="illust.php"> Ejemplo 4 </a>
 									</div>
 								</div>
 							</div>
@@ -323,30 +278,30 @@
 							<div class="col-lg-12 flex">
 								
 								<div class="thumbnail">
-									<a href=""><img class="img-responsive"  src="img/a13.jpg" alt=""></a>
+									<a href="illust.php"><img class="img-responsive"  src="img/a13.jpg" alt=""></a>
 									<div class="caption">
-										<a href=""> Ejemplo 1 </a>
+										<a href="illust.php"> Ejemplo 1 </a>
 									</div>
 								</div>
 								
 								<div class="thumbnail">
-									<a href=""><img class="img-responsive"  src="img/a14.jpg" alt=""></a>
+									<a href="illust.php"><img class="img-responsive"  src="img/a14.jpg" alt=""></a>
 									<div class="caption">
-										<a href=""> Ejemplo 2 </a>
+										<a href="illust.php"> Ejemplo 2 </a>
 									</div>
 								</div>
 
 								<div class="thumbnail">
-									<a href=""><img class="img-responsive"  src="img/a15.jpg" alt=""></a>
+									<a href="illust.php"><img class="img-responsive"  src="img/a15.jpg" alt=""></a>
 									<div class="caption">
-										<a href=""> Ejemplo 3 </a>
+										<a href="illust.php"> Ejemplo 3 </a>
 									</div>
 								</div>
 
 								<div class="thumbnail">
-									<a href=""><img class="img-responsive"  src="img/a16.jpg" alt=""></a>
+									<a href="illust.php"><img class="img-responsive"  src="img/a16.jpg" alt=""></a>
 									<div class="caption">
-										<a href=""> Ejemplo 4 </a>
+										<a href="illust.php"> Ejemplo 4 </a>
 									</div>
 								</div>
 							</div>

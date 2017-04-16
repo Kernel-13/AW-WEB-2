@@ -5,7 +5,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="icon" href="img/hecate.ico" type="image/x-icon" />
-	<link rel="stylesheet" type="text/css" href="css/body-style.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<link href="https://fonts.googleapis.com/css?family=Fira+Sans|Oxygen" rel="stylesheet">
@@ -14,43 +13,7 @@
 	<title>LastXanadu</title>
 </head>
 <body>
-	<nav class="navbar navbar-inverse navbar-fixed-top">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span> 
-				</button>
-				<a class="navbar-brand" href="#">Last<span>Xanadu</span></a>
-			</div>
-			<div class="collapse navbar-collapse" id="myNavbar">
-				<ul class="nav navbar-nav">
-					<li><a href="#">Inicio</a></li>
-					<li><a href="#">Novedades</a></li>
-					<li class="dropdown">
-						<a class="dropdown-toggle" data-toggle="dropdown" href="#">Música <span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li><a href="#">Nuestros Músicos</a></li>
-							<li><a href="#">Biblioteca de Canciones</a></li>
-						</ul>
-					</li>
-					<li class="dropdown">
-						<a class="dropdown-toggle" data-toggle="dropdown" href="#">Ilustraciones <span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li><a href="#">Nuestros Ilustradores</a></li>
-							<li><a href="#">Galeria de Imagenes</a></li>
-						</ul>
-					</li>
-					<li><a href="#">Popular</a></li>
-				</ul>
-				<ul class="nav navbar-nav navbar-right">
-					<li><a href="#"><span class="glyphicon glyphicon-user"></span> Registrate</a></li>
-					<li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Iniciar Sesion</a></li>
-				</ul>
-			</div>
-		</div>
-	</nav>
+	<?php require 'navbar.php';?>
 
 	<div class="container">
 		<div class="row">
@@ -62,7 +25,7 @@
 					<p class="gray-text">Tags: this, will, be, a, list, of, tags</p>
 				</div>
 				<div>
-					<img id="illust" class="img-rounded img-responsive" src="img/heca2.jpg">
+					<img id="illust" class="img-rounded img-responsive" src="img/a.jpg">
 				</div>
 				<div id="ratings">
 					

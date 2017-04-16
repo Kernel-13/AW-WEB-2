@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css?family=Muli|Open+Sans");
+
 body {
 	margin-top:75px;
 	background: url('../img/silkbrush8.png');
@@ -5,6 +7,11 @@ body {
 	background-color: #303030;
 	background-attachment: fixed;
 	color: white;
+}
+
+
+body > nav {
+    font-family: 'Muli', sans-serif;
 }
 
 /*

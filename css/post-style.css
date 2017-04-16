@@ -7,6 +7,10 @@ body h1, h2, h3 {
 	font-family: 'Fira Sans', sans-serif;
 }
 
+.container > div {
+	margin-bottom: 40px;
+}
+
 #illust {
 	max-width: 100%; 
 	display: block; 

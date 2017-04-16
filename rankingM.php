@@ -18,43 +18,7 @@
 	<title>LastXanadu</title>
 </head>
 <body>
-	<nav class="navbar navbar-inverse navbar-fixed-top">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span> 
-				</button>
-				<a class="navbar-brand" href="#">Last<span>Xanadu</span></a>
-			</div>
-			<div class="collapse navbar-collapse" id="myNavbar">
-				<ul class="nav navbar-nav">
-					<li class="active"><a href="#">Inicio</a></li>
-					<li><a href="#">Novedades</a></li>
-					<li class="dropdown">
-						<a class="dropdown-toggle" data-toggle="dropdown" href="#">Música <span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li><a href="#">Nuestros Músicos</a></li>
-							<li><a href="#">Biblioteca de Canciones</a></li>
-						</ul>
-					</li>
-					<li class="dropdown">
-						<a class="dropdown-toggle" data-toggle="dropdown" href="#">Ilustraciones <span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li><a href="#">Nuestros Ilustradores</a></li>
-							<li><a href="#">Galeria de Imagenes</a></li>
-						</ul>
-					</li>
-					<li><a href="#">Popular</a></li>
-				</ul>
-				<ul class="nav navbar-nav navbar-right">
-					<li><a href="#"><span class="glyphicon glyphicon-user"></span> Registrate</a></li>
-					<li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Iniciar Sesion</a></li>
-				</ul>
-			</div>
-		</div>
-	</nav>      
+	<?php require 'navbar.php';?>     
     <!--Desde aquí empezamos-->  
     <!-- Page Content -->
     <div class="container">

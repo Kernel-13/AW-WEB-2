@@ -1,0 +1,127 @@
+body {
+	margin-top: 50px;
+	font-family: 'Muli', sans-serif;
+}
+
+section .container-fluid {
+	padding-right: 0;
+	padding-left: 0;
+}
+
+.slides {
+	background-size: cover;
+	height: 35vh;
+}
+
+.slides > div {
+	width: 50%;
+	float: right;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	padding-left:  30px;
+	padding-right: 30px;
+	padding-top:  0;
+	padding-bottom:  15px;
+	background-color: rgba(0, 0, 0, 0.9);
+}
+
+.slides h3,h2{
+	font-family: 'Muli', sans-serif;
+	/*
+	font-family: 'Merriweather', serif;
+	font-family: 'Muli', sans-serif;
+	*/
+}
+
+#slide-one {
+	background: url('../img/cp1.jpg') center center;
+}
+
+#slide-two {
+	background: url('../img/cp2.jpg') center center;
+}
+
+#slide-three {
+	background: url('../img/cp3.jpg') center center;
+}
+
+.carousel {
+	width:100%; 
+	margin:0 auto;
+}
+
+.media:hover {
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+.media-body {
+	padding: 10px;
+}
+
+.media-body:hover {
+	padding: 10px;
+}
+
+.media-body p{
+	font-family: 'Open Sans', sans-serif;
+	font-size: 18px;
+}
+
+.media-object {
+	max-height: 200px;
+	max-width: 200px;
+}
+
+@media screen and (max-width: 760px) {
+
+	
+	.slides h3{
+		font-size: 14px;
+	}
+
+	.slides h2{
+		font-size: 20px;
+	}
+
+	.slides > div {
+		padding-left:  15px;
+		padding-right: 15px;
+		padding-top:  5px;
+		padding-bottom:  7px;
+	}
+
+	.media-object {
+		max-height: 100px;
+		max-width: 100px;
+	}
+
+	.media-body h3 {
+		font-size: 18px;
+	}
+
+	.media-body h4 {
+		font-size: 14px;
+	}
+
+	.media-body p {
+		font-size: 12px;
+	}
+
+}
+
+@media screen and (max-width: 993px) {
+	#post-display {
+		margin-bottom: 10px;
+	}
+
+	.section {
+		margin: 0;
+	}
+
+	.header {
+		margin-top: 25px;
+		margin-bottom: 25px;
+	}
+
+}
