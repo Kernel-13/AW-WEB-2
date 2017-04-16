@@ -18,7 +18,7 @@ h1 span {
 }
 
 h1{
-	
+
 }
 
 #ilust {
@@ -63,9 +63,20 @@ h1{
 }
 
 #box {
+	width: 800px
+	height: 800px;
 	text-align: center;
 	align-items: center;
 	align-self: center;
+}
+
+div h3{
+	background-color: black;
+}
+
+#textoDescripcion{
+	background-color: white;
+	color: black;
 }
 
 .desc-box-illust {
