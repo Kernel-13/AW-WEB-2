@@ -23,7 +23,7 @@ h1{
 
 #ilust {
 	max-width: 320px;
-	height: 205px;
+	height: 217px;
 	display: block; 
 	margin: auto;
 	background-color: black;
@@ -71,10 +71,12 @@ h1{
 }
 
 div h3{
+	text-align: center;
 	background-color: black;
 }
 
 #textoDescripcion{
+	padding-top: 20px;
 	background-color: white;
 	color: black;
 }
