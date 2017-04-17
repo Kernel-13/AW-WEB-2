@@ -67,7 +67,7 @@
 			<div class="col-md-12">
 				<div class="row header">
 					<div class="col-md-12">
-						<h2> Ultimas Canciones Agregadas</h2>
+						<h2> Últimas Canciones Agregadas</h2>
 					</div>
 				</div>
 				<div class="row section">
@@ -129,7 +129,7 @@
 			<div class="col-md-12">
 				<div class="row header">
 					<div class="col-md-12">
-						<h2> Ultimas Ilustraciones Agregadas</h2>
+						<h2> Últimas Ilustraciones Agregadas</h2>
 					</div>
 				</div>
 				<div class="row section">

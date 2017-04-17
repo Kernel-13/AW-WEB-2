@@ -16,16 +16,16 @@
 				<li class="dropdown">
 					<a class="dropdown-toggle" data-toggle="dropdown" href="#">Música <span class="caret"></span></a>
 					<ul class="dropdown-menu">
-						<li><a href="musicians.php">Nuestros Músicos</a></li>
-						<li><a href="playlist.php">Biblioteca de Canciones</a></li>
+						<li><a href="#">Nuestros Músicos</a></li>
+						<li><a href="#">Biblioteca de Canciones</a></li>
 						<li><a href="song.php">Canción Aleatoria</a></li>
 					</ul>
 				</li>
 				<li class="dropdown">
 					<a class="dropdown-toggle" data-toggle="dropdown" href="#">Ilustraciones <span class="caret"></span></a>
 					<ul class="dropdown-menu">
-						<li><a href="graphic_artists.php">Nuestros Ilustradores</a></li>
-						<li><a href="gallery.php">Galeria de Imagenes</a></li>
+						<li><a href="#">Nuestros Ilustradores</a></li>
+						<li><a href="#">Galeria de Imagenes</a></li>
 						<li><a href="illust.php">Ilustración Aleatoria</a></li>
 					</ul>
 				</li>

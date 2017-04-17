@@ -20,9 +20,12 @@
 			<!-- Illust, Description and Tags-->
 			<div class="col-md-8 col-sm-6 illust-text">
 				<div>
-					<h2>Illustration Title</h2>
+					<div id="author-info">
+						<h2>Illustration Title</h2>
+						<p><a href="user.php">by KilloveFP</a></p>
+					</div>
 					<p>No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure.</p>
-					<p class="gray-text">Tags: this, will, be, a, list, of, tags</p>
+					<p class="gray-text">Tags: <a href="">this</a>, <a href="">will</a>, <a href="">be</a>, <a href="">a</a>, <a href="">list</a>, <a href="">of</a>, <a href="">tags</a></p>
 				</div>
 				<div>
 					<img id="illust" class="img-rounded img-responsive" src="img/a.jpg">
@@ -34,11 +37,11 @@
 
 			<!-- Comment Section -->
 			<aside class="col-md-4 col-sm-6">
-				<h3>Comentarios</h3><br>
+				<h3>Comentarios</h3>
 				<div class="comment">
 					<div class="media">
 						<div class="media-left">
-							<img id="user-avatar-comment" class="media-object img-rounded" src="img/solid.png">
+							<a href="user.php"><img id="user-avatar-comment" class="media-object img-rounded" src="img/solid.png"></a>
 						</div>
 						<div class="media-body">
 							<h4 class="media-heading"> User #1 </h4>
@@ -50,7 +53,7 @@
 				<div class="comment">
 					<div class="media">
 						<div class="media-left">
-							<img id="user-avatar-comment" class="media-object img-rounded" src="img/solid3.png">
+							<a href="user.php"><img id="user-avatar-comment" class="media-object img-rounded" src="img/solid3.png"></a>
 						</div>
 						<div class="media-body">
 							<h4 class="media-heading"> User #2 </h4>
@@ -64,7 +67,7 @@
 				<div class="comment">
 					<div class="media">
 						<div class="media-left">
-							<img id="user-avatar-comment" class="media-object img-rounded" src="img/solid2.png">
+							<a href="user.php"><img id="user-avatar-comment" class="media-object img-rounded" src="img/solid2.png"></a>
 						</div>
 						<div class="media-body">
 							<h4 class="media-heading"> User #3 </h4>
@@ -79,7 +82,7 @@
 				<div class="comment">
 					<div class="media">
 						<div class="media-left">
-							<img id="user-avatar-comment" class="media-object img-rounded" src="img/solid4.png">
+							<a href="user.php"><img id="user-avatar-comment" class="media-object img-rounded" src="img/solid4.png"></a>
 						</div>
 						<div class="media-body">
 							<h4 class="media-heading"> User #4 </h4>

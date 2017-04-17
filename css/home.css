@@ -56,6 +56,7 @@ section .container-fluid {
 }
 
 .media-body {
+	vertical-align: middle;
 	padding: 10px;
 }
 
