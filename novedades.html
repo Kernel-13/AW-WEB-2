@@ -27,7 +27,7 @@
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav">
 					<li><a href="index.html">Inicio</a></li>
-					<li><a href="novedades.html">Novedades</a></li>
+					<li class="active"><a href="novedades.html">Novedades</a></li>
 					<li class="dropdown">
 						<a class="dropdown-toggle" data-toggle="dropdown" href="#">Música <span class="caret"></span></a>
 						<ul class="dropdown-menu">
@@ -62,9 +62,9 @@
 
 			<div class="col-md-8">
 
-				<h1 align = center>Novedades</h1>
+				<h1>Novedades</h1>
 
-				<nav class="navbar navbar-inverse" id="botones de Novedades" align = center>
+				<nav class="navbar navbar-inverse">
 					<ul class="nav navbar-nav">
 						<li class="active"><a href="novedades.html">Todo</a></li>
 						<li><a href="novedades-musica.html">Solo musica</a></li>
@@ -82,25 +82,25 @@
 					</ol>
 
 					<!-- Wrapper for slides -->
-					<div class="carousel-inner" role="listbox">
-						<div class="item active" align="center">
+					<div id="carusel" class="carousel-inner" role="listbox">
+						<div class="item active">
 							<img id="audio-img-carusel" src="novedades/musica/stormtrooper.jpg" alt="Chania" width="250" height="225">
 							<audio id="audio-player-carusel" controls="controls"> <source src="novedades/musica/Monster_Cyborg_-_space_troops.mp3" type="audio/mpeg"> </audio>
 							<p>Un stormtrooper triunfa con su cancion "los blasters hacen pium pium"</p>
 						</div>
 
-						<div class="item" align="center">
-							<img id="ilust-carusel" src="novedades/img/chewaca.jpg" alt="Chania" width="175" height="345">
+						<div class="item">
+							<img id="ilust-carusel" src="novedades/img/chewaca.jpg" alt="Chania">
 							<p>El garabato de John ¿broma o arte?</p>
 						</div>
 
-						<div class="item" align="center">
-							<img id="ilust-carusel" src="img/heca2.jpg" alt="Flower" width="460" height="345">
+						<div class="item">
+							<img id="ilust-carusel" src="img/heca2.jpg" alt="Flower">
 							<p>La primera imagen de LastXanadu</p>
 						</div>
 
-						<div class="item" align="center">
-							<img id="audio-img-carusel" src="novedades/musica/sparta.jpg" alt="Flower" width="390" height="225">
+						<div class="item">
+							<img id="audio-img-carusel" src="novedades/musica/sparta.jpg" alt="Flower">
 							<audio id="audio-player-carusel" controls="controls"> <source src="resources/newfuries.mp3" type="audio/mpeg"> </audio>
 							<p>"300 ips no entran en 8 bits" de Leonidas.</p>
 						</div>
@@ -341,13 +341,7 @@
 					</tbody>
 				</table>
 
-				<ul class="list-inline" align="center">
-					<li><a href="quienesSomos.html">¿Quienes somos?</a></li>
-					<li><a href="contacto.html">Contacta con nosotros</a></li>
-					<li><a href="dondeEncontrarnos.html">Donde encontrarnos</a></li>
-					<li><a href="autoresWeb.html">Autores web</a></li>
-					<li><a href="actualizaciones.html">Actualizaciones y novedades de la pagina</a></li>
-				</ul>
+				
 			</div>
 
 			<div class="col-md-2"></div>
@@ -357,4 +351,13 @@
 	</div>
 
 </body>
+<footer>
+	<ul class="list-inline" align="center">
+		<li><a href="quienesSomos.html">¿Quienes somos?</a></li>
+		<li><a href="contacto.html">Contacta con nosotros</a></li>
+		<li><a href="dondeEncontrarnos.html">Donde encontrarnos</a></li>
+		<li><a href="autoresWeb.html">Autores web</a></li>
+		<li><a href="actualizaciones.html">Actualizaciones y novedades de la pagina</a></li>
+	</ul>
+</footer>
 </html>

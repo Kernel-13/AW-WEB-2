@@ -17,6 +17,10 @@ h1 span {
 	color: crimson;
 }
 
+h1 {
+	text-align: center;
+}
+
 #ilust {
 	max-width: 320px;
 	height: 216px;
@@ -54,10 +58,15 @@ h1 span {
 
 #ilust-carusel {
 	width: auto;
-	height: 217px;
-	display: block; 
+	height: 217px; 
 	margin: auto;
 	background-color: black;
+}
+
+#carusel{
+	align-content: center;
+	align-items: center;
+	text-align: center;
 }
 
 #box {
