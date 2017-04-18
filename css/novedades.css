@@ -9,6 +9,10 @@ body {
 p{
 	text-align: center;
 }
+
+footer{
+	text-align: center;
+}
 .navbar span {
 	color: crimson; 
 }
@@ -21,7 +25,7 @@ h1 {
 	text-align: center;
 }
 
-#ilust {
+.ilust {
 	max-width: 320px;
 	height: 216px;
 	display: block; 
@@ -29,7 +33,11 @@ h1 {
 	background-color: black;
 }
 
-#audio-img {
+.audio-box{
+	text-align: center;
+}
+
+.audio-img {
 	width: 300px;
 	height: 180px;
 	display: block; 
@@ -37,28 +45,27 @@ h1 {
 	background-color: black;
 }
 
-#audio-player{
+.audio-player{
 	padding-bottom: 0px;
 	height: 31px;
 	width: 300px;
 	align-self: center;
 }
 
-#audio-img-carusel {
+.audio-img-carusel {
 	width: 70%;
-	height: 180px;
-	display: block; 
+	max-height: 180px;
 	margin: auto;
 	background-color: black;
 }
 
-#audio-player-carusel{
+.audio-player-carusel{
 	width: 70%;
 }
 
-#ilust-carusel {
+.ilust-carusel {
 	width: auto;
-	height: 217px; 
+	max-height: 217px; 
 	margin: auto;
 	background-color: black;
 }
@@ -82,15 +89,24 @@ div h3{
 	background-color: black;
 }
 
-#textoDescripcion{
-	padding-top: 30px;
+.panel-body{
+	padding-top: 40px;
 	background-color: white;
 	color: black;
 	text-align: center;
+	height: 100px;
 }
 
 .desc-box-illust {
 	padding: 10px 4px 15px 4px;
+}
+
+.botones-tabla{
+	width: 100%;
+	text-align: center;
+	align-items: center;
+	align-content: center;
+	align-self: center;
 }
 
 #boton-paginado{
