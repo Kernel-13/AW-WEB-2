@@ -9,12 +9,49 @@
 	<link rel="stylesheet" type="text/css" href="css/session-style.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<link href="https://fonts.googleapis.com/css?family=Muli|Open+Sans" rel="stylesheet">
 	<script src='https://www.google.com/recaptcha/api.js'></script>
 	<title>Registro - 2do Paso</title>
 </head>
 <body>
-	<?php require 'navbar.php';?>
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span> 
+				</button>
+				<a class="navbar-brand" href="index.html">Last<span>Xanadu</span></a>
+			</div>
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav">
+					<li><a href="index.html">Inicio</a></li>
+					<li><a href="novedades.html">Novedades</a></li>
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#">Música <span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="#">Nuestros Músicos</a></li>
+							<li><a href="#">Biblioteca de Canciones</a></li>
+							<li><a href="song.html">Canción Aleatoria</a></li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#">Ilustraciones <span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="#">Nuestros Ilustradores</a></li>
+							<li><a href="#">Galeria de Imagenes</a></li>
+							<li><a href="illust.html">Ilustración Aleatoria</a></li>
+						</ul>
+					</li>
+					<li><a href="#">Popular</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="register.html"><span class="glyphicon glyphicon-user"></span> Registrate</a></li>
+					<li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Iniciar Sesion</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
 
 	<div class="container-fluid register-second">
 		<div class="row form-class">
@@ -24,7 +61,7 @@
 						Casi hemos acabado...
 					</div>
 					<div class="panel-body">
-						<form class="form-horizontal" action="user.php">
+						<form class="form-horizontal" action="user.html">
 							<div class="form-group">
 								<div>
 									<h4>Deseas registrarte como...	</h4>
@@ -35,9 +72,6 @@
 									</div>
 									<div>
 										<input type="radio" name="kind" value="illustrator"> Ilustrador
-									</div>
-									<div>
-										<input type="radio" name="kind" value="both"> Ambos
 									</div>
 								</div>
 							</div>

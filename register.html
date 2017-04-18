@@ -9,12 +9,49 @@
 	<link rel="stylesheet" type="text/css" href="css/session-style.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<link href="https://fonts.googleapis.com/css?family=Muli|Open+Sans" rel="stylesheet">
 	<script src='https://www.google.com/recaptcha/api.js'></script>
 	<title>Registro - 1er Paso</title>
 </head>
 <body>
-	<?php require 'navbar.php';?>
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span> 
+			</button>
+			<a class="navbar-brand" href="index.html">Last<span>Xanadu</span></a>
+		</div>
+		<div class="collapse navbar-collapse" id="myNavbar">
+			<ul class="nav navbar-nav">
+				<li><a href="index.html">Inicio</a></li>
+				<li><a href="novedades.html">Novedades</a></li>
+				<li class="dropdown">
+					<a class="dropdown-toggle" data-toggle="dropdown" href="#">Música <span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li><a href="#">Nuestros Músicos</a></li>
+						<li><a href="#">Biblioteca de Canciones</a></li>
+						<li><a href="song.html">Canción Aleatoria</a></li>
+					</ul>
+				</li>
+				<li class="dropdown">
+					<a class="dropdown-toggle" data-toggle="dropdown" href="#">Ilustraciones <span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li><a href="#">Nuestros Ilustradores</a></li>
+						<li><a href="#">Galeria de Imagenes</a></li>
+						<li><a href="illust.html">Ilustración Aleatoria</a></li>
+					</ul>
+				</li>
+				<li><a href="#">Popular</a></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="register.html"><span class="glyphicon glyphicon-user"></span> Registrate</a></li>
+				<li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Iniciar Sesion</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
 
 	<div class="container-fluid register">
 		<div class="row form-class">
@@ -24,14 +61,14 @@
 						Registro
 					</div>
 					<div class="panel-body">
-						<form class="form-horizontal" action="register_second.php">
+						<form class="form-horizontal" action="register_second.html">
 							<div class="form-group">
 								<div class="col-sm-9">
 									<input type="email" class="form-control" id="email" placeholder="Email" required="required" onchange="validar(this.value)">
 								</div>
 								<div class="col-sm-3 message-box">
-									<span id="er_icon" class="icon_hidden"><img class="signal" src="img/no.png"> Invalido </span>
-									<span id="ok_icon" class="icon_hidden"><img class="signal" src="img/ok.png"> Correcto </span>
+									<span id="er_icon" class="icon_hidden"><img alt="Invalido" class="signal" src="img/no.png"> Invalido </span>
+									<span id="ok_icon" class="icon_hidden"><img alt="Correcto" class="signal" src="img/ok.png"> Correcto </span>
 								</div>
 							</div>
 							<div class="form-group">

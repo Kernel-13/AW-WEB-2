@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/body-style.css">
+	<link rel="stylesheet" type="text/css" href="css/upload-style.css">
+	<link rel="icon" href="img/hecate.ico" type="image/x-icon" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/codigos.js" ></script>
+	<title>LastXanadu</title>
+</head>
+<body>
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span> 
+				</button>
+				<a class="navbar-brand" href="index.html">Last<span>Xanadu</span></a>
+			</div>
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav">
+					<li><a href="index.html">Inicio</a></li>
+					<li><a href="novedades.html">Novedades</a></li>
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#">Música <span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="#">Nuestros Músicos</a></li>
+							<li><a href="#">Biblioteca de Canciones</a></li>
+							<li><a href="song.html">Canción Aleatoria</a></li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#">Ilustraciones <span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="#">Nuestros Ilustradores</a></li>
+							<li><a href="#">Galeria de Imagenes</a></li>
+							<li><a href="illust.html">Ilustración Aleatoria</a></li>
+						</ul>
+					</li>
+					<li><a href="#">Popular</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#">Mi Cuenta <span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="user.html">Mi Perfil</a></li>
+							<li><a href="my_posts.html">Mis Aportaciones</a></li>
+							<li><a href="messages.html">Mis Mensajes</a></li>
+							<li><a href="timeline.html">My Timeline</a></li>
+							<li><a href="upload_illust.html">Subir Ilustración</a></li>
+							<li><a href="upload_song.html">Subir Canción</a></li>
+							<li><a href="index.html">Logout</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<div class="container upload">
+		<div class="row">
+			<form class="form-horizontal" action="illust.html">
+				<div class="col-md-12">
+					<div class="panel panel-info">
+						<div class="panel-heading">
+							<h3>Edita tu Canción</h3>
+						</div>
+						<div class="panel-body">
+							<div class="row">
+
+								<!-- Cover Selection -->
+								<div class="col-md-6" id="previsualizacion">
+									<div class="col-lg-12">
+										<div class="form-group">
+											<div class="col-md-12">
+												<label>Escoge un 'cover' (Imagen cuadrada)</label>
+												<div class="new-input">
+													<input id="cover" type="file" name="file" required="required" onchange="previewFile()">
+												</div>
+											</div>
+											<div class="row section">
+												<div class="col-lg-12">
+													<img id="preview" class="img-responsive" src="img/preview.png" alt="Tu Ilustración"/>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<!-- Title, Description and Submit -->
+								<div class="col-md-6" id="left-side">
+									<div class="form-group">
+										<div class="col-md-12">
+											<input class="form-control" type="text" name="title" required="required" placeholder="Nuevo Titulo">
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="col-md-12">
+											<input class="form-control" type="text" name="title" required="required" placeholder="Nuevas Etiquetas">
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="col-md-12">
+											<textarea class="form-control" id="descBox" name="description" required="required" placeholder="Nueva Descripción"></textarea>
+										</div>
+									</div>
+									<!-- Submit Button -->
+									<div class="row">
+										<div class="col-lg-12">
+											<div >
+												<input id="submitButton" class="btn btn-warning" type="submit" name="submit" value="Aplicar Cambios">
+											</div>				
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

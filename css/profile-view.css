@@ -1,7 +1,17 @@
+@import url("https://fonts.googleapis.com/css?family=Muli|Open+Sans");
+
 .user-posts {
 	margin-top: 20px;
 	/*font-family: 'Open Sans', sans-serif;
 	font-family: 'Muli', sans-serif;*/
+}
+
+.user-posts .col-md-4{
+	margin-bottom: 20px;
+}
+
+.user-posts .media-body{
+	vertical-align: middle;
 }
 
 .media-left {
@@ -53,6 +63,15 @@
 
 .nav-tabs > li > a:hover {
 	background-color: gray;
+}
+
+.edition img {
+	max-width: 150px;
+	max-height: 150px;
+}
+
+.edition .col-md-6{
+	margin-bottom: 20px;
 }
 
 @media (max-width: 768px) {

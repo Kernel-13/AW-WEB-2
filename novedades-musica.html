@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-<!--	<link rel="icon" href="img/hecate.ico" type="image/x-icon" />-->
+	<link rel="icon" href="img/hecate.ico" type="image/x-icon" />
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<!--
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -16,7 +16,45 @@
 <script src="ckeditor/ckeditor.js"></script>
 </head>
 <body>
-	<?php require 'navbar.php';?>
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span> 
+				</button>
+				<a class="navbar-brand" href="index.html">Last<span>Xanadu</span></a>
+			</div>
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav">
+					<li><a href="index.html">Inicio</a></li>
+					<li><a href="novedades.html">Novedades</a></li>
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#">Música <span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="#">Nuestros Músicos</a></li>
+							<li><a href="#">Biblioteca de Canciones</a></li>
+							<li><a href="song.html">Canción Aleatoria</a></li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#">Ilustraciones <span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="#">Nuestros Ilustradores</a></li>
+							<li><a href="#">Galeria de Imagenes</a></li>
+							<li><a href="illust.html">Ilustración Aleatoria</a></li>
+						</ul>
+					</li>
+					<li><a href="#">Popular</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="register.html"><span class="glyphicon glyphicon-user"></span> Registrate</a></li>
+					<li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Iniciar Sesion</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
    
 	<div class="container Novedades-container" style="margin-top:50px;">
 
@@ -34,9 +72,9 @@
 
 		  	<nav class="navbar navbar-inverse" id="botones de Novedades" align = center>
 				<ul class="nav navbar-nav">
-					<li ><a href="novedades.html">Todo</a></li>
-					<li><a href="novedades-musica.html">Solo musica</a></li>
-					<li class="active"><a href="novedades-ilustraciones.html">Solo ilustraciones</a></li>
+					<li><a href="novedades.html">Todo</a></li>
+					<li class="active"><a href="novedades-musica.html">Solo musica</a></li>
+					<li><a href="novedades-ilustraciones.html">Solo ilustraciones</a></li>
 				</ul>
 			</nav>
 
@@ -88,93 +126,98 @@
 			<div class="row">
 				<div class="col-sm-6 illust-box">
 					<div class="desc-box-illust">
-						<h3>Otoño</h3>
+						<h3>Deep</h3>
+						<p></p>
 					</div>
 					<div align="center">
-						<img id="ilust" class="img-rounded" src="novedades/img/otoño.jpg" width="200" height="205">
+						<img id="ilust" class="img-rounded" src="novedades/musica/blindViolet.jpg" width="300" height="180">
+						<audio id="audio-player" controls="controls"> <source src="novedades/musica/Blind_Violet_-_Deep.mp3" type="audio/mpeg"> </audio>
 						<div class="col-sm-8">
 							<div class="progress">
-								<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width:90%">
-									<span class="sr-only">9/10</span>
-									puntuacion: 9/10
+								<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width:65%">
+									<span class="sr-only">6.5/10</span>
+									puntuacion: 6.5/10
 								</div>
 							</div>
 						</div>
-						<div class="col-sm-4"><a href=""><p>John</p></a>
+						<div class="col-sm-4"><a href=""><p>Blind Violet</p></a>
 						</div>
 						<div>
 						<br>
 						<br>
-							<p>Representa un ilustracion de ejemplo y este seria su texto descriptivo.</p>
+							<p>Representa una cancion de ejemplo y este seria su texto descriptivo.</p>
 						</div>
-					</div>
+					</div >
 	                <div class="desc-box-illust">
-						<h3>King Kong</h3>
+						<h3>Runaway</h3>
+						<p></p>
 					</div>
 					<div align="center">
-						<img id="ilust" class="img-rounded" src="novedades/img/kingkong.jpg" width="200" height="205">
+						<img id="ilust" class="img-rounded" src="novedades/musica/Runaway.jpg" width="300" height="180">
+						<audio id="audio-player" controls="controls"> <source src="novedades/musica/Alyssa_Riley_-_Runaway.mp3" type="audio/mpeg"> </audio>
 						<div class="col-sm-8">
 							<div class="progress">
-								<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width:50%">
-									<span class="sr-only">5/10</span>
-									puntuacion: 5/10
+								<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width:85%">
+									<span class="sr-only">8.5/10</span>
+									puntuacion: 8.5/10
 								</div>
 							</div>
 						</div>
-						<div class="col-sm-4"><a href=""><p>Peter</p></a>
+						<div class="col-sm-4"><a href=""><p>Alyssa Riley</p></a>
 						</div>
 						<div>
 						<br>
 						<br>
-						<br>
-							<p>Representa un ilustracion de ejemplo y este seria su texto descriptivo.</p>
+							<p>Representa una cancion de ejemplo y este seria su texto descriptivo.</p>
 						</div>
 					</div>
 				</div>
 
 				<div class="col-sm-6 illust-box">
 					<div class="desc-box-illust">
-						<h3>Las vacas locas</h3>
+						<h3>We got the love</h3>
+						<p></p>
 					</div>
 					<div align="center">
-						<img id="ilust" class="img-rounded" src="novedades/img/vacas.jpg" width="200" height="205">
+						<img id="ilust" class="img-rounded" src="novedades/musica/themoose.jpg" width="300" height="180">
+						<audio id="audio-player" controls="controls"> <source src="novedades/musica/The_Moose_-_We_Got_The_Love.mp3" type="audio/mpeg"> </audio>
 						<div class="col-sm-8">
 							<div class="progress">
-								<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width:60%">
-									<span class="sr-only">6/10</span>
-									puntuacion: 6/10
+								<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width:70%">
+									<span class="sr-only">7/10</span>
+									puntuacion: 7/10
 								</div>
 							</div>
 						</div>
-						<div class="col-sm-4"><a href=""><p>John</p></a>
+						<div class="col-sm-4"><a href=""><p>The Moose</p></a>
 						</div>
 						<div>
 						<br>
 						<br>
-						<br>
-							<p>Representa un ilustracion de ejemplo y este seria su texto descriptivo.</p>
+							<p>Representa una cancion de ejemplo y este seria su texto descriptivo.</p>
 						</div>
 					</div>
 	                <div class="desc-box-illust">
-						<h3>Los tres colores</h3>
+						<h3>Cali</h3>
+						<p></p>
 					</div>
 					<div align="center">
-						<img id="ilust" class="img-rounded" src="novedades/img/lostresmeones.jpg" width="200" height="205">
+						<img id="ilust" class="img-rounded" src="novedades/musica/cali.jpg" width="300" height="180">
+						<audio id="audio-player" controls="controls"> <source src="novedades/musica/Barefoot_McCoy_-_Cali.mp3" type="audio/mpeg"> </audio>
 						<div class="col-sm-8">
 							<div class="progress">
-								<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width:60%">
-									<span class="sr-only">6/10</span>
-									puntuacion: 6/10
+								<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width:72%">
+									<span class="sr-only">7.2/10</span>
+									puntuacion: 7.2/10
 								</div>
 							</div>
 						</div>
-						<div class="col-sm-4"><a href=""><p>Jose</p></a>
+						<div class="col-sm-4"><a href=""><p>Barefoot McCoy</p></a>
 						</div>
 						<div>
 						<br>
 						<br>
-						<br>
-							<p>Representa un ilustracion de ejemplo y este seria su texto descriptivo.</p>
+							<p>Representa una cancion de ejemplo y este seria su texto descriptivo.</p>
 						</div>
 					</div>
 				</div>
