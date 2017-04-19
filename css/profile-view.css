@@ -6,6 +6,25 @@
 	font-family: 'Muli', sans-serif;*/
 }
 
+.activity a > img{
+	max-width: 200px;
+	max-height: 200px;
+}
+
+.activity > .col-md-6 {
+	margin-bottom: 20px;
+}
+
+.activity .desc-preview {
+	/*
+	text-overflow: ellipsis;
+	overflow: hidden;
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical; 
+	*/
+}
+
 .user-posts .col-md-4{
 	margin-bottom: 20px;
 }
@@ -50,7 +69,7 @@
 
 .aling-img img {
 	display: block;
-    margin: auto;
+	margin: auto;
 }
 
 .container {
