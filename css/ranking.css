@@ -18,15 +18,6 @@ body {
 
 /*Desde aquí*/
 
-.tamanio{
-    width: 300px;
-    height: 300px;
-}
-
-.page-header{
-    margin-top: 80px;    
-}
-
 div h3{
     font-size: 3em;
     font-family: fantasy;
@@ -38,7 +29,7 @@ div h4{
 
 div p{
     font-size: 1.1em;
-    color: #A9A9A9;
+    color: #F0F8FF;
 }
 
 img:hover{ /*Cuándo pasas el ratón sale un efecto adelante*/
@@ -48,4 +39,23 @@ img:hover{ /*Cuándo pasas el ratón sale un efecto adelante*/
 
 img{    
     -webkit-transition:-webkit-transform 0.3s ease-in-out 0.1s; /*Cuánto tarda en ejecutar el efecto por completo*/     
+}
+
+.row{
+    margin: 1px;
+}
+
+.list-group{
+    margin-top: 80px;
+    padding: 10px;
+}
+
+.headercomentario{
+    background: #000000;
+    text-align: center;
+}
+
+#cabecera{
+        margin-top: 80px;
+
 }
