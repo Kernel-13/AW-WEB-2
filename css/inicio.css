@@ -36,9 +36,13 @@ h4{
 	text-align: center;
 }
 
+.row{
+	padding-top: 50px;
+}
+
 .ilust {
 	max-width: 320px;
-	height: 216px;
+	height: 316px;
 	display: block; 
 	margin: auto;
 	background-color: black;
@@ -50,7 +54,7 @@ h4{
 
 .audio-img {
 	width: 300px;
-	height: 180px;
+	height: 280px;
 	display: block; 
 	margin: auto;
 	background-color: black;
@@ -65,7 +69,7 @@ h4{
 
 .audio-img-carusel {
 	width: 70%;
-	max-height: 180px;
+	max-height: 230px;
 	margin: auto;
 	background-color: black;
 }
@@ -76,7 +80,7 @@ h4{
 
 .ilust-carusel {
 	width: auto;
-	max-height: 217px; 
+	max-height: 267px; 
 	margin: auto;
 	background-color: black;
 }
