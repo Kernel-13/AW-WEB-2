@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -66,13 +66,18 @@
 								<div>
 									<h4>Deseas registrarte como...	</h4>
 								</div>
-								<div class="col-sm-12 kind-selection">
-									<div>
-										<input type="radio" name="kind" value="musician"> Músico
-									</div>
-									<div>
-										<input type="radio" name="kind" value="illustrator"> Ilustrador
-									</div>
+								<div class="col-sm-12 ">
+									<fieldset class="kind-selection ">
+									<legend class="sr-only"> Escoge que deseas ser</legend>
+										<div>
+											<input type="radio" name="kind" value="musician" id="musician"> Músico
+											<label class="sr-only" for="musician"> Musico </label>
+										</div>
+										<div>
+											<input type="radio" name="kind" value="illustrator" id="illustrator"> Ilustrador
+											<label class="sr-only" for="illustrator"> Ilustrador </label>
+										</div>
+									</fieldset>
 								</div>
 							</div>
 							<div class="form-group">
@@ -80,6 +85,7 @@
 									<h4> Escoge una foto para tu perfil	</h4>
 								</div>
 								<div class="col-sm-12"> 
+									<label class="sr-only" for="avatar"> Escoge tu avatar </label>
 									<input type="file" class="form-control" required="required" id="avatar">
 								</div>
 							</div>							
@@ -88,6 +94,7 @@
 									<h4> Cuentanos algo sobre ti ... </h4>
 								</div>
 								<div class="col-sm-12"> 
+									<label class="sr-only" for="descBox"> Descripcion </label>
 									<textarea class="form-control" id="descBox" name="description" required="required" placeholder="... en menos de 1400 caracteres" maxlength="1400"></textarea>
 								</div>
 							</div>

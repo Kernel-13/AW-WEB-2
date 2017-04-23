@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,44 +14,44 @@
 </head>
 <body>
 	<nav class="navbar navbar-inverse navbar-fixed-top">
-	<div class="container-fluid">
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span> 
-			</button>
-			<a class="navbar-brand" href="index.html">Last<span>Xanadu</span></a>
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span> 
+				</button>
+				<a class="navbar-brand" href="index.html">Last<span>Xanadu</span></a>
+			</div>
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav">
+					<li><a href="index.html">Inicio</a></li>
+					<li><a href="novedades.html">Novedades</a></li>
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#">Música <span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="#">Nuestros Músicos</a></li>
+							<li><a href="#">Biblioteca de Canciones</a></li>
+							<li><a href="song.html">Canción Aleatoria</a></li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#">Ilustraciones <span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="#">Nuestros Ilustradores</a></li>
+							<li><a href="#">Galeria de Imagenes</a></li>
+							<li><a href="illust.html">Ilustración Aleatoria</a></li>
+						</ul>
+					</li>
+					<li><a href="#">Popular</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="register.html"><span class="glyphicon glyphicon-user"></span> Registrate</a></li>
+					<li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Iniciar Sesion</a></li>
+				</ul>
+			</div>
 		</div>
-		<div class="collapse navbar-collapse" id="myNavbar">
-			<ul class="nav navbar-nav">
-				<li><a href="index.html">Inicio</a></li>
-				<li><a href="novedades.html">Novedades</a></li>
-				<li class="dropdown">
-					<a class="dropdown-toggle" data-toggle="dropdown" href="#">Música <span class="caret"></span></a>
-					<ul class="dropdown-menu">
-						<li><a href="#">Nuestros Músicos</a></li>
-						<li><a href="#">Biblioteca de Canciones</a></li>
-						<li><a href="song.html">Canción Aleatoria</a></li>
-					</ul>
-				</li>
-				<li class="dropdown">
-					<a class="dropdown-toggle" data-toggle="dropdown" href="#">Ilustraciones <span class="caret"></span></a>
-					<ul class="dropdown-menu">
-						<li><a href="#">Nuestros Ilustradores</a></li>
-						<li><a href="#">Galeria de Imagenes</a></li>
-						<li><a href="illust.html">Ilustración Aleatoria</a></li>
-					</ul>
-				</li>
-				<li><a href="#">Popular</a></li>
-			</ul>
-			<ul class="nav navbar-nav navbar-right">
-				<li><a href="register.html"><span class="glyphicon glyphicon-user"></span> Registrate</a></li>
-				<li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Iniciar Sesion</a></li>
-			</ul>
-		</div>
-	</div>
-</nav>
+	</nav>
 
 	<div class="container-fluid login">
 		<div class="row form-class">
@@ -64,23 +64,25 @@
 						<form class="form-horizontal" action="user.html">
 							<div class="form-group">
 								<div class="col-sm-9">
+									<label class="sr-only" for="email">Email</label>
 									<input type="email" class="form-control" id="email" placeholder="Email" required="required" onchange="validar(this.value)">
 								</div>
 								<div class="col-sm-3 message-box">
-									<span id="er_icon" class="icon_hidden"><img class="signal" src="img/no.png"> Invalido </span>
-									<span id="ok_icon" class="icon_hidden"><img class="signal" src="img/ok.png"> Correcto </span>
+									<span id="er_icon" class="icon_hidden"><img class="signal" src="img/no.png" alt="invalid"> Invalido </span>
+									<span id="ok_icon" class="icon_hidden"><img class="signal" src="img/ok.png" alt="correcto"> Correcto </span>
 								</div>
 							</div>
 							<div class="form-group">
 								<div class="col-sm-12"> 
+									<label class="sr-only" for="pass">Password</label>
 									<input type="password" class="form-control" required="required" id="pass" placeholder="Password">
-									<span id="ok_icon" class="icon_hidden"> ERROR! </span>
 								</div>
 							</div>
 							<div class="form-group"> 
 								<div class="col-sm-12">
 									<div class="checkbox reminder">
-										<label><input type="checkbox">Olvide mi contraseña</label>
+										<label for="checkbox"  class="sr-only">Olvide mi contraseña</label>
+										<input id="checkbox" type="checkbox">Olvide mi contraseña
 									</div>
 								</div>
 							</div>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -78,16 +78,19 @@
 								<div class="col-md-6">
 									<div class="form-group">
 										<div class="col-md-12">
-											<input class="form-control" type="text" name="title" required="required" placeholder="Titulo de la Canción">
+											<label class="sr-only" for="Titulo">Titulo </label>
+											<input class="form-control" type="text" name="title" id="Titulo" required="required" placeholder="Titulo de la Canción">
 										</div>
 									</div>
 									<div class="form-group">
 										<div class="col-md-12">
-											<input class="form-control" type="text" name="title" required="required" placeholder="Etiquetas (Separadas por comas)">
+											<label class="sr-only" for="tags">Etiquetas </label>
+											<input class="form-control" type="text" id="tags" name="title" required="required" placeholder="Etiquetas (Separadas por comas)">
 										</div>
 									</div>
 									<div class="form-group">
 										<div class="col-md-12">
+											<label class="sr-only" for="descBox">Descripción </label>
 											<textarea class="form-control" id="descBox" name="description" required="required" placeholder="Una breve descripción de la cancion"></textarea>
 										</div>
 									</div>
@@ -97,7 +100,7 @@
 								<div class="col-md-6" id="left-side">
 									<div class="form-group">
 										<div class="col-md-12">
-											<label>Selecciona la cancion que deseas publicar</label>
+											<label for="song">Selecciona la cancion que deseas publicar</label>
 											<div class="new-input">
 												<input id="song" type="file" name="file" required="required">
 											</div>
@@ -105,7 +108,7 @@
 									</div>
 									<div class="form-group">
 										<div class="col-md-12">
-											<label>Escoge una imagen para usarla como 'cover' (Debe ser cuadrada)</label>
+											<label for="cover">Escoge una imagen para usarla como 'cover' (Debe ser cuadrada)</label>
 											<div class="new-input">
 												<input id="cover" type="file" name="file" required="required" onchange="previewFile()">
 											</div>

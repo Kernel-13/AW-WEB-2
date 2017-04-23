@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -79,7 +79,7 @@
 									<div class="col-lg-12">
 										<div class="form-group">
 											<div class="col-md-12">
-												<label>Escoge un 'cover' (Imagen cuadrada)</label>
+												<label for="cover">Escoge un 'cover' (Imagen cuadrada)</label>
 												<div class="new-input">
 													<input id="cover" type="file" name="file" required="required" onchange="previewFile()">
 												</div>
@@ -97,16 +97,19 @@
 								<div class="col-md-6" id="left-side">
 									<div class="form-group">
 										<div class="col-md-12">
-											<input class="form-control" type="text" name="title" required="required" placeholder="Nuevo Titulo">
+											<label class="sr-only" for="Titulo">Titulo </label>
+											<input class="form-control" type="text" id="Titulo" name="title" required="required" placeholder="Nuevo Titulo">
 										</div>
 									</div>
 									<div class="form-group">
 										<div class="col-md-12">
-											<input class="form-control" type="text" name="title" required="required" placeholder="Nuevas Etiquetas">
+											<label class="sr-only" for="tags">Etiquetas </label>
+											<input class="form-control" type="text" id="tags" name="title" required="required" placeholder="Nuevas Etiquetas">
 										</div>
 									</div>
 									<div class="form-group">
 										<div class="col-md-12">
+											<label class="sr-only" for="descBox">Descripción </label>
 											<textarea class="form-control" id="descBox" name="description" required="required" placeholder="Nueva Descripción"></textarea>
 										</div>
 									</div>
