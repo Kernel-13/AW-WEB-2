@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	
 	<link rel="icon" href="img/hecate.ico" type="image/x-icon" />
 	<link rel="stylesheet" type="text/css" href="css/body-style.css">
 	<link rel="stylesheet" type="text/css" href="css/session-style.css">
@@ -14,44 +15,51 @@
 </head>
 <body>
 	<nav class="navbar navbar-inverse navbar-fixed-top">
-	<div class="container-fluid">
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span> 
-			</button>
-			<a class="navbar-brand" href="index.html">Last<span>Xanadu</span></a>
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span> 
+				</button>
+				<a class="navbar-brand" href="index.html">Last<span>Xanadu</span></a>
+			</div>
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav">
+					<li><a href="index.html">Inicio</a></li>
+					<li><a href="novedades.html">Novedades</a></li>
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#">Música <span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="#">Nuestros Músicos</a></li>
+							<li><a href="#">Biblioteca de Canciones</a></li>
+							<li><a href="song.html">Canción Aleatoria</a></li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#">Ilustraciones <span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="#">Nuestros Ilustradores</a></li>
+							<li><a href="#">Galeria de Imagenes</a></li>
+							<li><a href="illust.html">Ilustración Aleatoria</a></li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#">Popular <span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="popular-musica.html">Musica Popular </a></li>
+							<li><a href="popular-ilustraciones.html">Ilustraciones Populares</a></li>
+						</ul>
+					</li>
+					<li><a href="site_map.html">Mapa del Sitio</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="register.html"><span class="glyphicon glyphicon-user"></span> Registrate</a></li>
+					<li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Iniciar Sesion</a></li>
+				</ul>
+			</div>
 		</div>
-		<div class="collapse navbar-collapse" id="myNavbar">
-			<ul class="nav navbar-nav">
-				<li><a href="index.html">Inicio</a></li>
-				<li><a href="novedades.html">Novedades</a></li>
-				<li class="dropdown">
-					<a class="dropdown-toggle" data-toggle="dropdown" href="#">Música <span class="caret"></span></a>
-					<ul class="dropdown-menu">
-						<li><a href="#">Nuestros Músicos</a></li>
-						<li><a href="#">Biblioteca de Canciones</a></li>
-						<li><a href="song.html">Canción Aleatoria</a></li>
-					</ul>
-				</li>
-				<li class="dropdown">
-					<a class="dropdown-toggle" data-toggle="dropdown" href="#">Ilustraciones <span class="caret"></span></a>
-					<ul class="dropdown-menu">
-						<li><a href="#">Nuestros Ilustradores</a></li>
-						<li><a href="#">Galeria de Imagenes</a></li>
-						<li><a href="illust.html">Ilustración Aleatoria</a></li>
-					</ul>
-				</li>
-				<li><a href="#">Popular</a></li>
-			</ul>
-			<ul class="nav navbar-nav navbar-right">
-				<li><a href="register.html"><span class="glyphicon glyphicon-user"></span> Registrate</a></li>
-				<li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Iniciar Sesion</a></li>
-			</ul>
-		</div>
-	</div>
-</nav>
+	</nav>
 
 	<div class="container-fluid register">
 		<div class="row form-class">
@@ -64,6 +72,7 @@
 						<form class="form-horizontal" action="register_second.html">
 							<div class="form-group">
 								<div class="col-sm-9">
+								<label class="sr-only" for="email"> Email </label>
 									<input type="email" class="form-control" id="email" placeholder="Email" required="required" onchange="validar(this.value)">
 								</div>
 								<div class="col-sm-3 message-box">
@@ -73,21 +82,25 @@
 							</div>
 							<div class="form-group">
 								<div class="col-sm-12"> 
+									<label class="sr-only" for="name"> Nombre </label>
 									<input type="text" class="form-control" required="required" id="name" placeholder="Nombre">
 								</div>
 							</div>							
 							<div class="form-group">
 								<div class="col-sm-12"> 
+									<label class="sr-only" for="user"> Usuario </label>
 									<input type="text" class="form-control" required="required" id="user" placeholder="Usuario">
 								</div>
 							</div>
 							<div class="form-group">
 								<div class="col-sm-12"> 
+									<label class="sr-only" for="pass"> Contraseña </label>
 									<input type="password" class="form-control" required="required" id="pass" placeholder="Indique su contraseña">
 								</div>
 							</div>
 							<div class="form-group">
 								<div class="col-sm-12"> 
+									<label class="sr-only" for="pass2"> Repita su contraseña </label>
 									<input type="password" class="form-control" required="required" id="pass2" placeholder="Repita su contraseña">
 								</div>
 							</div>

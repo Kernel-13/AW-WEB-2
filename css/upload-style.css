@@ -10,11 +10,11 @@
 	padding-left: 10px;
 }
 
-#previsualizacion {
+.previsualizacion {
 	margin-bottom: 20px;
 }
 
-#submitButton {
+.submitButton {
 	/*font-family: 'Open Sans', sans-serif;
 	font-family: 'Muli', sans-serif;*/
 	font-weight: bold;
@@ -24,7 +24,7 @@
 	height: 50px;
 }
 
-#preview {
+.preview {
 	max-height: 300px;
 	max-width: 100%;
 	margin: auto;
@@ -52,12 +52,12 @@
 	text-align: center;
 }
 
-#left-side {
+.left-side {
 	border-left: 1px solid darkgray;
 }
 
 @media screen and (max-width: 768px) {
-	#left-side {
+	.left-side {
 		border: none;
 	}
 }

@@ -42,7 +42,7 @@ body h1, h2, h3 {
 	padding: 10px 10px 10px 10px;
 }
 
-#post-a-commment span{
+#post-a-commment label{
 	font-family: 'Fira Sans', sans-serif;
 	font-size: 21px;
 }
@@ -64,4 +64,14 @@ body h1, h2, h3 {
 	#song-player {
 		width: 100%;
 	}
+}
+
+.ratings {
+	float: right;
+	margin-top: 10px;
+}
+
+.points {
+	float: right;
+	color: peachpuff;
 }

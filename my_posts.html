@@ -3,7 +3,8 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">	
+	
 	<link rel="stylesheet" type="text/css" href="css/profile-view.css">
 	<link rel="stylesheet" type="text/css" href="css/body-style.css">
 	<link rel="icon" href="img/hecate.ico" type="image/x-icon" />
@@ -42,7 +43,14 @@
 							<li><a href="illust.html">Ilustración Aleatoria</a></li>
 						</ul>
 					</li>
-					<li><a href="#">Popular</a></li>
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#">Popular <span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="popular-musica.html">Musica Popular </a></li>
+							<li><a href="popular-ilustraciones.html">Ilustraciones Populares</a></li>
+						</ul>
+					</li>
+					<li><a href="site_map.html">Mapa del Sitio</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<li class="dropdown">
@@ -67,7 +75,7 @@
 		<!-- User's Last Posts -->
 		<div class="row section">
 			<div class="col-lg-12">
-
+				<h2>Mis Archivos Subidos</h2>
 				<!-- Tabs -->
 				<ul class="nav nav-tabs nav-justified">
 					<li class="active" ><a data-toggle="tab" href="#edit-music">Canciones</a></li>
@@ -76,14 +84,14 @@
 
 				<!-- Tab Content -->
 				<div class="tab-content">
-
+					
 					<!-- Music Content -->
 					<div id="edit-music" class="tab-pane fade in active user-posts edition">
 						<div class="row">
-							<div class="col-md-6">
+							<div class="col-md-4">
 								<div class="media">
 									<div class="media-left">
-										<a href="song.html"><img src="img/a1.jpg" class="media-object img-rounded"></a>
+										<a href="song.html"><img alt="ejemplo" src="img/a1.jpg" class="media-object img-rounded"></a>
 									</div>
 									<div class="media-right media-body">
 										<h3 class="media-heading"> Ejemplo 1 </h3>
@@ -91,10 +99,10 @@
 									</div>
 								</div>
 							</div>
-							<div class="col-md-6">
+							<div class="col-md-4">
 								<div class="media">
 									<div class="media-left">
-										<a href="song.html"><img src="img/a2.jpg" class="media-object img-rounded" ></a>
+										<a href="song.html"><img alt="ejemplo" src="img/a2.jpg" class="media-object img-rounded" ></a>
 									</div>
 									<div class="media-right media-body">
 										<h3 class="media-heading"> Ejemplo 2 </h3>
@@ -102,10 +110,10 @@
 									</div>
 								</div>
 							</div>
-							<div class="col-md-6">
+							<div class="col-md-4">
 								<div class="media">
 									<div class="media-left">
-										<a href="song.html"><img src="img/a3.jpg" class="media-object img-rounded"></a>
+										<a href="song.html"><img alt="ejemplo" src="img/a3.jpg" class="media-object img-rounded"></a>
 									</div>
 									<div class="media-right media-body">
 										<h3 class="media-heading"> Ejemplo 3 </h3>
@@ -113,10 +121,10 @@
 									</div>
 								</div>
 							</div>
-							<div class="col-md-6">
+							<div class="col-md-4">
 								<div class="media">
 									<div class="media-left">
-										<a href="song.html"><img src="img/a4.jpg" class="media-object img-rounded"></a>
+										<a href="song.html"><img alt="ejemplo" src="img/a4.jpg" class="media-object img-rounded"></a>
 									</div>
 									<div class="media-right media-body">
 										<h3 class="media-heading"> Ejemplo 4 </h3>
@@ -124,10 +132,10 @@
 									</div>
 								</div>
 							</div>
-							<div class="col-md-6">
+							<div class="col-md-4">
 								<div class="media">
 									<div class="media-left">
-										<a href="song.html"><img src="img/a5.jpg" class="media-object img-rounded"></a>
+										<a href="song.html"><img alt="ejemplo" src="img/a5.jpg" class="media-object img-rounded"></a>
 									</div>
 									<div class="media-right media-body">
 										<h3 class="media-heading"> Ejemplo 5 </h3>
@@ -135,10 +143,10 @@
 									</div>
 								</div>
 							</div>
-							<div class="col-md-6">
+							<div class="col-md-4">
 								<div class="media">
 									<div class="media-left">
-										<a href="song.html"><img src="img/a6.jpg" class="media-object img-rounded"></a>
+										<a href="song.html"><img alt="ejemplo" src="img/a6.jpg" class="media-object img-rounded"></a>
 									</div>
 									<div class="media-right media-body">
 										<h3 class="media-heading"> Ejemplo 6 </h3>
@@ -146,10 +154,10 @@
 									</div>
 								</div>
 							</div>
-							<div class="col-md-6">
+							<div class="col-md-4">
 								<div class="media">
 									<div class="media-left">
-										<a href="song.html"><img src="img/a7.jpg" class="media-object img-rounded"></a>
+										<a href="song.html"><img alt="ejemplo" src="img/a7.jpg" class="media-object img-rounded"></a>
 									</div>
 									<div class="media-right media-body">
 										<h3 class="media-heading"> Ejemplo 7 </h3>
@@ -157,10 +165,10 @@
 									</div>
 								</div>
 							</div>
-							<div class="col-md-6">
+							<div class="col-md-4">
 								<div class="media">
 									<div class="media-left">
-										<a href="song.html"><img src="img/a8.jpg" class="media-object img-rounded"></a>
+										<a href="song.html"><img alt="ejemplo" src="img/a8.jpg" class="media-object img-rounded"></a>
 									</div>
 									<div class="media-right media-body">
 										<h3 class="media-heading"> Ejemplo 8 </h3>
@@ -174,10 +182,10 @@
 					<!-- Illustrations Content -->
 					<div id="edit-illust" class="tab-pane fade user-posts edition">
 						<div class="row">
-							<div class="col-md-6">
+							<div class="col-md-4">
 								<div class="media">
 									<div class="media-left">
-										<a href="song.html"><img src="img/a9.jpg" class="media-object img-rounded"></a>
+										<a href="song.html"><img alt="ejemplo" src="img/a9.jpg" class="media-object img-rounded"></a>
 									</div>
 									<div class="media-right media-body">
 										<h3 class="media-heading"> Ejemplo 9 </h3>
@@ -185,10 +193,10 @@
 									</div>
 								</div>
 							</div>
-							<div class="col-md-6">
+							<div class="col-md-4">
 								<div class="media">
 									<div class="media-left">
-										<a href="song.html"><img src="img/a10.jpg" class="media-object img-rounded"></a>
+										<a href="song.html"><img alt="ejemplo" src="img/a10.jpg" class="media-object img-rounded"></a>
 									</div>
 									<div class="media-right media-body">
 										<h3 class="media-heading"> Ejemplo 10 </h3>
@@ -196,10 +204,10 @@
 									</div>
 								</div>
 							</div>
-							<div class="col-md-6">
+							<div class="col-md-4">
 								<div class="media">
 									<div class="media-left">
-										<a href="song.html"><img src="img/a11.jpg" class="media-object img-rounded" ></a>
+										<a href="song.html"><img alt="ejemplo" src="img/a11.jpg" class="media-object img-rounded" ></a>
 									</div>
 									<div class="media-right media-body">
 										<h3 class="media-heading"> Ejemplo 11 </h3>
@@ -207,10 +215,10 @@
 									</div>
 								</div>
 							</div>
-							<div class="col-md-6">
+							<div class="col-md-4">
 								<div class="media">
 									<div class="media-left">
-										<a href="song.html"><img src="img/a12.jpg" class="media-object img-rounded"></a>
+										<a href="song.html"><img alt="ejemplo" src="img/a12.jpg" class="media-object img-rounded"></a>
 									</div>
 									<div class="media-right media-body">
 										<h3 class="media-heading"> Ejemplo 12 </h3>
@@ -218,10 +226,10 @@
 									</div>
 								</div>
 							</div>
-							<div class="col-md-6">
+							<div class="col-md-4">
 								<div class="media">
 									<div class="media-left">
-										<a href="song.html"><img src="img/a13.jpg" class="media-object img-rounded"></a>
+										<a href="song.html"><img alt="ejemplo" src="img/a13.jpg" class="media-object img-rounded"></a>
 									</div>
 									<div class="media-right media-body">
 										<h3 class="media-heading"> Ejemplo 13 </h3>
@@ -229,10 +237,10 @@
 									</div>
 								</div>
 							</div>
-							<div class="col-md-6">
+							<div class="col-md-4">
 								<div class="media">
 									<div class="media-left">
-										<a href="song.html"><img src="img/a14.jpg" class="media-object img-rounded"></a>
+										<a href="song.html"><img alt="ejemplo" src="img/a14.jpg" class="media-object img-rounded"></a>
 									</div>
 									<div class="media-right media-body">
 										<h3 class="media-heading"> Ejemplo 14 </h3>
@@ -240,10 +248,10 @@
 									</div>
 								</div>
 							</div>
-							<div class="col-md-6">
+							<div class="col-md-4">
 								<div class="media">
 									<div class="media-left">
-										<a href="song.html"><img src="img/a15.jpg" class="media-object img-rounded"></a>
+										<a href="song.html"><img alt="ejemplo" src="img/a15.jpg" class="media-object img-rounded"></a>
 									</div>
 									<div class="media-right media-body">
 										<h3 class="media-heading"> Ejemplo 15 </h3>
@@ -251,10 +259,10 @@
 									</div>
 								</div>
 							</div>
-							<div class="col-md-6">
+							<div class="col-md-4">
 								<div class="media">
 									<div class="media-left">
-										<a href="song.html"><img src="img/a16.jpg" class="media-object img-rounded"></a>
+										<a href="song.html"><img alt="ejemplo" src="img/a16.jpg" class="media-object img-rounded"></a>
 									</div>
 									<div class="media-right media-body">
 										<h3 class="media-heading"> Ejemplo 16 </h3>

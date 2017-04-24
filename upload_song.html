@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	
 	<link rel="stylesheet" type="text/css" href="css/body-style.css">
 	<link rel="stylesheet" type="text/css" href="css/upload-style.css">
 	<link rel="icon" href="img/hecate.ico" type="image/x-icon" />
@@ -43,7 +44,14 @@
 							<li><a href="illust.html">Ilustración Aleatoria</a></li>
 						</ul>
 					</li>
-					<li><a href="#">Popular</a></li>
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#">Popular <span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="popular-musica.html">Musica Popular </a></li>
+							<li><a href="popular-ilustraciones.html">Ilustraciones Populares</a></li>
+						</ul>
+					</li>
+					<li><a href="site_map.html">Mapa del Sitio</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<li class="dropdown">
@@ -78,26 +86,29 @@
 								<div class="col-md-6">
 									<div class="form-group">
 										<div class="col-md-12">
-											<input class="form-control" type="text" name="title" required="required" placeholder="Titulo de la Canción">
+											<label class="sr-only" for="Titulo">Titulo </label>
+											<input class="form-control" type="text" name="title" id="Titulo" required="required" placeholder="Titulo de la Canción">
 										</div>
 									</div>
 									<div class="form-group">
 										<div class="col-md-12">
-											<input class="form-control" type="text" name="title" required="required" placeholder="Etiquetas (Separadas por comas)">
+											<label class="sr-only" for="tags">Etiquetas </label>
+											<input class="form-control" type="text" id="tags" name="title" required="required" placeholder="Etiquetas (Separadas por comas)">
 										</div>
 									</div>
 									<div class="form-group">
 										<div class="col-md-12">
+											<label class="sr-only" for="descBox">Descripción </label>
 											<textarea class="form-control" id="descBox" name="description" required="required" placeholder="Una breve descripción de la cancion"></textarea>
 										</div>
 									</div>
 								</div>
 
 								<!-- File Inputs and Preview -->
-								<div class="col-md-6" id="left-side">
+								<div class="col-md-6 left-side">
 									<div class="form-group">
 										<div class="col-md-12">
-											<label>Selecciona la cancion que deseas publicar</label>
+											<label for="song">Selecciona la cancion que deseas publicar</label>
 											<div class="new-input">
 												<input id="song" type="file" name="file" required="required">
 											</div>
@@ -105,7 +116,7 @@
 									</div>
 									<div class="form-group">
 										<div class="col-md-12">
-											<label>Escoge una imagen para usarla como 'cover' (Debe ser cuadrada)</label>
+											<label for="cover">Escoge una imagen para usarla como 'cover' (Debe ser cuadrada)</label>
 											<div class="new-input">
 												<input id="cover" type="file" name="file" required="required" onchange="previewFile()">
 											</div>
@@ -113,7 +124,7 @@
 									</div>
 									<div class="row section">
 										<div class="col-lg-12">
-											<img id="preview" class="img-responsive" src="img/preview.png" alt="Tu Ilustración"/>
+											<img id="preview" class="img-responsive preview" src="img/preview.png" alt="Tu Ilustración"/>
 										</div>
 									</div>
 								</div>
@@ -124,7 +135,7 @@
 							<div class="row section">
 								<div class="col-lg-12">
 									<div >
-										<input id="submitButton" class="btn btn-success" type="submit" name="submit" value="Subir Canción">
+										<input class="btn btn-success submitButton" type="submit" name="submit" value="Subir Canción">
 									</div>				
 								</div>
 							</div>
