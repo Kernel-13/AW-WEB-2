@@ -65,3 +65,13 @@ body h1, h2, h3 {
 		width: 100%;
 	}
 }
+
+.ratings {
+	float: right;
+	margin-top: 10px;
+}
+
+.points {
+	float: right;
+	color: peachpuff;
+}
