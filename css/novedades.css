@@ -36,6 +36,10 @@ h4{
 	text-align: center;
 }
 
+.desc-box-illust a{
+	color: white;
+}
+
 .ilust {
 	max-width: 150px;
 	height: 256px;
