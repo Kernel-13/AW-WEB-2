@@ -1,0 +1,77 @@
+﻿body {
+	background: url('../img/silkbrush8.png');
+	background-repeat: space;
+	background-color: #303030;
+	background-attachment: fixed;
+	color: white;
+}
+
+/*
+body {
+	background-color: #D0D0D0;
+	color: black;
+}*/
+
+
+footer{
+    text-align: center;
+    background-color: #303030;
+}
+
+.navbar span {
+	color: crimson; 
+}
+
+/*Desde aquí*/
+
+div h3{
+    font-size: 3em;
+    font-family: fantasy;
+}
+
+div h4{
+    font-size: 2em;
+}
+
+div p{
+    font-size: 1.1em;
+    color: #F0F8FF;
+}
+
+img:hover{ /*Cuándo pasas el ratón sale un efecto adelante*/
+    -webkit-transform: scale(1.05);
+    
+}
+
+img{    
+    -webkit-transition:-webkit-transform 0.3s ease-in-out 0.1s; /*Cuánto tarda en ejecutar el efecto por completo*/     
+}
+
+.row{
+    margin: 1px;
+}
+
+.list-group{
+    margin-top: 80px;
+    padding: 10px;
+}
+
+.headercomentario{
+    background: #000000;
+    text-align: center;
+}
+
+#cabecera{
+        margin-top: 80px;
+
+}
+
+#desc-box-illust a{
+	color: white;
+}
+
+#botones-numericos{
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-bottom: 50px;
+}
