@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!--
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+-->
+<link rel="stylesheet" type="text/css" href="css/generos.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<title>LastXanadu</title>
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span> 
+                </button>
+                <a class="navbar-brand" href="index.html">Last<span>Xanadu</span></a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li class="active"><a href="novedades.html">Novedades</a></li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Música <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="nuestrosMusicos.html">Nuestros Músicos</a></li>
+                            <li><a href="bibliotecadeCanciones.html">Biblioteca de Canciones</a></li>
+                            <li><a href="song.html">Canción Aleatoria</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Ilustraciones <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="nuestrosIlustradores.html">Nuestros Ilustradores</a></li>
+                            <li><a href="galeriadeImagenes.html">Galeria de Imagenes</a></li>
+                            <li><a href="illust.html">Ilustración Aleatoria</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Popular <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="popular-musica.html">Música</a></li>
+                            <li><a href="popular-ilustraciones.html">Ilustraciones</a></li>                     
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Ranking <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="rankingM.html">Música</a></li>
+                            <li><a href="rankingI.html">Ilustraciones</a></li>                      
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="register.html"><span class="glyphicon glyphicon-user"></span> Registrate</a></li>
+                    <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Iniciar Sesion</a></li>
+                </ul>
+            </div>
+        </div>
+</nav>
+
+    <!--Desde aquí empezamos-->  
+    <div class="container">   
+        <!--contenido -->
+        <div class="col-sm-8">
+       <!--Cabecera-->
+        <div id="cabecera" class="row"> 
+            <div class="col-lg-12">
+                <h3>Todas las canciones </h3>
+
+                  <form class="navbar-form navbar-left" role="search"> 
+                  <div class="col-xs-12 col-sm-12 col-md-4 col-lg-12">
+                      <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Buscar">
+                      </div>
+                      <button type="submit" class="btn btn-default">Enviar</button>
+                     </div>
+                 </form>
+
+            </div>
+        </div>
+<!-- Busqueda comentada porque se descolocan los géneros -->
+
+        <hr>
+
+        <!--Canción 1-->
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                    <img class="img-responsive" src="img/musica1.jpg" alt="https://pixabay.com/es/estonia-noche-calle-2246146/">
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">               
+                <p>Julian Castillo</p>
+                <h4>Anochecer en Estonia</h4>
+                <p>545.343 Visualizaciones</p>
+                <div class="col-sm-8">
+				    <div class="progress">
+				        <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width:90%">
+								<span class="sr-only">9/10</span>
+										puntuacion: 9/10
+				        </div>
+				    </div>
+				</div>
+            </div>
+        </div>
+        <hr>
+        <!--Canción 2-->
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                    <img class="img-responsive" src="img/musica2.jpg" alt="https://pixabay.com/es/micr%C3%B3fono-audio-equipo-338481/">
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">               
+                <p>Pablo Coronado</p>
+                <h4>Amistades por siempre</h4>
+                <p>445.343 Visualizaciones</p>
+                <div class="col-sm-8">
+				    <div class="progress">
+				        <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width:90%">
+								<span class="sr-only">9/10</span>
+										puntuacion: 9/10
+				        </div>
+				    </div>
+				</div>
+            </div>
+        </div>
+
+        <hr>
+
+        <!--Canción 3-->
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                    <img class="img-responsive" src="img/musica3.jpg" alt="https://pixabay.com/es/guitarra-el%C3%A9ctrica-2208586/">
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">              
+                <p>Lorena Tiz</p>
+                <h4>Remix Rock and Roll</h4>
+                <p>245.443 Visualizaciones</p>
+                <div class="col-sm-8">
+				    <div class="progress">
+				        <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width:90%">
+								<span class="sr-only">9/10</span>
+										puntuacion: 9/10
+				        </div>
+				    </div>
+				</div>
+            </div>
+        </div>
+     <hr>
+        </div>
+        <!--comentarios--
+        <div class="col-sm-4">         
+          <div class="list-group">
+            <h3>Lo más visto en...</h3>
+           
+              <h4 class="headercomentario">Madrid</h4>
+              <p>Julian castillo ha publicado este mes de Abril un nuevo cover.</p>
+              <br>
+              <p>Sandra Peréz ha anunciado que dejará de momomento de publicar sus canciones...por temas personales.</p>
+              <br>
+              <p>Puedes acudir a la firma de discos de Jennifer Sweet en la Caja Mágica de Madrid estás invitado este mes de abril el día 25. Te esperamos...</p>
+    
+              <h4 class="headercomentario">Barcelona</h4>
+              <p>En el palacio de San Jordi van ha reunirse fans de Laura Sanz para no te lo puedes perder.</p>
+                
+              <h4 class="headercomentario">Valencia</h4>
+              <p>Nuevo disco de Santiago Lopéz un nuevo tema que te gustará, pasaté a escucharlo.</p>
+              
+              <h4 class="headercomentario">Bilbao</h4>
+              <p>Alejandro Sanz ha estado acompañando a Pablo Albatez promocionando su nuevo disco.
+              </p>
+              
+              <h4 class="headercomentario">Palencia</h4>
+              <p>Ha incrementado en buena medidad los cantautores en está ciudad ya tiene más de 100 reproducciones diarias.</p>
+            
+              <h4 class="headercomentario">Galicia</h4>
+              <p>Llegá el verano y con ello los nuevo covers de la banda de canautores solecitos.También puedes seguirnos vía twiterr, facebook o otras redes sociales.</p>    
+          </div>    
+       </div>     
+
+
+                <!--Busqueda de generos-->
+        <div class="col-sm-4">         
+          <div class="list-group">
+            <h4>Por géneros</h4>           
+             <p></p> 
+             <div id="desc-box-illust">
+                <li><a href="generos.html">Rock</a></li> <p></p>
+                <li><a href="generos.html">Pop</a></li><p></p>
+                <li><a href="generos.html">Hip Hop</a></li><p></p>
+                <li><a href="generos.html">Jazz</a></li><p></p>
+                <li><a href="generos.html">Clásico</a></li><p></p>
+                <li><a href="generos.html">Rap</a></li> <p></p>
+                <li><a href="generos.html">Reggae</a></li><p></p>
+                <li><a href="generos.html">Salsa</a></li><p></p>
+                <li><a href="generos.html">Bachata</a></li><p></p>
+                <li><a href="generos.html">Reggaeton</a></li><p></p>
+                 <li><a href="generos.html">Balada</a></li> <p></p>
+                <li><a href="generos.html">Punk</a></li><p></p>
+                <li><a href="generos.html">Grunge</a></li><p></p>
+                <li><a href="generos.html">Country</a></li><p></p>
+                <li><a href="generos.html">Blues</a></li><p></p>
+             </div>    
+          </div>    
+       </div>   
+       </div>
+               
+
+        <!-- pié -->
+        <footer>
+		<ul class="list-inline">
+			<li><a href="quienesSomos.html">¿Quienes somos?</a></li>
+			<li><a href="contacto.html">Contacta con nosotros</a></li>
+			<li><a href="dondeEncontrarnos.html">Donde encontrarnos</a></li>
+			<li><a href="autoresWeb.html">Autores web</a></li>
+			<li><a href="actualizaciones.html">Actualizaciones y novedades de la pagina</a></li>
+		</ul>
+	</footer>
+
+
+    <!-- /.container -->
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+	
+</body>
+</html>
