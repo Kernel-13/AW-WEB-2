@@ -68,6 +68,17 @@ div p{
 .centar{
 	margin-top: 60px;
 }
+.list-group{
+    margin-top: 80px;
+    padding: 10px;
+}
+footer {
+    text-align: center;
+    background-color: #303030;
+}
+.panel-footer{
+	background-color: #A4A4A4;
+}
 
 
 
