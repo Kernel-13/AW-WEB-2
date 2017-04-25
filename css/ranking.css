@@ -1,10 +1,11 @@
 body {
-	background: url('../img/silkbrush8.png');
-	background-repeat: space;
-	background-color: #303030;
-	background-attachment: fixed;
-	color: white;
+    background: url('../img/silkbrush8.png');
+    background-repeat: space;
+    background-color: #303030;
+    background-attachment: fixed;
+    color: white;
 }
+
 
 /*
 body {
@@ -13,49 +14,69 @@ body {
 }*/
 
 .navbar span {
-	color: crimson; 
+    color: crimson;
 }
+
 
 /*Desde aquí*/
 
-div h3{
+div h3 {
     font-size: 3em;
     font-family: fantasy;
 }
 
-div h4{
+div h4 {
     font-size: 2em;
 }
 
-div p{
+div p {
     font-size: 1.1em;
     color: #F0F8FF;
 }
 
-img:hover{ /*Cuándo pasas el ratón sale un efecto adelante*/
+img:hover {
+    /*Cuándo pasas el ratón sale un efecto adelante*/
     -webkit-transform: scale(1.05);
-    
 }
 
-img{    
-    -webkit-transition:-webkit-transform 0.3s ease-in-out 0.1s; /*Cuánto tarda en ejecutar el efecto por completo*/     
+img {
+    -webkit-transition: -webkit-transform 0.3s ease-in-out 0.1s;
+    /*Cuánto tarda en ejecutar el efecto por completo*/
 }
 
-.row{
+.row {
     margin: 1px;
 }
 
-.list-group{
+.list-group {
     margin-top: 80px;
     padding: 10px;
 }
 
-.headercomentario{
+.headercomentario {
     background: #000000;
     text-align: center;
+    font-weight: bold;
 }
 
-#cabecera{
-        margin-top: 80px;
+#cabecera {
+    margin-top: 80px;
+}
 
+#subt {
+    color: crimson;
+}
+
+footer {
+    text-align: center;
+    background-color: #303030;
+    clear: both;
+}
+
+.botones-tabla {
+    width: 100%;
+    text-align: center;
+    align-items: center;
+    align-content: center;
+    align-self: center;
 }
