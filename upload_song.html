@@ -95,7 +95,7 @@
 									<div class="form-group">
 										<div class="col-md-12">
 											<label class="sr-only" for="Titulo">Titulo </label>
-											<input class="form-control" type="text" name="title" id="Titulo" required="required" placeholder="Titulo de la Canción">
+											<input class="form-control" type="text" name="title" id="Titulo" required="required" placeholder="Titulo de la Canción" maxlength="30">
 										</div>
 									</div>
 									<div class="form-group">
@@ -107,7 +107,7 @@
 									<div class="form-group">
 										<div class="col-md-12">
 											<label class="sr-only" for="descBox">Descripción </label>
-											<textarea class="form-control" id="descBox" name="description" required="required" placeholder="Una breve descripción de la cancion"></textarea>
+											<textarea class="form-control" id="descBox" name="description" required="required" placeholder="Una breve descripción de la cancion" maxlength="500"></textarea>
 										</div>
 									</div>
 								</div>
@@ -118,7 +118,7 @@
 										<div class="col-md-12">
 											<label for="song">Selecciona la cancion que deseas publicar</label>
 											<div class="new-input">
-												<input id="song" type="file" name="file" required="required">
+												<input id="song" type="file" name="file" accept="audio/*" required="required">
 											</div>
 										</div>
 									</div>
@@ -126,7 +126,7 @@
 										<div class="col-md-12">
 											<label for="cover">Escoge una imagen para usarla como 'cover' (Debe ser cuadrada)</label>
 											<div class="new-input">
-												<input id="cover" type="file" name="file" required="required" onchange="previewFile()">
+												<input id="cover" type="file" name="file" required="required" accept="image/*" onchange="previewFile()">
 											</div>
 										</div>
 									</div>
