@@ -52,6 +52,7 @@ h4{
 .media-body{
 	align-content: center;
 	text-align: center;
+	width: 100%;
 }
 
 .media-heading{
@@ -116,6 +117,6 @@ h4{
 }
 
 #botones-numericos{
-	padding-left: 50px;
-	padding-right: 50px;
+	padding-left: 5px;
+	padding-right: 5px;
 }
