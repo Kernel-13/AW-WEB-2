@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,62 +13,11 @@
 	<link rel="icon" href="img/hecate.ico" type="image/x-icon" />
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
 	<title>LastXanadu</title>
 </head>
 <body>
-	<nav class="navbar navbar-inverse navbar-fixed-top">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span> 
-				</button>
-				<a class="navbar-brand" href="index.html">Last<span>Xanadu</span></a>
-			</div>
-			<div class="collapse navbar-collapse" id="myNavbar">
-				<ul class="nav navbar-nav">
-					<li><a href="index.html">Inicio</a></li>
-					<li><a href="novedades.html">Novedades</a></li>
-					<li class="dropdown">
-						<a class="dropdown-toggle" data-toggle="dropdown" href="#">Música <span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li><a href="#">Nuestros Músicos</a></li>
-							<li><a href="#">Biblioteca de Canciones</a></li>
-							<li><a href="song.html">Canción Aleatoria</a></li>
-						</ul>
-					</li>
-					<li class="dropdown">
-						<a class="dropdown-toggle" data-toggle="dropdown" href="#">Ilustraciones <span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li><a href="#">Nuestros Ilustradores</a></li>
-							<li><a href="#">Galeria de Imagenes</a></li>
-							<li><a href="illust.html">Ilustración Aleatoria</a></li>
-						</ul>
-					</li>
-					<li class="dropdown">
-						<a class="dropdown-toggle" data-toggle="dropdown" href="#">Popular <span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li><a href="popular-musica.html">Musica Popular </a></li>
-							<li><a href="popular-ilustraciones.html">Ilustraciones Populares</a></li>
-						</ul>
-					</li>
-					<li class="dropdown">
-						<a class="dropdown-toggle" data-toggle="dropdown" href="#">Ranking <span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li><a href="rankingM.html">Música</a></li>
-							<li><a href="rankingI.html">Ilustraciones</a></li>
-						</ul>
-					</li>
-					<li><a href="site_map.html">Mapa del Sitio</a></li>
-				</ul>
-				<ul class="nav navbar-nav navbar-right">
-					<li><a href="register.html"><span class="glyphicon glyphicon-user"></span> Registrate</a></li>
-					<li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Iniciar Sesion</a></li>
-				</ul>
-			</div>
-		</div>
-	</nav>
+	<?php require "includes/navbar.php"; ?>
 
 	<div class="container">
 
@@ -77,7 +29,7 @@
 				</div>	
 				<div id="author-info">
 					<h2>Titulo de la Canción</h2>
-					<p><a href="user.html">by KilloveFP</a></p>
+					<p><a href="user.php">by KilloveFP</a></p>
 				</div>
 				<p>	But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I 
 					will give you a complete account of the system, and expound the actual teachings of the great explorer of the 
@@ -92,11 +44,14 @@
 
 		<!-- Song Player / Cover -->
 		<div class="row section">
+			<div class="col-md-9 col-sm-8 col-xs-8" id="canvas-div">
+				<canvas id='canvas' width="847" height="262"></canvas>
+			</div>
 			<div class="col-md-3 col-sm-4 col-xs-4">
 				<img alt="Cover de la Canción"  id="song-cover" class="img-responsive img-rounded" src="img/alins.jpg">
 			</div>
-			<div class="col-md-9 col-sm-8 col-xs-8">
-				<audio controls="controls" id="song-player"> <source src="resources/newfuries.mp3" type="audio/mpeg"> </audio>
+			<div class="col-md-12">
+				<audio src="resources/newfuries.mp3" id="audio" controls="controls" controlsList="nodownload">HTML5 Audio element not supported</audio>
 			</div>
 			<div class="col-md-12">
 				<div class="ratings">
@@ -105,6 +60,7 @@
 					<a class="btn btn-danger" href=""> <span class="glyphicon glyphicon-flag"></span> Marcar como Ofensivo</a>
 				</div>
 			</div>
+			
 		</div>
 
 		<!-- Song Comments -->
@@ -121,7 +77,7 @@
 					<div class="col-md-12 comment">
 						<div class="media">
 							<div class="media-left">
-								<a href="user.html"><img alt="Imagen de Usuario" class="media-object img-rounded user-avatar-comment" src="img/solid.png"></a>
+								<a href="user.php"><img alt="Imagen de Usuario" class="media-object img-rounded user-avatar-comment" src="img/solid.png"></a>
 							</div>
 							<div class="media-body">
 								<h4 class="media-heading"> Usuario #1 </h4>
@@ -136,7 +92,7 @@
 					<div class="col-md-12 comment">
 						<div class="media">
 							<div class="media-left">
-								<a href="user.html"><img alt="Imagen de Usuario" class="media-object img-rounded user-avatar-comment" src="img/solid3.png"></a>
+								<a href="user.php"><img alt="Imagen de Usuario" class="media-object img-rounded user-avatar-comment" src="img/solid3.png"></a>
 							</div>
 							<div class="media-body">
 								<h4 class="media-heading"> Usuario #2 </h4>
@@ -153,7 +109,7 @@
 					<div class="col-md-12 comment">
 						<div class="media">
 							<div class="media-left">
-								<a href="user.html"><img alt="Imagen de Usuario" class="media-object img-rounded user-avatar-comment" src="img/solid2.png"></a>
+								<a href="user.php"><img alt="Imagen de Usuario" class="media-object img-rounded user-avatar-comment" src="img/solid2.png"></a>
 							</div>
 							<div class="media-body">
 								<h4 class="media-heading"> Usuario #3 </h4>
@@ -171,7 +127,7 @@
 					<div class="col-md-12 comment">
 						<div class="media">
 							<div class="media-left">
-								<a href="user.html"><img alt="Imagen de Usuario" class="media-object img-rounded user-avatar-comment" src="img/solid4.png"></a>
+								<a href="user.php"><img alt="Imagen de Usuario" class="media-object img-rounded user-avatar-comment" src="img/solid4.png"></a>
 							</div>
 							<div class="media-body">
 								<h4 class="media-heading"> Usuario #4 </h4>
@@ -186,7 +142,7 @@
 
 		<!-- Post a Comment -->
 		<div class="row section" id="post-a-commment">
-			<form method="post" action="song.html">
+			<form method="post" action="song.php">
 				<div class="col-md-2">
 					<label for="make-comment">Publica un Comentario:</label>
 				</div>

@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -13,59 +16,7 @@
 	<title>LastXanadu</title>
 </head>
 <body>
-	<nav class="navbar navbar-inverse navbar-fixed-top">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span> 
-				</button>
-				<a class="navbar-brand" href="index.html">Last<span>Xanadu</span></a>
-			</div>
-			<div class="collapse navbar-collapse" id="myNavbar">
-				<ul class="nav navbar-nav">
-					<li><a href="index.html">Inicio</a></li>
-					<li><a href="novedades.html">Novedades</a></li>
-					<li class="dropdown">
-						<a class="dropdown-toggle" data-toggle="dropdown" href="#">Música <span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li><a href="#">Nuestros Músicos</a></li>
-							<li><a href="#">Biblioteca de Canciones</a></li>
-							<li><a href="song.html">Canción Aleatoria</a></li>
-						</ul>
-					</li>
-					<li class="dropdown">
-						<a class="dropdown-toggle" data-toggle="dropdown" href="#">Ilustraciones <span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li><a href="#">Nuestros Ilustradores</a></li>
-							<li><a href="#">Galeria de Imagenes</a></li>
-							<li><a href="illust.html">Ilustración Aleatoria</a></li>
-						</ul>
-					</li>
-					<li class="dropdown">
-						<a class="dropdown-toggle" data-toggle="dropdown" href="#">Popular <span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li><a href="popular-musica.html">Musica Popular </a></li>
-							<li><a href="popular-ilustraciones.html">Ilustraciones Populares</a></li>
-						</ul>
-					</li>
-					<li class="dropdown">
-						<a class="dropdown-toggle" data-toggle="dropdown" href="#">Ranking <span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li><a href="rankingM.html">Música</a></li>
-							<li><a href="rankingI.html">Ilustraciones</a></li>
-						</ul>
-					</li>
-					<li><a href="site_map.html">Mapa del Sitio</a></li>
-				</ul>
-				<ul class="nav navbar-nav navbar-right">
-					<li><a href="register.html"><span class="glyphicon glyphicon-user"></span> Registrate</a></li>
-					<li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Iniciar Sesion</a></li>
-				</ul>
-			</div>
-		</div>
-	</nav>
+	<?php require "includes/navbar.php"; ?>
 
 	<div class="container">
 		<div class="row">
@@ -77,7 +28,7 @@
 					</div>
 					<div id="author-info">
 						<h2>Illustration Title</h2>
-						<p><a href="user.html">by KilloveFP</a></p>
+						<p><a href="user.php">by KilloveFP</a></p>
 					</div>
 					<p>No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure.</p>
 					<p class="gray-text">Tags: <a href="">this</a>, <a href="">will</a>, <a href="">be</a>, <a href="">a</a>, <a href="">list</a>, <a href="">of</a>, <a href="">tags</a></p>
@@ -98,7 +49,7 @@
 				<div class="comment">
 					<div class="media">
 						<div class="media-left">
-							<a href="user.html"><img alt="Imagen de Usuario" class="media-object img-rounded user-avatar-comment" src="img/solid.png"></a>
+							<a href="user.php"><img alt="Imagen de Usuario" class="media-object img-rounded user-avatar-comment" src="img/solid.png"></a>
 						</div>
 						<div class="media-body">
 							<h4 class="media-heading"> User #1 </h4>
@@ -110,7 +61,7 @@
 				<div class="comment">
 					<div class="media">
 						<div class="media-left">
-							<a href="user.html"><img alt="Imagen de Usuario" class="media-object img-rounded user-avatar-comment" src="img/solid3.png"></a>
+							<a href="user.php"><img alt="Imagen de Usuario" class="media-object img-rounded user-avatar-comment" src="img/solid3.png"></a>
 						</div>
 						<div class="media-body">
 							<h4 class="media-heading"> User #2 </h4>
@@ -124,7 +75,7 @@
 				<div class="comment">
 					<div class="media">
 						<div class="media-left">
-							<a href="user.html"><img alt="Imagen de Usuario" class="media-object img-rounded user-avatar-comment" src="img/solid2.png"></a>
+							<a href="user.php"><img alt="Imagen de Usuario" class="media-object img-rounded user-avatar-comment" src="img/solid2.png"></a>
 						</div>
 						<div class="media-body">
 							<h4 class="media-heading"> User #3 </h4>
@@ -139,7 +90,7 @@
 				<div class="comment">
 					<div class="media">
 						<div class="media-left">
-							<a href="user.html"><img alt="Imagen de Usuario" class="media-object img-rounded user-avatar-comment" src="img/solid4.png"></a>
+							<a href="user.php"><img alt="Imagen de Usuario" class="media-object img-rounded user-avatar-comment" src="img/solid4.png"></a>
 						</div>
 						<div class="media-body">
 							<h4 class="media-heading"> User #4 </h4>
@@ -153,7 +104,7 @@
 
 		<!-- Posting a Comment -->
 		<div class="row section" id="post-a-commment">
-			<form method="post" action="illust.html">
+			<form method="post" action="illust.php">
 				<div class="col-md-2">
 					<label for="make-comment">Publica un Comentario:</label>
 				</div>

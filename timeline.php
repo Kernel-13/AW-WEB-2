@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -14,70 +17,7 @@
 	<title>LastXanadu</title>
 </head>
 <body>
-	<nav class="navbar navbar-inverse navbar-fixed-top">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span> 
-				</button>
-				<a class="navbar-brand" href="index.html">Last<span>Xanadu</span></a>
-			</div>
-			<div class="collapse navbar-collapse" id="myNavbar">
-				<ul class="nav navbar-nav">
-					<li><a href="index.html">Inicio</a></li>
-					<li><a href="novedades.html">Novedades</a></li>
-					<li class="dropdown">
-						<a class="dropdown-toggle" data-toggle="dropdown" href="#">Música <span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li><a href="#">Nuestros Músicos</a></li>
-							<li><a href="#">Biblioteca de Canciones</a></li>
-							<li><a href="song.html">Canción Aleatoria</a></li>
-						</ul>
-					</li>
-					<li class="dropdown">
-						<a class="dropdown-toggle" data-toggle="dropdown" href="#">Ilustraciones <span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li><a href="#">Nuestros Ilustradores</a></li>
-							<li><a href="#">Galeria de Imagenes</a></li>
-							<li><a href="illust.html">Ilustración Aleatoria</a></li>
-						</ul>
-					</li>
-					<li class="dropdown">
-						<a class="dropdown-toggle" data-toggle="dropdown" href="#">Popular <span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li><a href="popular-musica.html">Musica Popular </a></li>
-							<li><a href="popular-ilustraciones.html">Ilustraciones Populares</a></li>
-						</ul>
-					</li>
-					<li class="dropdown">
-						<a class="dropdown-toggle" data-toggle="dropdown" href="#">Ranking <span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li><a href="rankingM.html">Música</a></li>
-							<li><a href="rankingI.html">Ilustraciones</a></li>
-						</ul>
-					</li>
-					<li><a href="site_map.html">Mapa del Sitio</a></li>
-				</ul>
-				<ul class="nav navbar-nav navbar-right">
-					<li class="dropdown">
-						<a class="dropdown-toggle" data-toggle="dropdown" href="#">Mi Cuenta <span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li><a href="user.html">Mi Perfil</a></li>
-							<li><a href="my_posts.html">Mis Aportaciones</a></li>
-							<li><a href="messages.html">Mis Mensajes</a></li>
-							<li><a href="timeline.html">My Timeline</a></li>
-							<li><a href="upload_illust.html">Subir Ilustración</a></li>
-							<li><a href="upload_song.html">Subir Canción</a></li>
-							<li><a href="flagged_content.html">Administración</a></li>
-							<li><a href="index.html">Logout</a></li>
-						</ul>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</nav>
+	<?php require "includes/navbar.php"; ?>
 
 	<div class="container">
 
@@ -101,7 +41,7 @@
 							<div class="col-md-6">
 								<div class="media">
 									<div class="media-left">
-										<a href="song.html"><img alt="Preview" src="img/preview.png" class="media-object"></a>
+										<a href="song.php"><img alt="Preview" src="img/preview.png" class="media-object"></a>
 									</div>
 									<div class="media-right media-body">
 										<h3 class="media-heading"> <a href="">A New Moon</a> </h3>
@@ -113,7 +53,7 @@
 							<div class="col-md-6">
 								<div class="media">
 									<div class="media-left">
-										<a href="song.html"><img alt="Preview" src="img/preview.png" class="media-object"></a>
+										<a href="song.php"><img alt="Preview" src="img/preview.png" class="media-object"></a>
 									</div>
 									<div class="media-right media-body">
 										<h3 class="media-heading"> <a href="">A New Moon</a> </h3>
@@ -125,7 +65,7 @@
 							<div class="col-md-6">
 								<div class="media">
 									<div class="media-left">
-										<a href="song.html"><img alt="Preview" src="img/preview.png" class="media-object"></a>
+										<a href="song.php"><img alt="Preview" src="img/preview.png" class="media-object"></a>
 									</div>
 									<div class="media-right media-body">
 										<h3 class="media-heading"> <a href="">A New Moon</a> </h3>
@@ -137,7 +77,7 @@
 							<div class="col-md-6">
 								<div class="media">
 									<div class="media-left">
-										<a href="song.html"><img alt="Preview" src="img/preview.png" class="media-object"></a>
+										<a href="song.php"><img alt="Preview" src="img/preview.png" class="media-object"></a>
 									</div>
 									<div class="media-right media-body">
 										<h3 class="media-heading"> <a href="">A New Moon</a> </h3>
@@ -149,7 +89,7 @@
 							<div class="col-md-6">
 								<div class="media">
 									<div class="media-left">
-										<a href="song.html"><img alt="Preview" src="img/preview.png" class="media-object"></a>
+										<a href="song.php"><img alt="Preview" src="img/preview.png" class="media-object"></a>
 									</div>
 									<div class="media-right media-body">
 										<h3 class="media-heading"> <a href="">A New Moon</a> </h3>
@@ -161,7 +101,7 @@
 							<div class="col-md-6">
 								<div class="media">
 									<div class="media-left">
-										<a href="song.html"><img alt="Preview" src="img/preview.png" class="media-object"></a>
+										<a href="song.php"><img alt="Preview" src="img/preview.png" class="media-object"></a>
 									</div>
 									<div class="media-right media-body">
 										<h3 class="media-heading"> <a href="">A New Moon</a> </h3>
@@ -173,7 +113,7 @@
 							<div class="col-md-6">
 								<div class="media">
 									<div class="media-left">
-										<a href="song.html"><img alt="Preview" src="img/preview.png" class="media-object"></a>
+										<a href="song.php"><img alt="Preview" src="img/preview.png" class="media-object"></a>
 									</div>
 									<div class="media-right media-body">
 										<h3 class="media-heading"> <a href="">A New Moon</a> </h3>
@@ -185,7 +125,7 @@
 							<div class="col-md-6">
 								<div class="media">
 									<div class="media-left">
-										<a href="song.html"><img alt="Preview" src="img/preview.png" class="media-object"></a>
+										<a href="song.php"><img alt="Preview" src="img/preview.png" class="media-object"></a>
 									</div>
 									<div class="media-right media-body">
 										<h3 class="media-heading"> <a href="">A New Moon</a> </h3>
@@ -205,8 +145,8 @@
 									<img src="img/a3.jpg" alt="Avatar" class="image img-responsive img-rounded">
 									<div class="middle">
 										<div class="text">
-											<h3><a href="illust.html">A really really really long title</a></h3>
-											<h4><a href="user.html">by Him</a></h4>
+											<h3><a href="illust.php">A really really really long title</a></h3>
+											<h4><a href="user.php">by Him</a></h4>
 										</div>
 									</div>
 								</div>
@@ -216,8 +156,8 @@
 									<img src="img/a12.jpg" alt="Avatar" class="image img-responsive img-rounded">
 									<div class="middle">
 										<div class="text">
-											<h3><a href="illust.html">A really really really long title</a></h3>
-											<h4><a href="user.html">by Him</a></h4>
+											<h3><a href="illust.php">A really really really long title</a></h3>
+											<h4><a href="user.php">by Him</a></h4>
 										</div>
 									</div>
 								</div>
@@ -227,8 +167,8 @@
 									<img src="img/a7.jpg" alt="Avatar" class="image img-responsive img-rounded">
 									<div class="middle">
 										<div class="text">
-											<h3><a href="illust.html">A really really really long title</a></h3>
-											<h4><a href="user.html">by Him</a></h4>
+											<h3><a href="illust.php">A really really really long title</a></h3>
+											<h4><a href="user.php">by Him</a></h4>
 										</div>
 									</div>
 								</div>
@@ -238,8 +178,8 @@
 									<img src="img/a10.jpg" alt="Avatar" class="image img-responsive img-rounded">
 									<div class="middle">
 										<div class="text">
-											<h3><a href="illust.html">A really really really long title</a></h3>
-											<h4><a href="user.html">by Him</a></h4>
+											<h3><a href="illust.php">A really really really long title</a></h3>
+											<h4><a href="user.php">by Him</a></h4>
 										</div>
 									</div>
 								</div>
@@ -249,8 +189,8 @@
 									<img src="img/a16.jpg" alt="Avatar" class="image img-responsive img-rounded">
 									<div class="middle">
 										<div class="text">
-											<h3><a href="illust.html">A really really really long title</a></h3>
-											<h4><a href="user.html">by Him</a></h4>
+											<h3><a href="illust.php">A really really really long title</a></h3>
+											<h4><a href="user.php">by Him</a></h4>
 										</div>
 									</div>
 								</div>
@@ -260,8 +200,8 @@
 									<img src="img/a2.jpg" alt="Avatar" class="image img-responsive img-rounded">
 									<div class="middle">
 										<div class="text">
-											<h3><a href="illust.html">A really really really long title</a></h3>
-											<h4><a href="user.html">by Him</a></h4>
+											<h3><a href="illust.php">A really really really long title</a></h3>
+											<h4><a href="user.php">by Him</a></h4>
 										</div>
 									</div>
 								</div>
@@ -271,8 +211,8 @@
 									<img src="img/a11.jpg" alt="Avatar" class="image img-responsive img-rounded">
 									<div class="middle">
 										<div class="text">
-											<h3><a href="illust.html">A looooooooooooooooooooooooooooooooonger title</a></h3>
-											<h4><a href="user.html">by Him</a></h4>
+											<h3><a href="illust.php">A looooooooooooooooooooooooooooooooonger title</a></h3>
+											<h4><a href="user.php">by Him</a></h4>
 										</div>
 									</div>
 								</div>
@@ -282,8 +222,8 @@
 									<img src="img/a.jpg" alt="Avatar" class="image img-responsive img-rounded">
 									<div class="middle">
 										<div class="text">
-											<h3><a href="illust.html">A really really really really really really long title</a></h3>
-											<h4><a href="user.html">by Him</a></h4>
+											<h3><a href="illust.php">A really really really really really really long title</a></h3>
+											<h4><a href="user.php">by Him</a></h4>
 										</div>
 									</div>
 								</div>
@@ -293,8 +233,8 @@
 									<img src="img/a16.jpg" alt="Avatar" class="image img-responsive img-rounded">
 									<div class="middle">
 										<div class="text">
-											<h3><a href="illust.html">A really really really long title</a></h3>
-											<h4><a href="user.html">by Him</a></h4>
+											<h3><a href="illust.php">A really really really long title</a></h3>
+											<h4><a href="user.php">by Him</a></h4>
 										</div>
 									</div>
 								</div>
@@ -304,8 +244,8 @@
 									<img src="img/a16.jpg" alt="Avatar" class="image img-responsive img-rounded">
 									<div class="middle">
 										<div class="text">
-											<h3><a href="illust.html">A really really really long title</a></h3>
-											<h4><a href="user.html">by Him</a></h4>
+											<h3><a href="illust.php">A really really really long title</a></h3>
+											<h4><a href="user.php">by Him</a></h4>
 										</div>
 									</div>
 								</div>

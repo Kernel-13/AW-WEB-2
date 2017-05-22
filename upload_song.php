@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -14,73 +17,10 @@
 	<title>LastXanadu</title>
 </head>
 <body>
-	<nav class="navbar navbar-inverse navbar-fixed-top">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span> 
-				</button>
-				<a class="navbar-brand" href="index.html">Last<span>Xanadu</span></a>
-			</div>
-			<div class="collapse navbar-collapse" id="myNavbar">
-				<ul class="nav navbar-nav">
-					<li><a href="index.html">Inicio</a></li>
-					<li><a href="novedades.html">Novedades</a></li>
-					<li class="dropdown">
-						<a class="dropdown-toggle" data-toggle="dropdown" href="#">Música <span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li><a href="#">Nuestros Músicos</a></li>
-							<li><a href="#">Biblioteca de Canciones</a></li>
-							<li><a href="song.html">Canción Aleatoria</a></li>
-						</ul>
-					</li>
-					<li class="dropdown">
-						<a class="dropdown-toggle" data-toggle="dropdown" href="#">Ilustraciones <span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li><a href="#">Nuestros Ilustradores</a></li>
-							<li><a href="#">Galeria de Imagenes</a></li>
-							<li><a href="illust.html">Ilustración Aleatoria</a></li>
-						</ul>
-					</li>
-					<li class="dropdown">
-						<a class="dropdown-toggle" data-toggle="dropdown" href="#">Popular <span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li><a href="popular-musica.html">Musica Popular </a></li>
-							<li><a href="popular-ilustraciones.html">Ilustraciones Populares</a></li>
-						</ul>
-					</li>
-					<li class="dropdown">
-						<a class="dropdown-toggle" data-toggle="dropdown" href="#">Ranking <span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li><a href="rankingM.html">Música</a></li>
-							<li><a href="rankingI.html">Ilustraciones</a></li>
-						</ul>
-					</li>
-					<li><a href="site_map.html">Mapa del Sitio</a></li>
-				</ul>
-				<ul class="nav navbar-nav navbar-right">
-					<li class="dropdown">
-						<a class="dropdown-toggle" data-toggle="dropdown" href="#">Mi Cuenta <span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li><a href="user.html">Mi Perfil</a></li>
-							<li><a href="my_posts.html">Mis Aportaciones</a></li>
-							<li><a href="messages.html">Mis Mensajes</a></li>
-							<li><a href="timeline.html">My Timeline</a></li>
-							<li><a href="upload_illust.html">Subir Ilustración</a></li>
-							<li><a href="upload_song.html">Subir Canción</a></li>
-							<li><a href="flagged_content.html">Administración</a></li>
-							<li><a href="index.html">Logout</a></li>
-						</ul>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</nav>
+	<?php require "includes/navbar.php"; ?>
 
 	<div class="container upload">
-		<form class="form-horizontal" action="song.html">
+		<form class="form-horizontal" action="song.php">
 			<div class="row">
 				<div class="col-md-12">
 					<div class="panel panel-info">
