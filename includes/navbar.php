@@ -52,7 +52,7 @@
 					<li><a href="login.php"><span class="glyphicon glyphicon-log-in"></span> Iniciar Sesion</a></li>';
 				} else {
 					echo '<li class="dropdown">
-						<a class="dropdown-toggle" data-toggle="dropdown" href="#">Mi Cuenta <span class="caret"></span></a>
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#">Bienvenid@, '.$_SESSION['username'].' <span class="caret"></span></a>
 						<ul class="dropdown-menu">
 							<li><a href="user.php">Mi Perfil</a></li>
 							<li><a href="my_posts.php">Mis Aportaciones</a></li>

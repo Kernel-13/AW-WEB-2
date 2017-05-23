@@ -16,6 +16,7 @@ require('includes/db.php');
 	<?php require "includes/navbar.php"; ?>
 
 	<?php 
+
 	if (isset($_SESSION['username'])) {
 		header("Location: index.php");
 	} else {
@@ -36,20 +37,20 @@ require('includes/db.php');
 						$password = htmlspecialchars(stripslashes($_POST['password']));
 						$password = mysqli_real_escape_string($mysqli,$password);
 
-						$query = "SELECT * FROM usuarios WHERE user_name='$username'";
+						$query = "SELECT * FROM users WHERE user_name='$username'";
 						$result = mysqli_query($mysqli,$query) or die(mysql_error());
 						$rows = mysqli_num_rows($result);
-						$registro = $result->fetch_assoc();
+						$login = $result->fetch_assoc();
 
-						if($rows==1 && password_verify($password, $registro['user_pass'])) {
-							$_SESSION['username'] = $registro['user_name'];
-							$_SESSION['user_id'] = $registro['user_id'];
-							if ($registro['user_isAdmin'] == TRUE) {
+						if($rows==1 && password_verify($password, $login['user_pass'])) {
+							$_SESSION['username'] = $login['user_name'];
+							$_SESSION['user_id'] = $login['user_id'];
+							if ($login['user_isAdmin'] == TRUE) {
 								$_SESSION['isAdmin'] = TRUE;
 							} else {
 								$_SESSION['isAdmin'] = FALSE;
 							}
-							header("Location: messages.php");
+							header("Location: user.php");
 						} else {
 							echo '
 							<div class="panel panel-info" style="text-align: center;">
@@ -72,11 +73,11 @@ require('includes/db.php');
 								Inicio de Sesión
 							</div>
 							<div class="panel-body">
-								<form class="form-horizontal" action="user.php">
+								<form class="form-horizontal" action="" method="post">
 									<div class="form-group">
 										<div class="col-sm-12">
-											<label class="sr-only" for="email">Email</label>
-											<input type="text" class="form-control" id="email" name="username" placeholder="Email" required="required">
+											<label class="sr-only" for="username">Email</label>
+											<input type="text" class="form-control" id="username" name="username" placeholder="Username" required="required">
 										</div>
 									</div>
 									<div class="form-group">
