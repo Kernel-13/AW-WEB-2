@@ -55,12 +55,12 @@
 						<a class="dropdown-toggle" data-toggle="dropdown" href="#">Mi Cuenta <span class="caret"></span></a>
 						<ul class="dropdown-menu">
 							<li><a href="user.php">Mi Perfil</a></li>
-							<li><a href="#">Mis Aportaciones</a></li>
-							<li><a href="#">Mis Mensajes</a></li>
-							<li><a href="#">My Timeline</a></li>
+							<li><a href="my_posts.php">Mis Aportaciones</a></li>
+							<li><a href="messages.php">Mis Mensajes</a></li>
+							<li><a href="timeline.php">My Timeline</a></li>
 							<li><a href="upload_illust.php">Subir Ilustración</a></li>
 							<li><a href="upload_song.php">Subir Canción</a></li>
-							<li><a href="index.php">Logout</a></li>
+							<li><a href="logout.php">Logout</a></li>
 						</ul>
 					</li>';
 				}

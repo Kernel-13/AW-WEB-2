@@ -13,7 +13,7 @@ function get_username_from_id($mysqli, $id){
 }
 
 function get_id_from_username($mysqli, $username){
-	$query = "SELECT user_id FROM usuarios WHERE user_name='$username'";
+	$query = "SELECT user_id FROM users WHERE user_name='$username'";
 	$resultado = $mysqli->query($query) or die ($mysqli->error. " en la línea ".(__LINE__-1));
 	$stuff = $resultado->fetch_assoc();
 	return $stuff['user_id'];

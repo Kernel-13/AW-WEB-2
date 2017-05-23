@@ -31,9 +31,9 @@ require('includes/db.php');
 
 					if (isset($_POST['username'])){
 
-						$username = stripslashes($_POST['username']);
+						$username = htmlspecialchars(stripslashes($_POST['username']));
 						$username = mysqli_real_escape_string($mysqli,$username);
-						$password = stripslashes($_POST['password']);
+						$password = htmlspecialchars(stripslashes($_POST['password']));
 						$password = mysqli_real_escape_string($mysqli,$password);
 
 						$query = "SELECT * FROM usuarios WHERE user_name='$username'";

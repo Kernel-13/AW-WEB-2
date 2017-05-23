@@ -13,6 +13,7 @@ require('includes/db.php');
 </head>
 <body>
 	<?php require "includes/navbar.php"; ?>
+	<?php require "includes/functions.php"; ?>
 
 	<?php 
 	if (isset($_SESSION['username'])) {
@@ -21,8 +22,8 @@ require('includes/db.php');
 
 		?>
 
-		<div class="container-fluid register">
-			<div class="row form-class">
+		<div class="container register">
+			<div class="row register-class">
 				<div class="col-lg-12">
 
 					<?php
@@ -31,19 +32,19 @@ require('includes/db.php');
 
 						$username = mysqli_real_escape_string($mysqli,stripslashes($_POST['username']));
 						$email = mysqli_real_escape_string($mysqli,stripslashes($_POST['email']));
-						$genre = mysqli_real_escape_string($mysqli,stripslashes($_POST['genre']));
-						$age = $_POST['age'];
+						$description = mysqli_real_escape_string($mysqli,stripslashes($_POST['description']));
 						$password = mysqli_real_escape_string($mysqli,stripslashes($_POST['password']));
 
 						$secure_password=password_hash($password, PASSWORD_BCRYPT);
 
-						$q1 = "SELECT * FROM usuarios WHERE user_name='$username'";
-						$q2 = "SELECT * FROM usuarios WHERE user_email='$email'";
+						$q1 = "SELECT * FROM users WHERE user_name='$username'";
+						$q2 = "SELECT * FROM users WHERE user_email='$email'";
 						$reg1 = mysqli_query($mysqli,$q1) or die(mysql_error());
 						$reg2 = mysqli_query($mysqli,$q2) or die(mysql_error());
 						$rows1 = mysqli_num_rows($reg1);
 						$rows2 = mysqli_num_rows($reg2);
 
+						// Si ya existe el usuario
 						if($rows1==1){
 							echo '
 							<div class="panel panel-info" style="text-align: center;">
@@ -57,6 +58,7 @@ require('includes/db.php');
 								</div>
 							</div>
 							';
+						// Si ya existe el email
 						} elseif ($rows2==1) {
 							echo '
 							<div class="panel panel-info" style="text-align: center;">
@@ -70,61 +72,107 @@ require('includes/db.php');
 								</div>
 							</div>
 							';
+						} elseif (!isset($_POST['kind'])) {
+							echo '
+							<div class="panel panel-info" style="text-align: center;">
+								<div class="panel-heading">
+									Registro Fallido
+								</div>
+								<div class="panel-body" style="color: gray;">
+									<h3>No has seleccionado el tipo de usuario que quieres ser!</h3><br>
+									<h4>Por favor, intenta registrarte con un nuevo email visitando <a href="register.php">esta pagina</a></h4>
+									<h4>O bien, si ya estas registrado, inicia sesión en <a href="login.php">este enlace</a></h4>
+								</div>
+							</div>
+							';
 						} else {
-							$registro = "INSERT INTO usuarios(user_name, user_email, user_pass, user_age, user_genre, user_groups) VALUES ('$username', '$email', '$secure_password', '$age', '$genre', 'General')";
-							if ($mysqli->query($registro) === TRUE) {
-								$id = get_id_from_username($mysqli, $username);
-								$_SESSION['username'] = $username;
-								$_SESSION['user_id'] = $id;
-								$_SESSION['isAdmin'] = FALSE;
 
-								$q3 = "SELECT * FROM grupos WHERE group_genre='$genre' AND group_min_age <= '$age' AND group_max_age >= '$age'";
-								$possible_groups = mysqli_query($mysqli,$q3) or die(mysql_error());
-								$rows3 = mysqli_num_rows($possible_groups);
-
-								if ($rows3 > 0) {
-
-									echo '
-									<div class="row section" style="text-align:center;">
-										<h5> Existe un grupo(s) para ti! </h5>
-									</div>
-									';
-
-									$id = get_id_from_username($mysqli, $username);
-									$q4 = "SELECT * FROM usuarios WHERE user_id='$id'";
-									$aux = mysqli_query($mysqli,$q4) or die(mysql_error());
-
-									$this_user_groups = $aux->fetch_assoc();
-									$lista_grupos = $this_user_groups["user_groups"];
-
-									while ($grupo = $possible_groups->fetch_assoc()) {
-										$lista_grupos = $lista_grupos.",".$grupo["group_name"];
-									}
-
-									$q5 = "UPDATE usuarios SET user_groups='$lista_grupos' WHERE user_id='$id'";
-								// $aux2 = get_username_from_id($mysqli, $id);
-
-									if ($mysqli->query($q5) === TRUE) {
-									// OK
-									} else {
-									// NOT OK
-									}
-								}
-
-								header("Location: messages.php");
-							} else {
+							$maxsize = 5297152;
+							if(($_FILES['avatar']['size'] >= $maxsize) || ($_FILES["avatar"]["size"] == 0)) {
 								echo '
 								<div class="panel panel-info" style="text-align: center;">
 									<div class="panel-heading">
 										Registro Fallido
 									</div>
 									<div class="panel-body" style="color: gray;">
-										<h3>A ocurrido un error a la hora de registrarte</h3><br>
+										<h3>La imagen que subas no debe superar los 4.5 MB! </h3><br>
 										<h4>Por favor, intentalo de nuevo visitando <a href="register.php">esta pagina</a></h4>
 										<h4>O bien, si ya estas registrado, inicia sesión en <a href="login.php">este enlace</a></h4>
 									</div>
 								</div>
 								';
+							} else {
+								echo "IMG OK";
+								echo "CHECKING DIMENSIONS";
+
+								$permitido = array('image/jpeg', 'image/png');
+
+								$filename = $_FILES['avatar']['tmp_name'];
+								list($width, $height) = getimagesize($filename);
+								$sub = abs($width - $height);
+								if ($sub > 10 || $width < 250 || $height < 250){
+									echo '
+									<div class="panel panel-info" style="text-align: center;">
+										<div class="panel-heading">
+											Registro Fallido
+										</div>
+										<div class="panel-body" style="color: gray;">
+											<h3>La imagen que subas debe ser cuadrada y tener un tamaño minimo de 250x250 </h3><br>
+											<h4>Por favor, intentalo de nuevo visitando <a href="register.php">esta pagina</a></h4>
+											<h4>O bien, si ya estas registrado, inicia sesión en <a href="login.php">este enlace</a></h4>
+										</div>
+									</div>
+									';
+								} else {
+									echo "DIMENSIONS OK";
+									echo "CHECKING EXTENSION";
+
+									if (in_array($_FILES["avatar"]["type"], $permitido)) {
+
+										echo "EXTENSION OK";
+										echo "CHECKING PATH";
+
+
+										$info = pathinfo($_FILES["avatar"]["name"]);
+										$extension = $info["extension"]; 
+										$name = "avatar_".$username.".".$extension; 
+										$path = 'img/'.$username.'/posts/'.$name;
+
+										if (!is_dir('img/'.$username.'/posts')) {
+											echo "CREATING PATH";
+											mkdir('img/'.$username.'/posts', 0777, true);
+										}
+
+										move_uploaded_file( $_FILES['avatar']['tmp_name'], $path);
+
+										$tipo = $_POST['kind'];
+
+										$registro = "INSERT INTO users(user_name, user_avatar, user_description, user_type, user_email, user_pass) 
+										VALUES ('$username', '$path', '$description', 'Illustrator', '$email', '$secure_password')";
+										if ($mysqli->query($registro) === TRUE) {
+											$id = get_id_from_username($mysqli, $username);
+											$_SESSION['username'] = $username;
+											$_SESSION['id'] = $id;
+											$_SESSION['isAdmin'] = TRUE;
+
+											header("Location: index.php");
+										} else {
+											echo '
+											<div class="panel panel-info" style="text-align: center;">
+												<div class="panel-heading">
+													Registro Fallido
+												</div>
+												<div class="panel-body" style="color: gray;">
+													<h3> Algo bizarro ha ocurrido al intetar registrate</h3><br>
+													<h4>Por favor, intentalo de nuevo visitando <a href="register.php">esta pagina</a></h4>
+													<h4>O bien, si ya estas registrado, inicia sesión en <a href="login.php">este enlace</a></h4>
+												</div>
+											</div>
+											';
+										}
+
+									}
+								}
 							}
 						}
 					} else { 
@@ -135,43 +183,86 @@ require('includes/db.php');
 								Registro
 							</div>
 							<div class="panel-body">
-								<form class="form-horizontal" action="register_second.php" method="post">
-									<div class="form-group">
-										<div class="col-sm-9">
-											<label class="sr-only" for="email"> Email </label>
-											<input type="email" class="form-control" id="email" placeholder="Email" name="email" required="required" onchange="validar(this.value)">
+								<form class="form-horizontal" action="" method="post" enctype="multipart/form-data">
+									<div class="row">
+
+										<div class="col-md-6">
+											<div class="form-group">
+												<div class="col-sm-12"> 
+													<label class="sr-only" for="name"> Nombre de Usuario </label>
+													<input type="text" class="form-control" required="required" id="name" name="username" placeholder="Nombre de Usuario">
+												</div>
+											</div>		
+											<div class="form-group">
+												<div class="col-sm-9">
+													<label class="sr-only" for="email"> Email </label>
+													<input type="email" class="form-control" id="email" placeholder="Email" name="email" required="required" onchange="validar(this.value)">
+												</div>
+												<div class="col-sm-3 message-box">
+													<span id="er_icon" class="icon_hidden"><img alt="Invalido" class="signal" src="img/no.png"> Invalido </span>
+													<span id="ok_icon" class="icon_hidden"><img alt="Correcto" class="signal" src="img/ok.png"> Correcto </span>
+												</div>
+											</div>					
+											<div class="form-group">
+												<div class="col-sm-12"> 
+													<label class="sr-only" for="pass"> Contraseña </label>
+													<input type="password" class="form-control" required="required" id="pass" name="password" placeholder="Indique su contraseña">
+												</div>
+											</div>
+											<div class="form-group">
+												<div class="col-sm-12"> 
+													<label class="sr-only" for="descBox"> Descripcion </label>
+													<textarea class="form-control" id="descBox" name="description" required="required" placeholder="Describete a ti mismo en menos de 500 caracteres" maxlength="500"></textarea>
+												</div>
+											</div>
 										</div>
-										<div class="col-sm-3 message-box">
-											<span id="er_icon" class="icon_hidden"><img alt="Invalido" class="signal" src="img/no.png"> Invalido </span>
-											<span id="ok_icon" class="icon_hidden"><img alt="Correcto" class="signal" src="img/ok.png"> Correcto </span>
+
+
+										<div class="col-md-6 register_second">
+											<div class="form-group">
+												<div>
+													<h4>Deseas registrarte como...	</h4>
+												</div>
+												<div class="col-sm-12 ">
+													<fieldset class="kind-selection ">
+														<legend class="sr-only"> Escoge que deseas ser</legend>
+														<div>
+															<input type="radio" name="kind" value="Composer" id="musician"> Músico
+															<label class="sr-only" for="musician"> Musico </label>
+														</div>
+														<div>
+															<input type="radio" name="kind" value="Illustrator" id="illustrator"> Ilustrador
+															<label class="sr-only" for="illustrator"> Ilustrador </label>
+														</div>
+													</fieldset>
+												</div>
+											</div>
+											<div class="form-group">
+												<div>
+													<h4> Escoge una foto para tu perfil	</h4>
+												</div>
+												<div class="col-sm-12"> 
+													<label class="sr-only" for="avatar"> Escoge tu avatar </label>
+													<input type="file" name="avatar" class="form-control" required="required" id="avatar">
+												</div>
+											</div>							
+											<div>
+												<div class="g-recaptcha" data-sitekey="6LcofhsUAAAAAOJ-p5clDHz38mzOHn4Ixicg5aeh"></div>
+											</div>
+										</div>
+
+									</div>
+
+									<div class="row">
+										<div class="col-md-12">
+											<div class="form-group"> 
+												<div class="col-sm-12 submitButton">
+													<button type="submit" class="btn btn-warning">Registrarse</button>
+												</div>
+											</div>
 										</div>
 									</div>
-									<div class="form-group">
-										<div class="col-sm-12"> 
-											<label class="sr-only" for="name"> Nombre de Usuario </label>
-											<input type="text" class="form-control" required="required" id="name" name="username" placeholder="Nombre de Usuario">
-										</div>
-									</div>							
-									<div class="form-group">
-										<div class="col-sm-12"> 
-											<label class="sr-only" for="pass"> Contraseña </label>
-											<input type="password" class="form-control" required="required" id="pass" name="password" placeholder="Indique su contraseña">
-										</div>
-									</div>
-									<div class="form-group">
-										<div class="col-sm-12"> 
-											<label class="sr-only" for="pass2"> Repita su contraseña </label>
-											<input type="password" class="form-control" required="required" id="pass2" placeholder="Repita su contraseña">
-										</div>
-									</div>
-									<div>
-										<div class="g-recaptcha" data-sitekey="6LcofhsUAAAAAOJ-p5clDHz38mzOHn4Ixicg5aeh"></div>
-									</div>
-									<div class="form-group"> 
-										<div class="col-sm-12 submitButton">
-											<button type="submit" class="btn btn-warning">Registrarse</button>
-										</div>
-									</div>
+
 								</form>
 							</div>
 						</div>
