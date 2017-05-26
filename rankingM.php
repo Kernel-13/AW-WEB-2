@@ -22,8 +22,7 @@
 	?>
     <!--AQUI-->  
     <div class="container">
-		<div class="col-sm-8">
-        
+		<div class="col-sm-8">        
 		<div id="cabecera" class="row"> 
             <div class="col-lg-12">
                 <h3>Lista de éxitos de la semana
@@ -33,7 +32,7 @@
         </div>
         <hr>                     
             <?php 
-            $consulta = "SELECT * FROM users, posts where users.user_id=posts.post_owner and posts.post_type='Song' order by posts.post_views DESC limit 10";
+            $consulta = "SELECT * FROM users, posts where users.user_id=posts.post_owner and posts.post_type='Song' order by posts.post_favourites DESC limit 10";
             $resultado = $mysqli->query($consulta) or die ($mysqli->error."en la linea".(__LINE__-1));
             $cont = 1;
             while ($row = mysqli_fetch_row($resultado)){                                          
@@ -50,7 +49,17 @@
 						<h5>'.$row[16].' Reproducciones</h5>
 				</div>
 			</div>
-			<hr>';
+            <br>';
+            	
+            	echo '<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width:90%">
+            	<span class="sr-only">9/10</span>
+            	puntuacion: '.$row[17].'/10
+            	</div>';
+            	
+            	echo '<br>';
+            	
+            	echo '<hr>';            	
+                    	
             	$cont++;
             }
             
