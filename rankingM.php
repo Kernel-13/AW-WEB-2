@@ -1,7 +1,6 @@
 <?php 
 	session_start();
 ?>
-
 <!DOCTYPE html>
 <html lang="es">
 
@@ -74,24 +73,24 @@
 
                         <h4 class="headercomentario">Madrid</h4>
                         <p>Julian castillo ha publicado este mes de Abril un nuevo cover.</p>
-                        <p>Sandra Romero ha anunciado que dejará de momento de publicar sus canciones...por temas personales.Estaté a la espera para poder saber más de los acontecimientos.</p>
-                        <p>Puedes acudir a la firma de discos de Jennifer Sweet en la Caja Mágica de Madrid estás invitado este mes de abril el día 25. Te esperamos...</p>
+                        <p>Sandra Romero ha anunciado que dejar&aacute de momento de publicar sus canciones...por temas personales.Estat&eacute; a la espera para poder saber m&aacutes de los acontecimientos.</p>
+                        <p>Puedes acudir a la firma de discos de Jennifer Sweet en la Caja M&aacutegica de Madrid est&aacutes invitado este mes de abril el d&iacutea 25. Te esperamos...</p>
                         <h4 class="headercomentario">Barcelona</h4>
                         <p>En el palacio de San Jordi van ha reunirse fans de Laura Sanz para no te lo puedes perder.</p>
 
                         <h4 class="headercomentario">Valencia</h4>
-                        <p>Nuevo disco de Santiago Lopéz un nuevo tema que te gustará, pasaté a escucharlo.</p>
+                        <p>Nuevo disco de Santiago Lop&eacutez un nuevo tema que te gustar&aacute, pasat&eacute a escucharlo.</p>
 
                         <h4 class="headercomentario">Bilbao</h4>
-                        <p>Alejandro Sanz ha estado acompañando a Pablo Albatez promocionando su nuevo disco.
+                        <p>Alejandro Sanz ha estado acompa &ntildeando a Pablo Albatez promocionando su nuevo disco.
                         </p>
 
                         <h4 class="headercomentario">Palencia</h4>
-                        <p>Ha incrementado en buena medidad los cantautores en está ciudad ya tiene más de 100 reproducciones diarias.</p>
+                        <p>Ha incrementado en buena medidad los cantautores en est&aacute ciudad ya tiene m&aacutes de 100 reproducciones diarias.</p>
 
                         <h4 class="headercomentario">Galicia</h4>
-                        <p>Llegá el verano y con ello los nuevo covers de la banda de canautores solecitos.También puedes seguirnos vía twiterr, facebook o otras redes sociales.</p>
-                        <p>Te invitamo a participar en un sorteo para que puedas conocer a estos grandes artistas del momento sólo tienes que escuchar un minímo de 3 canciones en nuestro portal web.</p>
+                        <p>Lleg&aacute el verano y con ello los nuevo covers de la banda de canautores solecitos.Tambi&eacuten puedes seguirnos v&iacutea twiterr, facebook o otras redes sociales.</p>
+                        <p>Te invitamo a participar en un sorteo para que puedas conocer a estos grandes artistas del momento s&oacutelo tienes que escuchar un min&iacutemo de 3 canciones en nuestro portal web.</p>
 
                         
 
