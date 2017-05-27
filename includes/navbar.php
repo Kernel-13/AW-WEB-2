@@ -51,16 +51,20 @@
 					echo '<li><a href="register.php"><span class="glyphicon glyphicon-user"></span> Registrate</a></li>
 					<li><a href="login.php"><span class="glyphicon glyphicon-log-in"></span> Iniciar Sesion</a></li>';
 				} else {
-					echo '<li class="dropdown">
+					echo '
+					<li class="dropdown">
 						<a class="dropdown-toggle" data-toggle="dropdown" href="#">Bienvenid@, '.$_SESSION['username'].' <span class="caret"></span></a>
 						<ul class="dropdown-menu">
-							<li><a href="user.php">Mi Perfil</a></li>
+							<li><a href="user.php?id='.$_SESSION['user_id'].'">Mi Perfil</a></li>
 							<li><a href="my_posts.php">Mis Aportaciones</a></li>
 							<li><a href="messages.php">Mis Mensajes</a></li>
-							<li><a href="timeline.php">My Timeline</a></li>
-							<li><a href="upload_illust.php">Subir Ilustración</a></li>
-							<li><a href="upload_song.php">Subir Canción</a></li>
-							<li><a href="logout.php">Logout</a></li>
+							<li><a href="timeline.php">My Timeline</a></li>';
+							if ($_SESSION['user_type'] == 'Composer') {
+								echo '<li><a href="upload_song.php">Subir Canción</a></li>';
+							} else {
+								echo '<li><a href="upload_illust.php">Subir Ilustración</a></li>';
+							}
+							echo '<li><a href="logout.php">Logout</a></li>
 						</ul>
 					</li>';
 				}

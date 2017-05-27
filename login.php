@@ -45,12 +45,13 @@ require('includes/db.php');
 						if($rows==1 && password_verify($password, $login['user_pass'])) {
 							$_SESSION['username'] = $login['user_name'];
 							$_SESSION['user_id'] = $login['user_id'];
+							$_SESSION['user_type'] = $login['user_type'];
 							if ($login['user_isAdmin'] == TRUE) {
 								$_SESSION['isAdmin'] = TRUE;
 							} else {
 								$_SESSION['isAdmin'] = FALSE;
 							}
-							header("Location: user.php");
+							header("Location: user.php?id=".$_SESSION['user_id']."");
 						} else {
 							echo '
 							<div class="panel panel-info" style="text-align: center;">

@@ -11,7 +11,7 @@ a:hover{
 }
 
 .user-avatar-comment {
- width:75px;
+   width:75px;
 }
 
 body {
@@ -28,12 +28,23 @@ body > nav {
 }
 
 .navbar span {
- color: crimson; 
+   color: crimson; 
+}
+
+.something-bad {
+    padding: 20px;
+    color: white;
+    margin-left: 0;
+    margin-right: 0;
+    background-color: #171616;
+    text-align: center;
+    font-size: 24px;
+    border-radius: 100px;
 }
 
 .section {
- margin-top: 20px;
- margin-bottom: 20px;
+   margin-top: 20px;
+   margin-bottom: 20px;
 }
 
 @media (max-width: 980px) {

@@ -5,22 +5,22 @@ function comando($mysqli, $query){
 	return $resultado;
 }
 
-function get_username_from_id($mysqli, $id){
-	$query = "SELECT user_name FROM usuarios WHERE user_id='$id'";
-	$resultado = $mysqli->query($query) or die ($mysqli->error. " en la línea ".(__LINE__-1));
-	$stuff = $resultado->fetch_assoc();
-	return $stuff['user_name'];
-}
-
-function get_id_from_username($mysqli, $username){
-	$query = "SELECT user_id FROM users WHERE user_name='$username'";
-	$resultado = $mysqli->query($query) or die ($mysqli->error. " en la línea ".(__LINE__-1));
-	$stuff = $resultado->fetch_assoc();
-	return $stuff['user_id'];
-}
-
 function get_user_from_username($mysqli, $username){
-	$query = "SELECT * FROM usuarios WHERE user_name='$username'";
+	$query = "SELECT * FROM users WHERE user_name='$username'";
+	$resultado = $mysqli->query($query) or die ($mysqli->error. " en la línea ".(__LINE__-1));
+	$stuff = $resultado->fetch_assoc();
+	return $stuff;
+}
+
+function get_user_from_id($mysqli, $id){
+	$query = "SELECT * FROM users WHERE user_id='$id'";
+	$resultado = $mysqli->query($query) or die ($mysqli->error. " en la línea ".(__LINE__-1));
+	$stuff = $resultado->fetch_assoc();
+	return $stuff;
+}
+
+function get_post($mysqli, $id){
+	$query = "SELECT * FROM posts WHERE post_id='$id'";
 	$resultado = $mysqli->query($query) or die ($mysqli->error. " en la línea ".(__LINE__-1));
 	$stuff = $resultado->fetch_assoc();
 	return $stuff;
@@ -72,9 +72,9 @@ function obtain_user_list($mysqli){
 	return $resultado;
 }
 
-function get_private_messages($mysqli, $usuario){
+function get_messages($mysqli, $usuario){
 	$user = str_replace(" ", "%", $usuario);
-	$query = "SELECT * FROM mensajes_privados WHERE message_receiver='$usuario' ORDER BY message_date DESC";
+	$query = "SELECT * FROM messages WHERE message_receiver='$usuario' ORDER BY message_date DESC";
 	$resultado = $mysqli->query($query) or die ($mysqli->error. " en la línea ".(__LINE__-1));
 	// return $resultado;
 	$rows = mysqli_num_rows($resultado);
@@ -97,91 +97,6 @@ function get_private_messages($mysqli, $usuario){
 			';
 		}
 	} else {
-		echo '
-		<div class="row section" style="text-align:center;">
-			<h2> No tienes ningún mensaje nuevo</h2>
-		</div>
-		';
-	}
-}
-
-function get_public_messages($mysqli){
-	$query = "SELECT * FROM mensajes_publicos ORDER BY message_date DESC";
-	$resultado = $mysqli->query($query) or die ($mysqli->error. " en la línea ".(__LINE__-1));
-	$rows = mysqli_num_rows($resultado);
-	if($rows > 0){
-		while ($mensaje = $resultado->fetch_assoc()) {
-			$sender = get_username_from_id($mysqli, $mensaje["message_sender"]);
-			echo '
-			<div class="row section">
-				<div class="col-md-12 message">
-					<div class="media">
-						<div class="media-body media-right">
-							<h4 class="media-heading"> De: '.$sender.'</h4>
-							<h5 class="media-heading"> Asunto: '.$mensaje["message_issue"].'</h5>
-							<h5 class="media-heading"> Fecha del Mensaje: '.$mensaje["message_date"].'</h5><br>
-							<p>'.$mensaje["message_body"].'</p>
-						</div>
-					</div>
-				</div>
-			</div>
-			';
-		}
-	} else {
-		echo '
-		<div class="row section" style="text-align:center;">
-			<h2> No tienes ningún mensaje nuevo</h2>
-		</div>
-		';
-	}
-}
-
-function get_group_messages($mysqli, $userID){
-	$user = str_replace(" ", "%", $userID);
-	$no_messages = TRUE;
-
-	$q_messages = "SELECT * FROM mensajes_grupales ORDER BY message_date DESC";
-	$q_user = "SELECT user_groups FROM usuarios WHERE user_id='$user'";
-
-	$res_messages = $mysqli->query($q_messages) or die ($mysqli->error. " en la línea ".(__LINE__-1));
-	$res_user = $mysqli->query($q_user) or die ($mysqli->error. " en la línea ".(__LINE__-1));
-	$user_data = $res_user->fetch_assoc();
-	$user_groups = $user_data["user_groups"];
-	$arr_groups = explode(",", $user_groups);
-
-	$rows = mysqli_num_rows($res_messages);
-	if($rows > 0){
-		while ($mensajes = $res_messages->fetch_assoc()) {
-			if (in_array($mensajes["message_group"], $arr_groups)) {
-				$sender = get_username_from_id($mysqli, $mensajes["message_sender"]);
-				echo '
-				<div class="row section">
-					<div class="col-md-12 message">
-						<div class="media">
-							<div class="media-body media-right">
-								<h4 class="media-heading"> De: '.$sender.'</h4>
-								<h5 class="media-heading"> Grupo: '.$mensajes["message_group"].'</h5>
-								<h5 class="media-heading"> Asunto: '.$mensajes["message_issue"].'</h5>
-								<h5 class="media-heading"> Fecha del Mensaje: '.$mensajes["message_date"].'</h5><br>
-								<p>'.$mensajes["message_body"].'</p>
-							</div>
-						</div>
-					</div>
-				</div>
-				';
-				$no_messages = FALSE;
-			}
-		}
-	} else {
-		echo '
-		<div class="row section" style="text-align:center;">
-			<h2> No tienes ningún mensaje nuevo</h2>
-		</div>
-		';
-		$no_messages = FALSE;
-	}
-
-	if ($no_messages) {
 		echo '
 		<div class="row section" style="text-align:center;">
 			<h2> No tienes ningún mensaje nuevo</h2>

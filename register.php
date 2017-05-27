@@ -102,8 +102,6 @@ require('includes/db.php');
 								</div>
 								';
 							} else {
-								echo "IMG OK";
-								echo "CHECKING DIMENSIONS";
 
 								$permitido = array('image/jpeg', 'image/png');
 
@@ -124,15 +122,9 @@ require('includes/db.php');
 									</div>
 									';
 								} else {
-									echo "DIMENSIONS OK";
-									echo "CHECKING EXTENSION";
 
 									if (in_array($_FILES["avatar"]["type"], $permitido)) {
-
-										echo "EXTENSION OK";
-										echo "CHECKING PATH";
-
-
+										
 										$info = pathinfo($_FILES["avatar"]["name"]);
 										$extension = $info["extension"]; 
 										$name = "avatar_".$username.".".$extension; 
@@ -146,16 +138,15 @@ require('includes/db.php');
 										move_uploaded_file( $_FILES['avatar']['tmp_name'], $path);
 
 										$tipo = $_POST['kind'];
-
-										$registro = "INSERT INTO users(user_name, user_avatar, user_description, user_type, user_email, user_pass) 
-										VALUES ('$username', '$path', '$description', 'Illustrator', '$email', '$secure_password')";
+										$registro = "INSERT INTO users(user_name, user_avatar, user_description, user_type, user_following, user_followers, user_email, user_pass, user_isAdmin) VALUES ('$username', '$path', '$description', '$tipo','0', '0', '$email', '$secure_password', FALSE)";
 										if ($mysqli->query($registro) === TRUE) {
-											$id = get_id_from_username($mysqli, $username);
+											$person = get_user_from_username($mysqli, $username);
 											$_SESSION['username'] = $username;
-											$_SESSION['id'] = $id;
-											$_SESSION['isAdmin'] = TRUE;
+											$_SESSION['user_id'] = $person["user_id"];
+											$_SESSION['user_type'] = $person['user_type'];
+											$_SESSION['isAdmin'] = FALSE;
 
-											header("Location: index.php");
+											header("Location: user.php?id=".$_SESSION['id']."");
 										} else {
 											echo '
 											<div class="panel panel-info" style="text-align: center;">

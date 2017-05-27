@@ -1,307 +1,276 @@
 <?php
 session_start();
+require('includes/db.php');
 ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	
+	<?php require "includes/head.php"; ?>
 	<link rel="stylesheet" type="text/css" href="css/profile-view.css">
-	<link rel="stylesheet" type="text/css" href="css/body-style.css">
-	<link rel="icon" href="img/hecate.ico" type="image/x-icon" />
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<title>LastXanadu</title>
 </head>
 <body>
 	<?php require "includes/navbar.php"; ?>
+	<?php require "includes/functions.php"; ?>
 
-	<div class="container">
-		<!-- User Pic / Description -->
-		<div class="row section">
-			<div class="col-md-3 col-sm-4 col-xs-2 media-left">
-				<div class="aling-img">
-					<img alt="Imagen de Usuario" id="user-pic" class="img-responsive img-rounded" src="img/alins.jpg">
-				</div>
-			</div>
-			<div class="col-md-9 col-sm-8 col-xs-10">
-				<div class="media-body">
-					<h2 class="media-heading"> KilloveFP </h2>
-					<p>	Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. </p>
-				</div>
+	<?php 
+
+	if (!isset($_GET['id'])) {
+		echo '
+		<div class="container">
+			<div class="row section something-bad">
+				<p> No se ha introducido ningún usuario </p>
 			</div>
 		</div>
-
-		<!-- User's Last Posts -->
-		<div class="row section">
-			<div class="col-lg-12">
-
-				<!-- Tabs -->
-				<ul class="nav nav-tabs nav-justified">
-					<li class="active" ><a data-toggle="tab" href="#music">Canciones</a></li>
-					<li><a data-toggle="tab" href="#illust">Ilustraciones</a></li>
-					<li><a data-toggle="tab" href="#friends">Friends</a></li>
-				</ul>
-
-				<!-- Tab Content -->
-				<div class="tab-content">
-
-					<!-- Music Content -->
-					<div id="music" class="tab-pane fade in active user-posts">
-						<div class="row">
-							<div class="col-lg-12 flex">
-								<div class="thumbnail">
-									<a href="song.html"><img class="img-responsive" src="img/a1.jpg" alt="Imagen de Ejemplo"></a>
-									<div class="caption">
-										<a href="song.html"> Ejemplo 1 </a>
-									</div>
-								</div>
-								
-								<div class="thumbnail">
-									<a href="song.html"><img class="img-responsive" src="img/a2.jpg" alt="Imagen de Ejemplo"></a>
-									<div class="caption">
-										<a href="song.html"> Ejemplo 2 </a>
-									</div>
-								</div>
-
-								<div class="thumbnail">
-									<a href="song.html"><img class="img-responsive" src="img/a3.jpg" alt="Imagen de Ejemplo"></a>
-									<div class="caption">
-										<a href="song.html"> Ejemplo 3 </a>
-									</div>
-								</div>
-
-								<div class="thumbnail">
-									<a href="song.html"><img class="img-responsive" src="img/a4.jpg" alt="Imagen de Ejemplo"></a>
-									<div class="caption">
-										<a href="song.html"> Ejemplo 4 </a>
-									</div>
-								</div>
-							</div>
+		';
+	} else {
+		$secure_id = mysqli_real_escape_string($mysqli,stripslashes( $_GET['id']));
+		$the_user = get_user_from_id($mysqli, $secure_id);
+		if (is_null($the_user)) {
+			echo '
+			<div class="container">
+				<div class="row section">
+					<div class="panel panel-info" style="text-align: center;">
+						<div class="panel-heading">
+							Usuario no encontrado
 						</div>
-						<div class="row">
-							<div class="col-lg-12 flex">
-								
-								<div class="thumbnail">
-									<a href="song.html"><img class="img-responsive"  src="img/a5.jpg" alt="Imagen de Ejemplo"></a>
-									<div class="caption">
-										<a href="song.html"> Ejemplo 1 </a>
-									</div>
-								</div>
-								
-								<div class="thumbnail">
-									<a href="song.html"><img class="img-responsive"  src="img/a6.jpg" alt="Imagen de Ejemplo"></a>
-									<div class="caption">
-										<a href="song.html"> Ejemplo 2 </a>
-									</div>
-								</div>
-
-								<div class="thumbnail">
-									<a href="song.html"><img class="img-responsive"  src="img/a7.jpg" alt="Imagen de Ejemplo"></a>
-									<div class="caption">
-										<a href="song.html"> Ejemplo 3 </a>
-									</div>
-								</div>
-
-								<div class="thumbnail">
-									<a href="song.html"><img class="img-responsive"  src="img/a8.jpg" alt="Imagen de Ejemplo"></a>
-									<div class="caption">
-										<a href="song.html"> Ejemplo 4 </a>
-									</div>
-								</div>
-							</div>
+						<div class="panel-body" style="color: gray;">
+							<h3>No existe ningun usuario con ese ID</h3>
 						</div>
 					</div>
-
-					<!-- Illustrations Content -->
-					<div id="illust" class="tab-pane fade user-posts">
-						<div class="row">
-							<div class="col-lg-12 flex">
-								
-								<div class="thumbnail">
-									<a href="illust.html"><img class="img-responsive"  src="img/a9.jpg" alt="Imagen de Ejemplo"></a>
-									<div class="caption">
-										<a href="illust.html"> Ejemplo 1 </a>
-									</div>
-								</div>
-								
-								<div class="thumbnail">
-									<a href="illust.html"><img class="img-responsive"  src="img/a10.jpg" alt="Imagen de Ejemplo"></a>
-									<div class="caption">
-										<a href="illust.html"> Ejemplo 2 </a>
-									</div>
-								</div>
-
-								<div class="thumbnail">
-									<a href="illust.html"><img class="img-responsive"  src="img/a11.jpg" alt="Imagen de Ejemplo"></a>
-									<div class="caption">
-										<a href="illust.html"> Ejemplo 3 </a>
-									</div>
-								</div>
-
-								<div class="thumbnail">
-									<a href="illust.html"><img class="img-responsive"  src="img/a12.jpg" alt="Imagen de Ejemplo"></a>
-									<div class="caption">
-										<a href="illust.html"> Ejemplo 4 </a>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-lg-12 flex">
-								
-								<div class="thumbnail">
-									<a href="illust.html"><img class="img-responsive"  src="img/a13.jpg" alt="Imagen de Ejemplo"></a>
-									<div class="caption">
-										<a href="illust.html"> Ejemplo 1 </a>
-									</div>
-								</div>
-								
-								<div class="thumbnail">
-									<a href="illust.html"><img class="img-responsive"  src="img/a14.jpg" alt="Imagen de Ejemplo"></a>
-									<div class="caption">
-										<a href="illust.html"> Ejemplo 2 </a>
-									</div>
-								</div>
-
-								<div class="thumbnail">
-									<a href="illust.html"><img class="img-responsive"  src="img/a15.jpg" alt="Imagen de Ejemplo"></a>
-									<div class="caption">
-										<a href="illust.html"> Ejemplo 3 </a>
-									</div>
-								</div>
-
-								<div class="thumbnail">
-									<a href="illust.html"><img class="img-responsive"  src="img/a16.jpg" alt="Imagen de Ejemplo"></a>
-									<div class="caption">
-										<a href="illust.html"> Ejemplo 4 </a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<!-- Friends -->
-					<div id="friends" class="tab-pane fade user-posts">
-						<div class="row">
-							<div class="col-md-4">
-								<div class="media">
-									<div class="media-left">
-										<a href="user.html"><img alt="Imagen de Amigo" src="img/solid2.png" class="img-circle media-object user-avatar-comment"></a>
-									</div>
-									<div class="media-body media-right">
-										<h3 class="media-heading">Triumvirate Downfall</h3>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-4">
-								<div class="media">
-									<div class="media-left">
-										<a href="user.html"><img alt="Imagen de Amigo" src="img/solid3.png" class="img-circle media-object user-avatar-comment"></a>										
-									</div>
-									<div class="media-body media-right">
-										<h3 class="media-heading">Landing Eagle</h3>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-4">
-								<div class="media">
-									<div class="media-left">
-										<a href="user.html"><img alt="Imagen de Amigo" src="img/solid4.png" class="img-circle media-object user-avatar-comment"></a>										
-									</div>
-									<div class="media-body media-right">
-										<h3 class="media-heading">Bad Dream</h3>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-4">
-								<div class="media">
-									<div class="media-left">
-										<a href="user.html"><img alt="Imagen de Amigo" src="img/solid.png" class="img-circle media-object user-avatar-comment"></a>										
-									</div>
-									<div class="media-body media-right">
-										<h3 class="media-heading">Random Vector</h3>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-4">
-								<div class="media">
-									<div class="media-left">
-										<a href="user.html"><img alt="Imagen de Amigo" src="img/solid2.png" class="img-circle media-object user-avatar-comment"></a>										
-									</div>
-									<div class="media-body media-right">
-										<h3 class="media-heading">Triumvirate Downfall</h3>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-4">
-								<div class="media">
-									<div class="media-left">
-										<a href="user.html"><img alt="Imagen de Amigo" src="img/solid3.png" class="img-circle media-object user-avatar-comment"></a>										
-									</div>
-									<div class="media-body media-right">
-										<h3 class="media-heading">Landing Eagle</h3>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-4">
-								<div class="media">
-									<div class="media-left">
-										<a href="user.html"><img alt="Imagen de Amigo" src="img/solid4.png" class="img-circle media-object user-avatar-comment"></a>										
-									</div>
-									<div class="media-body media-right">
-										<h3 class="media-heading">Bad Dream</h3>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-4">
-								<div class="media">
-									<div class="media-left">
-										<a href="user.html"><img alt="Imagen de Amigo" src="img/solid.png" class="img-circle media-object user-avatar-comment"></a>										
-									</div>
-									<div class="media-body media-right">
-										<h3 class="media-heading">Random Vector</h3>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-4">
-								<div class="media">
-									<div class="media-left">
-										<a href="user.html"><img alt="Imagen de Amigo" src="img/solid2.png" class="img-circle media-object user-avatar-comment"></a>										
-									</div>
-									<div class="media-body media-right">
-										<h3 class="media-heading">Triumvirate Downfall</h3>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-4">
-								<div class="media">
-									<div class="media-left">
-										<a href="user.html"><img alt="Imagen de Amigo" src="img/solid3.png" class="img-circle media-object user-avatar-comment"></a>										
-									</div>
-									<div class="media-body media-right">
-										<h3 class="media-heading">Landing Eagle</h3>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-4">
-								<div class="media">
-									<div class="media-left">
-										<a href="user.html"><img alt="Imagen de Amigo" src="img/solid4.png" class="img-circle media-object user-avatar-comment"></a>										
-									</div>
-									<div class="media-body media-right">
-										<h3 class="media-heading">Bad Dream</h3>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-
 				</div>
 			</div>
-		</div>
-	</div>
+			';
+		} else {
+			echo '
+			<div class="container">
+
+				<!-- User Pic / Description -->
+				<div class="row section">
+					<div class="col-md-3 col-sm-4 col-xs-2 media-left">
+						<div class="aling-img">
+							<img alt="Imagen de Usuario" id="user-pic" class="img-responsive img-rounded" src="'.$the_user["user_avatar"].'">
+						</div>
+					</div>
+					<div class="col-md-9 col-sm-8 col-xs-10">
+						<div class="media-body">
+							<h2 class="media-heading"> '.$the_user["user_name"].' </h2>
+							<p class="description-p">	'.$the_user["user_description"].' </p>
+						</div>
+					</div>
+				</div>
+
+				<!-- User Last Posts -->
+				<div class="row section">
+					<div class="col-lg-12">
+						<!-- Tabs -->
+						<ul class="nav nav-tabs nav-justified">';
+
+							if ($the_user["user_type"] == "Illustrator") {
+								echo '
+								<li class="active"><a data-toggle="tab" href="#illust">Ilustraciones</a></li>
+								<li><a data-toggle="tab" href="#following">Following</a></li> 
+								<li><a data-toggle="tab" href="#followers">Followers</a></li>'; 
+							} elseif($the_user["user_type"] == "Composer") {
+								echo '
+								<li class="active" ><a data-toggle="tab" href="#music">Canciones</a></li>
+								<li><a data-toggle="tab" href="#following">Following</a></li> 
+								<li><a data-toggle="tab" href="#followers">Followers</a></li>'; 
+							}
+
+							echo '
+						</ul>
+
+						<!-- Tab Content -->
+						<div class="tab-content">
+
+							<!-- Music Content -->
+							<div id="music" class="tab-pane fade in active user-posts">
+								<div class="row">
+									<div class="col-lg-12 flex">
+										<div class="thumbnail">
+											<a href="song.html"><img class="img-responsive" src="img/a1.jpg" alt="Imagen de Ejemplo"></a>
+											<div class="caption">
+												<a href="song.html"> Ejemplo 1 </a>
+											</div>
+										</div>
+
+										<div class="thumbnail">
+											<a href="song.html"><img class="img-responsive" src="img/a2.jpg" alt="Imagen de Ejemplo"></a>
+											<div class="caption">
+												<a href="song.html"> Ejemplo 2 </a>
+											</div>
+										</div>
+
+										<div class="thumbnail">
+											<a href="song.html"><img class="img-responsive" src="img/a3.jpg" alt="Imagen de Ejemplo"></a>
+											<div class="caption">
+												<a href="song.html"> Ejemplo 3 </a>
+											</div>
+										</div>
+
+										<div class="thumbnail">
+											<a href="song.html"><img class="img-responsive" src="img/a4.jpg" alt="Imagen de Ejemplo"></a>
+											<div class="caption">
+												<a href="song.html"> Ejemplo 4 </a>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-12 flex">
+
+										<div class="thumbnail">
+											<a href="song.html"><img class="img-responsive"  src="img/a5.jpg" alt="Imagen de Ejemplo"></a>
+											<div class="caption">
+												<a href="song.html"> Ejemplo 1 </a>
+											</div>
+										</div>
+
+										<div class="thumbnail">
+											<a href="song.html"><img class="img-responsive"  src="img/a6.jpg" alt="Imagen de Ejemplo"></a>
+											<div class="caption">
+												<a href="song.html"> Ejemplo 2 </a>
+											</div>
+										</div>
+
+										<div class="thumbnail">
+											<a href="song.html"><img class="img-responsive"  src="img/a7.jpg" alt="Imagen de Ejemplo"></a>
+											<div class="caption">
+												<a href="song.html"> Ejemplo 3 </a>
+											</div>
+										</div>
+
+										<div class="thumbnail">
+											<a href="song.html"><img class="img-responsive"  src="img/a8.jpg" alt="Imagen de Ejemplo"></a>
+											<div class="caption">
+												<a href="song.html"> Ejemplo 4 </a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<!-- Illustrations Content -->
+							<div id="illust" class="tab-pane fade user-posts">
+								<div class="row">';
+
+									echo '
+									<div class="col-lg-12 flex">
+										<div class="thumbnail">
+											<a href="illust.html"><img class="img-responsive"  src="img/a9.jpg" alt="Imagen de Ejemplo"></a>
+											<div class="caption">
+												<a href="illust.html"> Ejemplo 1 </a>
+											</div>
+										</div>
+
+										<div class="thumbnail">
+											<a href="illust.html"><img class="img-responsive"  src="img/a10.jpg" alt="Imagen de Ejemplo"></a>
+											<div class="caption">
+												<a href="illust.html"> Ejemplo 2 </a>
+											</div>
+										</div>
+
+										<div class="thumbnail">
+											<a href="illust.html"><img class="img-responsive"  src="img/a11.jpg" alt="Imagen de Ejemplo"></a>
+											<div class="caption">
+												<a href="illust.html"> Ejemplo 3 </a>
+											</div>
+										</div>
+
+										<div class="thumbnail">
+											<a href="illust.html"><img class="img-responsive"  src="img/a12.jpg" alt="Imagen de Ejemplo"></a>
+											<div class="caption">
+												<a href="illust.html"> Ejemplo 4 </a>
+											</div>
+										</div>
+									</div>';
+
+									echo '
+								</div>
+							</div>
+
+							<!-- Following -->
+							<div id="following" class="tab-pane fade user-posts">
+								<div class="row">
+									';
+
+									$following = $the_user["user_following"];
+									$following_array = explode(",", $following);
+									$f_count = count($following_array);
+
+									if ($f_count < 2) {
+										echo '
+										<div class="row section something-bad">
+											<p> '.$the_user['user_name'].' no esta siguiendo a nadie por ahora </p>
+										</div>
+										';
+									} else {
+										foreach ($follower as $following_array) {
+											$friend = get_user_from_id($mysqli, $follower);
+											echo '
+											<div class="col-md-4">
+												<div class="media">
+													<div class="media-left">
+														<a href="user.php?id='.$friend["user_id"].'"><img alt="Imagen de Amigo" src="'.$friend["user_avatar"].'" class="img-circle media-object user-avatar-comment"></a>
+													</div>
+													<div class="media-body media-right">
+														<h3 class="media-heading">'.$friend["user_name"].'</h3>
+													</div>
+												</div>
+											</div>
+											';
+										}
+									}
+									echo'
+								</div>
+							</div>
+
+							<!-- Followers -->
+							<div id="followers" class="tab-pane fade user-posts">
+								<div class="row">
+									';
+
+									$followers = $the_user["user_following"];
+									$followers_array = explode(",", $followers);
+									$f_count = count($followers_array);
+
+									if ($f_count < 2) {
+										echo '
+										<div class="row section something-bad">
+											<p> Nadie sigue a '.$the_user['user_name'].'</p>
+											<p> ¡Se el primero! </p>
+										</div>
+										';
+									} else {
+										foreach ($follower as $followers_array) {
+											$friend = get_user_from_id($mysqli, $follower);
+											echo '
+											<div class="col-md-4">
+												<div class="media">
+													<div class="media-left">
+														<a href="user.php?id='.$friend["user_id"].'"><img alt="Imagen de Amigo" src="'.$friend["user_avatar"].'" class="img-circle media-object user-avatar-comment"></a>
+													</div>
+													<div class="media-body media-right">
+														<h3 class="media-heading">'.$friend["user_name"].'</h3>
+													</div>
+												</div>
+											</div>
+											';
+										}
+									}
+									echo'
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>';
+		}
+	}
+	?>
+
+
+
 </body>
 </html>
