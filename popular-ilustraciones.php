@@ -33,7 +33,7 @@
 		$consulta = "SELECT * FROM users, posts where users.user_id=posts.post_owner and posts.post_type='Picture' order by posts.post_views DESC limit 10";
 		$resultado = $mysqli->query($consulta) or die ($mysqli->error."en la linea".(__LINE__-1));
 		$cont = 1;
-			if($cont>10){
+			if($cont<10){
 			echo "NO EXISTEN SUFICIENTES CANCIONES";
 		}
 		else{
