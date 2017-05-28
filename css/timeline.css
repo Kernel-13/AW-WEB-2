@@ -4,6 +4,10 @@ body {
 	font-family: 'Muli', sans-serif;
 }
 
+.media {
+	border-radius: 100px;
+}
+
 .media:hover {
 	background-color: rgba(0, 0, 0, 0.6);
 	/*opacity: 1;

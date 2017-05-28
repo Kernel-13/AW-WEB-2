@@ -79,7 +79,7 @@ require "includes/db.php";
 								<h3>'.$post["post_favourites"].' Likes</h3>
 							</div>	
 							<div id="author-info">
-								<h2>Titulo de la Canción</h2>
+								<h2>'.$post["post_title"].'</h2>
 								<p><a href="user.php?id='.$post["post_owner"].'">by '.$us["user_name"].'</a></p>
 							</div>
 							<p>	'.nl2br($post["post_description"]).'</p>

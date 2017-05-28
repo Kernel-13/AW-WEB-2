@@ -37,9 +37,10 @@ require "includes/db.php";
 		}
 
 		if (isset($_POST['submit']) && $ok == TRUE) {
-			$title = mysqli_real_escape_string($mysqli,stripslashes($_POST['title']));
-			$description = mysqli_real_escape_string($mysqli,stripslashes($_POST['description']));
-			$tags = mysqli_real_escape_string($mysqli,stripslashes($_POST['tags']));
+
+			$title = mysqli_real_escape_string($mysqli,stripslashes(htmlspecialchars(trim(strip_tags($_POST['title'])))));
+			$description = mysqli_real_escape_string($mysqli,stripslashes(htmlspecialchars(trim(strip_tags($_POST['description'])))));
+			$tags = mysqli_real_escape_string($mysqli,stripslashes(htmlspecialchars(trim(strip_tags($_POST['tags'])))));
 
 			if (isset($_FILES['song'])) {
 
@@ -77,10 +78,8 @@ require "includes/db.php";
 						$number = $resultado->fetch_assoc();
 
 						if (is_null($number)) {
-							echo '<p> 1ra cancion ok</p>';
 							$p_id=0;
 						} else {
-							echo '<p> Select id ok</p>';
 							$p_id=$number["post_id"]+1;
 						}
 
@@ -163,6 +162,12 @@ require "includes/db.php";
 											</div>
 											';
 
+											$q = "SELECT * FROM posts WHERE post_title='$title' aND post_views=0 AND post_owner='".$_SESSION["user_id"]."'"
+											if ($mysqli->query($q) === TRUE) {
+												header("Location: song.php?id=".$post['post_id']."");
+											} else {
+												header("Location: index.php");
+											}
 
 										// Si no se ha podido guardar
 										} else {
@@ -189,13 +194,19 @@ require "includes/db.php";
 						} else {
 
 							// Si se guarda
-							if ($mysqli->query($registro) === TRUE) {
+							if ($mysqli->query($query2) === TRUE) {
 								echo '
 								<div class="row section something-bad">
 									<p> La cancion se ha podido guardado exitosamente! </p>
 								</div>
 								';
 
+								$q = "SELECT * FROM posts WHERE post_title='$title' aND post_views=0 AND post_owner='".$_SESSION["user_id"]."'"
+								if ($mysqli->query($q) === TRUE) {
+									header("Location: song.php?id=".$post['post_id']."");
+								} else {
+									header("Location: index.php");
+								}
 
 							// Si no se ha podido guardar
 							} else {

@@ -99,3 +99,21 @@ input[type=file] {
     width: 220px;
     margin: auto;
 }
+
+.delete-class {
+	margin-left: auto;
+	margin-right: auto;
+	width: 600px;
+	text-align: center;
+	font-family: 'Open Sans', sans-serif;
+	/*font-family: 'Muli', sans-serif;*/
+}
+
+.delete-class .panel-heading {
+	
+}
+
+.delete-class button {
+	width: 120px;
+	font-size: 20px;
+}

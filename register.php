@@ -146,7 +146,7 @@ require('includes/db.php');
 											$_SESSION['user_type'] = $person['user_type'];
 											$_SESSION['isAdmin'] = FALSE;
 
-											header("Location: user.php?id=".$_SESSION['id']."");
+											header("Location: user.php?id=".$_SESSION['user_id']."");
 										} else {
 											echo '
 											<div class="panel panel-info" style="text-align: center;">

@@ -1,159 +1,97 @@
 <?php
 session_start();
+require "includes/db.php";
 ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">	
-	<link rel="stylesheet" type="text/css" href="css/body-style.css">
+	<?php require "includes/head.php"; ?>
 	<link rel="stylesheet" type="text/css" href="css/flagged.css">
-	<link rel="icon" href="img/hecate.ico" type="image/x-icon" />
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<title>LastXanadu</title>
 </head>
 <body>
 	<?php require "includes/navbar.php"; ?>
+	<?php require "includes/functions.php"; ?>
 
 	<div class="container">
 
-		<!-- Friends Activity -->
-		<div class="row section">
-			<div class="col-md-12">
-				<h2>Contenido Marcado como Ofensivo</h2>
-				<table>
-					<tr>
-						<th>Tipo</th>
-						<th>Titulo</th>
-						<th>Autor</th>
-						<th>Nº de Veces Marcado</th>
-						<th>Opciones</th>
-					</tr>
-					<tr>
-						<td>Ilustración</td>
-						<td>Here Again</td>
-						<td><a href="user.php">KilloveFP</a></td>
-						<td>2</td>
-						<td>
-							<div>
-								<a class="btn btn-info" href="illust.php">Ir a Publicación</a>
-								<a class="btn btn-danger" href="#">Eliminar Publicación</a>
-							</div>
-						</td>
-					</tr>
-					<tr>
-						<td>Ilustración</td>
-						<td>Once More</td>
-						<td><a href="user.php">KilloveFP</a></td>
-						<td>4</td>
-						<td>
-							<div>
-								<a class="btn btn-info" href="illust.php">Ir a Publicación</a>
-								<a class="btn btn-danger" href="#">Eliminar Publicación</a>
-							</div>
-						</td>
-					</tr>
-					<tr>
-						<td>Canción</td>
-						<td>On Our Absolute One-Way Street</td>
-						<td><a href="user.php">KilloveFP</a></td>
-						<td>2</td>
-						<td>
-							<div>
-								<a class="btn btn-info" href="song.php">Ir a Publicación</a>
-								<a class="btn btn-danger" href="#">Eliminar Publicación</a>
-							</div>
-						</td>
-					</tr>
-					<tr>
-						<td>Canción</td>
-						<td>Solar Sect of Mystic Wisdom</td>
-						<td><a href="user.php">KilloveFP</a></td>
-						<td>3</td>
-						<td>
-							<div>
-								<a class="btn btn-info" href="song.php">Ir a Publicación</a>
-								<a class="btn btn-danger" href="#">Eliminar Publicación</a>
-							</div>
-						</td>
-					</tr>
-					<tr>
-						<td>Ilustración</td>
-						<td>Subterranean Stars</td>
-						<td><a href="user.php">KilloveFP</a></td>
-						<td>5</td>
-						<td>
-							<div>
-								<a class="btn btn-info" href="illust.php">Ir a Publicación</a>
-								<a class="btn btn-danger" href="#">Eliminar Publicación</a>
-							</div>
-						</td>
-					</tr>
-					<tr>
-						<td>Canción</td>
-						<td>Artificial Sun</td>
-						<td><a href="user.php">KilloveFP</a></td>
-						<td>6</td>
-						<td>
-							<div>
-								<a class="btn btn-info" href="song.php">Ir a Publicación</a>
-								<a class="btn btn-danger" href="#">Eliminar Publicación</a>
-							</div>
-						</td>
-					</tr>
-					<tr>
-						<td>Ilustración</td>
-						<td>Unreachable Moon</td>
-						<td><a href="user.php">KilloveFP</a></td>
-						<td>3</td>
-						<td>
-							<div>
-								<a class="btn btn-info" href="illust.php">Ir a Publicación</a>
-								<a class="btn btn-danger" href="#">Eliminar Publicación</a>
-							</div>
-						</td>
-					</tr>
-					<tr>
-						<td>Canción</td>
-						<td>Blue Tears</td>
-						<td><a href="user.php">KilloveFP</a></td>
-						<td>4</td>
-						<td>
-							<div>
-								<a class="btn btn-info" href="song.php">Ir a Publicación</a>
-								<a class="btn btn-danger" href="#">Eliminar Publicación</a>
-							</div>
-						</td>
-					</tr>
-					<tr>
-						<td>Canción</td>
-						<td>Red Blood</td>
-						<td><a href="user.php">KilloveFP</a></td>
-						<td>2</td>
-						<td>
-							<div>
-								<a class="btn btn-info" href="song.php">Ir a Publicación</a>
-								<a class="btn btn-danger" href="#">Eliminar Publicación</a>
-							</div>
-						</td>
-					</tr>
-					<tr>
-						<td>Ilustración</td>
-						<td>Purple Night</td>
-						<td><a href="user.php">KilloveFP</a></td>
-						<td>1</td>
-						<td>
-							<div>
-								<a class="btn btn-info" href="song.php">Ir a Publicación</a>
-								<a class="btn btn-danger" href="#">Eliminar Publicación</a>
-							</div>
-						</td>
-					</tr>
-				</table>
+		<?php
+
+		if (isset($_SESSION["username"]) && $_SESSION["isAdmin"] === TRUE){
+
+			$query = "SELECT * FROM posts WHERE post_flags>3 ORDER BY post_flags DESC";
+			$resultado = $mysqli->query($query) or die ($mysqli->error. " en la línea ".(__LINE__-1));;
+
+			$rows = mysqli_num_rows($resultado);
+
+			if ($rows < 1) {
+				echo '
+				<div class="row section something-bad">
+					<h3> Ningún contenido ha sido marcado como ofensivo </h3>
+				</div>
+				';
+			} else {
+				echo '
+				<div class="row section">
+					<div class="col-md-12">
+						<h2>Contenido Marcado como Ofensivo</h2>
+						<table>
+							<tr>
+								<th>Tipo</th>
+								<th>Titulo</th>
+								<th>Autor</th>
+								<th>Nº de Veces Marcado</th>
+								<th>Opciones</th>
+							</tr>
+							';
+
+							while ($post = $resultado->fetch_assoc()) {
+								$user = get_user_from_id($mysqli, $post["post_owner"]);
+								echo '
+								<tr>
+									<td>'.$post["post_type"].'</td>
+									<td>'.$post["post_title"].'</td>
+									<td><a href="user.php?id='.$user['user_id'].'">'.$user['user_name'].'</a></td>
+									<td>'.$post["post_flags"].'</td>
+									<td>
+										<div>';
+
+											if ($post["post_type"] == 'Song') {
+												echo '<a class="btn btn-info" href="song.php?id='.$post["post_id"].'">Ir a Publicación</a>';
+											} else {
+												echo '<a class="btn btn-info" href="illust.php?id='.$post["post_id"].'">Ir a Publicación</a>';
+											}
+											
+											echo 
+											'<a class="btn btn-danger" href="delete.php?id='.$post["post_id"].'">Eliminar Publicación</a>
+										</div>
+									</td>
+								</tr>
+								';
+							}
+
+							echo '
+						</table>
+					</div>
+				</div>
+				';
+			}
+
+		} elseif (!isset($_SESSION["username"])) {
+			echo '
+			<div class="row section something-bad">
+				<h3> Debes Iniciar Sesión o Registrarte para acceder a esta página! </h3>
 			</div>
-		</div>
+			';
+		} elseif ($_SESSION["isAdmin"] === FALSE) {
+			echo '
+			<div class="row section something-bad">
+				<h3> Esta pagina solo esta disponible para los administradores </h3>
+			</div>
+			';
+		}
+
+		?>
 	</div>
 </body>
 </html>

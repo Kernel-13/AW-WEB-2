@@ -97,6 +97,15 @@
 	font-size: 18px;
 }
 
+.edit-body{
+	padding: 20px;
+}
+
+.title-header {
+	padding-bottom: 20px;
+	text-align: center;
+}
+
 @media (max-width: 768px) {
 	.caption {
 		display: none;
