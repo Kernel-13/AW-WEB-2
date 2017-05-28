@@ -34,7 +34,7 @@
 		$resultado = $mysqli->query($consulta) or die ($mysqli->error."en la linea".(__LINE__-1));
 		$cont = 1;
 			if($cont<10){
-			echo "NO EXISTEN SUFICIENTES CANCIONES";
+			echo "NO EXISTEN SUFICIENTES ILUSTRACIONES";
 		}
 		else{
 			while ($row = mysqli_fetch_row($resultado)){
