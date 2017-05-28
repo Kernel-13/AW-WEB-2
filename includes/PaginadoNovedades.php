@@ -4,10 +4,15 @@
 			<table class='botones-tabla'>
 				<tbody>
 					<tr>
-						<td>
+						<td>";
+						if($paginaActual>1){
+							$paginaActual--;
+						echo "
 							<ul class='pager'>
-								<!--<li class='previous'><a href='novedades.html'>Previous</a></li>-->
-							</ul>
+								<li class='previous'><a href='novedades.php?paginaActual=$paginaActual'>Previous</a></li>
+							</ul>";}
+
+						echo"	
 						</td>
 						<td id='botones-numericos'>
 							<ul class='pagination pagination-sm pager'>
@@ -27,10 +32,15 @@
 							echo "
 							</ul>
 						</td>
-						<td>
-							<ul class='pager'>
-								<li id='boton-next-prev' class='next'><a href='novedadesP2.html'>Next</a></li>
-							</ul>
+						<td>";
+						if($paginaActual<$totalPaginas){
+							$paginaActual++;
+								echo"
+								<ul class='pager'>
+									<li id='boton-next-prev' class='next'><a href='novedades.php?paginaActual=$paginaActual'>Next</a></li>
+								</ul>";}
+
+							echo"
 						</td>
 					</tr>
 				</tbody>
