@@ -62,8 +62,10 @@
 		    					$autores = $mysqli->query($users) or die($mysqli->error."en la línea".(_LINE_-1));
 		                    	$autor = $autores->fetch_array(MYSQLI_BOTH);
 					 			$cont++;
+					 			$textoRecortado = substr($registro['post_description'], 0, 200);
+	                    		$longitudString = strlen ( $textoRecortado );
 								echo "<div class='desc-box-illust'>
-										<h3>$registro[post_title]</h3>
+										<h3><a  href='$registro[post_illust]'>$registro[post_title]</a></h3>
 									</div>
 									<div class='box'>
 									<img class='img-rounded img-responsive ilust' alt='John' src=$registro[post_illust]>
@@ -74,7 +76,10 @@
 										</div>
 										<div>
 											<div class='panel panel-default'>
-												<div class='panel-body'> $registro[post_description]
+												<div class='panel-body'> $textoRecortado"; if($longitudString == 200){
+														echo "... (para seguir leyendo pincha en el titulo)";
+													}
+												echo"</p>
 												</div>
 											</div>
 										</div>
