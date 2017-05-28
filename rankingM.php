@@ -24,23 +24,24 @@
 		<div class="col-sm-8">        
 		<div id="cabecera" class="row"> 
             <div class="col-lg-12">
-                <h3>Lista de éxitos de la semana
-                        <small id="subt">¡Lo último!</small>                        
+                <h3 id="titulo">Lista de éxitos de la semana
+                        <h4 id="rojo">&#33Tenemos las &uacuteltimas canciones, no te los pierdas!</h4>                       
                 </h3>
             </div>
         </div>
-        <hr>                     
+        <hr id="lineapunteada"/>                   
             <?php 
             $consulta = "SELECT * FROM users, posts where users.user_id=posts.post_owner and posts.post_type='Song' order by posts.post_favourites DESC limit 10";
             $resultado = $mysqli->query($consulta) or die ($mysqli->error."en la linea".(__LINE__-1));
             $cont = 1;
             while ($row = mysqli_fetch_row($resultado)){                                          
             	echo '<div class="row">
-				<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-					<div class="top">'.$cont.'</div>
+				<div class="col-xs-12 col-sm-12 col-md-4 col-lg-12">			
 					<img class="img-responsive" src="'.$row[15].'" alt="">
 				</div>
-				<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+				<br/>
+				<div id="centrar" class="col-xs-12 col-sm-12 col-md-4 col-lg-12">
+					<div class="top">'.$cont.'</div>
 					<h4 class="centar">'.$row[11].'</h4>
 				
 					 <h5 class="media-heading"><a href="user.php?user='.$row[0].'">'.$row[1].'</a></h5>
@@ -57,7 +58,7 @@
             	
             	echo '<br>';
             	
-            	echo '<hr>';            	
+            	echo '<hr id="lineapunteada">';            	
                     	
             	$cont++;
             }
@@ -65,34 +66,23 @@
             $mysqli->close();
             ?>
                 </div>
-
                 <!--Acontecimientos-->
                 <div id="cabecera" class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                     <div>
-                        <h3>Acontecimientos...</h3>
+                        <h3 id="acont">Pr&oacuteximos eventos...</h3>
 
                         <h4 class="headercomentario">Madrid</h4>
-                        <p>Julian castillo ha publicado este mes de Abril un nuevo cover.</p>
-                        <p>Sandra Romero ha anunciado que dejar&aacute de momento de publicar sus canciones...por temas personales.Estat&eacute; a la espera para poder saber m&aacutes de los acontecimientos.</p>
-                        <p>Puedes acudir a la firma de discos de Jennifer Sweet en la Caja M&aacutegica de Madrid est&aacutes invitado este mes de abril el d&iacutea 25. Te esperamos...</p>
+                        <p>Julian castillo ha publicado este mes de Abril un nuevo cover.</p>                        
+                       	<img id="adapter" alt="madrid" src="img\madrid.jpg">
+                       
                         <h4 class="headercomentario">Barcelona</h4>
                         <p>En el palacio de San Jordi van ha reunirse fans de Laura Sanz para no te lo puedes perder.</p>
+                        <img id="adapter" alt="barcelona" src="img\barcelona.jpg">
 
                         <h4 class="headercomentario">Valencia</h4>
                         <p>Nuevo disco de Santiago Lop&eacutez un nuevo tema que te gustar&aacute, pasat&eacute a escucharlo.</p>
-
-                        <h4 class="headercomentario">Bilbao</h4>
-                        <p>Alejandro Sanz ha estado acompa &ntildeando a Pablo Albatez promocionando su nuevo disco.
-                        </p>
-
-                        <h4 class="headercomentario">Palencia</h4>
-                        <p>Ha incrementado en buena medidad los cantautores en est&aacute ciudad ya tiene m&aacutes de 100 reproducciones diarias.</p>
-
-                        <h4 class="headercomentario">Galicia</h4>
-                        <p>Lleg&aacute el verano y con ello los nuevo covers de la banda de canautores solecitos.Tambi&eacuten puedes seguirnos v&iacutea twiterr, facebook o otras redes sociales.</p>
-                        <p>Te invitamo a participar en un sorteo para que puedas conocer a estos grandes artistas del momento s&oacutelo tienes que escuchar un min&iacutemo de 3 canciones en nuestro portal web.</p>
-
-                        
+						<img id="adapter" alt="valencia" src="img\valencia.jpg">
+						<p>Puedes seguirnos en nuestras redes sociales y compartirlo...</p>                      
 
                     </div>
                 </div> 
