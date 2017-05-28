@@ -33,7 +33,7 @@
 							</ul>
 						</td>
 						<td>";
-						if($paginaActual<$totalPaginas){
+						if($paginaActual!=ceil($totalPagAux)){
 							$paginaActual++;
 								echo"
 								<ul class='pager'>

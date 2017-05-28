@@ -46,7 +46,9 @@
 	}
 	$paginasMax = 10;
 	$num_total_registros = $resultado->num_rows;
-	$totalPaginas = ceil($num_total_registros/($numeroColumnas*$tamañoColumna));	
+	$totalArticulosPag = $numeroColumnas*$tamañoColumna;
+	$totalPagAux =$num_total_registros/($numeroColumnas*$tamañoColumna);
+	$totalPaginas = ceil($totalPagAux);	
 ?>
 <!DOCTYPE html>
 <html>
@@ -71,7 +73,8 @@
 
 			<h1>Novedades</h1>
 
-			<?php require "includes/novedadesBar.php"; ?>
+			<?php require "includes/novedadesBar.php";
+			?>
 
 
 
@@ -90,13 +93,14 @@
 	    					$autores = $mysqli->query($users) or die($mysqli->error."en la línea".(_LINE_-1));
 	                    	$autor = $autores->fetch_array(MYSQLI_BOTH);
 	                    	$contador++;
-
+	                    	$textoRecortado = substr($registro[post_description], 0, 60);
+	                    	$longitudString = strlen ( $textoRecortado );
 	                    	if($registro['post_type'] == "Picture"){
 	                    	//<!--titulo-->
 	                            echo "
 	                            	<div class='desc-box-illust'>
 			                        	<a  href='illust.html'>
-			                        		<h3>$registro[post_title] $paginaActual</h3>
+			                        		<h3>$registro[post_title]</h3>
 			                        	</a>
 			                        </div>";   
 
@@ -111,13 +115,11 @@
 									 	</div>
 									 	<div class='media-body'>
 										    <h4 class='media-heading'><a href='user?$registro[post_owner]'>$autor[user_name]</a></h4>
-											<p>$registro[post_description]</p>
-										    <div class=\"progress\">
-												<div id='barra' class='progress-bar' role='progressbar' aria-valuenow='60' aria-valuemin='0' aria-valuemax='100' style='width:90%'>
-													<span class='sr-only'>9/10</span>
-													puntuacion: 9/10
-												</div>
-											</div>
+											<p>$textoRecortado";
+											if($longitudString == 60){
+														echo "... (para seguir leyendo pincha en el titulo)";
+													}
+												echo"</p>
 									  	</div>
 									</div>";
 	                            }
@@ -144,15 +146,14 @@
 												</a>
 											</div>
 											<div class='panel-body'>
-												$registro[post_description]
+												$textoRecortado";
+													if($longitudString == 60){
+														echo "... (para seguir leyendo pincha en el titulo)";
+													}
+												echo"
 											</div>
 											<div class='panel-footer'>
-												<div class='progress'>
-													<div class='progress-bar' role='progressbar' aria-valuenow='60' aria-valuemin='0' aria-valuemax='100' style='width:65%'>
-														<span class='sr-only'>6.5/10</span>
-														puntuacion: 6.5/10
-													</div>
-												</div>
+												<p>visitas: $registro[post_views]</p>
 											</div>
 										</div>
 										<audio class=audio-player controls=controls> <source src=\"$registro[post_song]\" type=audio/mpeg> </audio>
