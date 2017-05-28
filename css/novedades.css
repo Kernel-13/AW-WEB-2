@@ -81,22 +81,27 @@ h4{
 }
 
 .panel{
+	background-color: white;
 	height: 216px;
+	height: 100%;
 	width: 60%;
 }
 
-/**.panel-heading{
-	background-color: red;
-}**/
+.panel-heading{
+	background-color: white;
+	height: 20%;
+}
 
 .panel-body{
 	padding-top: 40px;
 	background-color: #303030;
+	height: 60%;
 	color: white;
 	text-align: center;
 }
 
 .panel-footer{
+	height: 20%;
 	background-color: #A4A4A4;
 }
 
