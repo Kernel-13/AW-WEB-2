@@ -47,6 +47,7 @@ img{
 
 .row{
     margin: 1px;
+    margin-top: 80px;
 }
 
 .headercomentario{
@@ -124,12 +125,7 @@ h1{
     color: white;	
 }
 
-#adapter{
-	width: 345px;
-	heigth: 200px;
-}
-
-#lineapunteada{
+.lineapunteada{
 	border:1px dotted white; 
 	width:300px"
 }
@@ -142,6 +138,6 @@ h1{
       border:none;
 }
 
-#centrar{
+.centrar{
 	text-align:center;
 }
