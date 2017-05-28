@@ -22,14 +22,13 @@
     <!--AQUI-->  
     <div class="container">
 		<div class="col-sm-8">        
-		<div id="cabecera" class="row"> 
-            <div class="col-lg-12">
-               <h3 id="titulo">Las mejores pinturas
-                        <h4 id="rojo">&#33Tenemos las &uacuteltimas obras de arte, no te los pierdas!</h4>                       
-                </h3>
+		<div class="row"> 
+             <div class="col-lg-12">
+                <h3 id="titulo">Las mejores pinturas de la semana </h3>
+                	<h4 id="rojo">&#33;Tenemos las &uacute;ltimas obras de arte, no te los pierdas!</h4>                                       
             </div>
         </div>
-         <hr id="lineapunteada"/>                      
+         <hr class="lineapunteada"/>                      
             <?php 
             $consulta = "SELECT * FROM users, posts where users.user_id=posts.post_owner and posts.post_type='Picture' order by posts.post_favourites DESC limit 10";
             $resultado = $mysqli->query($consulta) or die ($mysqli->error."en la linea".(__LINE__-1));
@@ -40,10 +39,9 @@
 					<img class="img-responsive" src="'.$row[15].'" alt="">
 				</div>
 				<br/>
-				<div id="centrar" class="col-xs-12 col-sm-12 col-md-4 col-lg-12">
+				<div class="col-xs-12 col-sm-12 col-md-4 col-lg-12">
 					<div class="top">'.$cont.'</div>
-					<h4 class="centar">'.$row[11].'</h4>
-				
+					<h4>'.$row[11].'</h4>				
 					 <h5 class="media-heading"><a href="user.php?user='.$row[0].'">'.$row[1].'</a></h5>
 					 <a class="btn btn-primary" href="song.php">Más información<span class="glyphicon glyphicon-chevron-right"></span></a>
 						<h5>'.$row[16].' Reproducciones</h5>
@@ -58,7 +56,7 @@
             	
             	echo '<br>';
             	
-            	echo '<hr id="lineapunteada">';
+            	echo '<hr class="lineapunteada">';
             	
             	$cont++;
             }
@@ -69,22 +67,22 @@
 
                 <!--Acontecimientos-->
                 <div id="cabecera" class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-                    <div>
-                       <h3 id="acont">Pr&oacuteximos eventos...</h3>
+                     <div>
+                        <h3 id="acont">Pr&oacute;ximos eventos...</h3>
 
-                       <h4 class="headercomentario">Madrid</h4>
+                        <h4 class="headercomentario">Madrid</h4>
                         <p>Julian castillo ha publicado este mes de Abril un nuevo cover.</p>                        
-                       	<img id="adapter" alt="madrid" src="img\madrid.jpg">
+                       	<img alt="madrid" src="img/madrid.jpg" height="200" width="350">
                        
                         <h4 class="headercomentario">Barcelona</h4>
                         <p>En el palacio de San Jordi van ha reunirse fans de Laura Sanz para no te lo puedes perder.</p>
-                        <img id="adapter" alt="barcelona" src="img\barcelona.jpg">
+                        <img alt="barcelona" src="img/barcelona.jpg" height="200" width="350">
 
                         <h4 class="headercomentario">Valencia</h4>
-                        <p>Nuevo disco de Santiago Lop&eacutez un nuevo tema que te gustar&aacute, pasat&eacute a escucharlo.</p>
-						<img id="adapter" alt="valencia" src="img\valencia.jpg">
-						<p>Puedes seguirnos en nuestras redes sociales y compartirlo...</p>
-                        
+                        <p>Nuevo disco de Santiago Lorenzo un nuevo tema que te gustar&aacute;, pasat&eacute; a escucharlo.</p>
+						<img alt="valencia" src="img/valencia.jpg" height="200" width="350">
+						<p>Puedes seguirnos en nuestras redes sociales y compartirlo...</p>                      
+
                     </div>
                 </div> 
             </div>     
@@ -130,9 +128,6 @@
                 <li><a href="actualizaciones.html">Actualizaciones y novedades de la pagina</a></li>
             </ul>
         </footer>
-
-    </div>
-    <!-- /.container -->
 
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
