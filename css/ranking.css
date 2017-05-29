@@ -148,3 +148,8 @@ h1{
     width: 50%;/*con estos parámetros*/
     height: auto; /*hacemos que sea responsive*/
 }
+
+.titulobonito{
+	color:#DAA520;
+    font-size: 3em;
+}
