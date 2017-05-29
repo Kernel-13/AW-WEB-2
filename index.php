@@ -1,16 +1,5 @@
 <?php 
-	//////////////////////////////////////////CONEXIÓN A LA BASE DE DATOS////////////////////////////////////
-	$hostname = '127.0.0.1';
-	$usuario = 'root'; 
-	$password = ""; 
-	$basededatos = 'lastxanadu';
-	$mysqli = new mysqli($hostname, $usuario, $password, $basededatos);
-	
-		
-	if(mysqli_connect_errno()){
-		echo "Error de conexión a la BD: ".mysqli_connect_error();
-		exit();
-	}
+	require "db.php";
 
 
 	//////////////////////////////////////////CONSULTA  ALA BASE DE DATOS////////////////////////////////////
