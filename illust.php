@@ -98,7 +98,7 @@ require "includes/db.php";
 										</div>
 
 										<!-- Description -->
-										<p class="bigger-text"> '.nl2br($post["post_description"]).' </p><br
+										<p class="bigger-text"> '.nl2br($post["post_description"]).' </p><br>
 
 										<!-- Tags -->
 										<p class="text-change">Tags: ';
@@ -129,7 +129,7 @@ require "includes/db.php";
 												';
 											} else {
 
-												if ($_SESSION['isAdmin'] == TRUE) {
+												if ($_SESSION['isAdmin'] == TRUE  || $post["post_owner"] == $_SESSION['user_id']) {
 													$ok = FALSE;
 													echo '
 													<a class="btn btn-danger" href="delete.php?id='.$post["post_id"].'"> <span class="glyphicon glyphicon glyphicon-trash"></span> Borrar esta publicación</a><br>
@@ -212,7 +212,7 @@ require "includes/db.php";
 						echo '
 						<!-- Post a Comment -->
 						<div class="row section" id="post-a-commment">
-							<form method="post" action="">
+							<form method="post" action="'.$_SERVER["PHP_SELF"].'?id='.$post["post_id"].'">
 								<div class="col-md-2">
 									<label for="make-comment">Publica un Comentario:</label>
 								</div>

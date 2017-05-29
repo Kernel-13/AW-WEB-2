@@ -88,7 +88,6 @@ require('includes/db.php');
 						}
 					}
 				} elseif ($ok === TRUE){
-
 					?>
 
 					<div class="panel panel-info">
@@ -96,7 +95,7 @@ require('includes/db.php');
 							<h4>¿Estas seguro de que deseas borrar "<?php echo $post['post_title']; ?>" ?</h4>
 						</div>
 						<div class="panel-body">
-							<form class="form-horizontal" action="" method="post">
+							<form class="form-horizontal"<?php echo 'action="'.$_SERVER['PHP_SELF'].'?id='.$post["post_id"].'"'; ?> method="post">
 								<div class="form-group"> 
 									<div class="col-sm-12 submitButton">
 										<button type="submit" name="yes" class="btn btn-danger">Si</button>
@@ -111,11 +110,10 @@ require('includes/db.php');
 			</div>
 		</div>			
 	</div>
-</div>
 
-<?php 
-mysqli_close($mysqli);
-?>
+	<?php 
+	mysqli_close($mysqli);
+	?>
 
 	<!--
 

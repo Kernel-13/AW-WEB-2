@@ -143,7 +143,7 @@ require('includes/db.php');
 														</div>
 														<div class="media-right media-body">
 															<h3 class="media-heading"> <a href="song.php?id='.$post['post_id'].'">'.$post['post_title'].'</a> </h3>
-															<h4 class="media-heading"> <a href="user.php?id='.$user_data['user_id'].'" ">By '.$user_data['user_name'].'</a></h4>
+															<h4 class="media-heading"> <a href="user.php?id='.$user_data['user_id'].'">By '.$user_data['user_name'].'</a></h4>
 															<p> Tags: ';
 
 																$tags = $post['post_tags'];
@@ -151,7 +151,7 @@ require('includes/db.php');
 
 																if (count($tag_list) > 0) {
 																	foreach ($tag_list as $tag) {
-																		echo '<a href="search.php?texto='.trim($tag).'">'.$tag.'</a> ';
+																		echo '<a href="search.php?texto='.trim(urlencode($tag)).'">'.$tag.'</a> ';
 																	}
 																} else {
 																	echo "No Tags";
@@ -243,7 +243,7 @@ require('includes/db.php');
 																<a href="user.php?id='.$friend["user_id"].'"><img alt="Imagen de Amigo" src="'.$friend["user_avatar"].'" class="img-circle media-object user-avatar-comment"></a>
 															</div>
 															<div class="media-body media-right">
-																<h2 class="media-heading"><a href="user.php?id='.$friend['user_id'].'" ">'.$friend['user_name'].'</a></h2>
+																<h2 class="media-heading"><a href="user.php?id='.$friend['user_id'].'">'.$friend['user_name'].'</a></h2>
 															</div>
 														</div>
 													</div>
@@ -284,11 +284,11 @@ require('includes/db.php');
 																<a href="user.php?id='.$friend["user_id"].'"><img alt="Imagen de Amigo" src="'.$friend["user_avatar"].'" class="img-circle media-object user-avatar-comment"></a>
 															</div>
 															<div class="media-body media-right">
-																<h2 class="media-heading"><a href="user.php?id='.$friend['user_id'].'" ">'.$friend['user_name'].'</a></h2
-																</div>
+																<h2 class="media-heading"><a href="user.php?id='.$friend['user_id'].'">'.$friend['user_name'].'</a></h2>
 															</div>
 														</div>
 													</div>
+													
 													';
 												}
 											}

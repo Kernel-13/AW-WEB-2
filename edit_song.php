@@ -196,7 +196,7 @@ require "includes/db.php";
 			?>
 
 			<div class="row">
-				<form class="form-horizontal" enctype="multipart/form-data" method="post" action="">
+				<form <?php echo 'class="form-horizontal"  enctype="multipart/form-data" action="'.$_SERVER['PHP_SELF'].'" method="post"'; ?>>
 					<div class="col-md-12">
 						<div class="panel panel-info">
 							<div class="panel-heading">

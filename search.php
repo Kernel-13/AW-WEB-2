@@ -85,7 +85,7 @@ require "includes/db.php";
 												</div>
 												<div class="media-right media-body">
 													<h3 class="media-heading"> <a href="song.php?id='.$res['post_id'].'">'.$res['post_title'].'</a> </h3>
-													<h4 class="media-heading"> <a href="user.php?id='.$user_data['user_id'].'" ">By '.$user_data['user_name'].'</a></h4>
+													<h4 class="media-heading"> <a href="user.php?id='.$user_data['user_id'].'">By '.$user_data['user_name'].'</a></h4>
 													<p>'.$res['post_description'].'</p>
 													<p> Tags: ';
 
@@ -94,7 +94,7 @@ require "includes/db.php";
 
 														if (count($tag_list) > 0) {
 															foreach ($tag_list as $tag) {
-																echo '<a href="search.php?texto='.trim($tag).'">'.$tag.'</a> ';
+																echo '<a href="search.php?texto='.trim(urlencode($tag)).'">'.$tag.'</a> ';
 															}
 														} else {
 															echo "No Tags";
@@ -165,7 +165,7 @@ require "includes/db.php";
 												</div>
 												<div class="media-right media-body">
 													<h3 class="media-heading"> <a href="illust.php?id='.$res['post_id'].'">'.$res['post_title'].'</a> </h3>
-													<h4 class="media-heading"> <a href="user.php?id='.$user_data['user_id'].'" ">By '.$user_data['user_name'].'</a></h4>
+													<h4 class="media-heading"> <a href="user.php?id='.$user_data['user_id'].'">By '.$user_data['user_name'].'</a></h4>
 													<p>'.$res['post_description'].'</p>
 													<p> Tags: ';
 
@@ -239,7 +239,7 @@ require "includes/db.php";
 												<a href="user.php?id='.$res['user_id'].'"><img alt="Preview" src="'.$res['user_avatar'].'" class="media-object search"></a>
 											</div>
 											<div class="media-right media-body">
-												<h3 class="media-heading"> <a href="user.php?id='.$res['user_id'].'" ">'.$res['user_name'].'</a></h3>
+												<h3 class="media-heading"> <a href="user.php?id='.$res['user_id'].'">'.$res['user_name'].'</a></h3>
 												<h4>'.$res['user_description'].'</h4>
 											</div>
 										</div>

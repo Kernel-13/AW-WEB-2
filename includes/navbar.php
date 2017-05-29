@@ -42,7 +42,6 @@
 						<li><a href="rankingI.php">Ilustraciones</a></li>
 					</ul>
 				</li>
-				<li><a href="site_map.php">Mapa del Sitio</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<?php 
@@ -84,6 +83,14 @@
 				}
 				?>
 			</ul>
+			<form class="navbar-form" method="get" action="search.php">
+				<div class="input-group">
+					<input type="text" class="form-control" placeholder="Busqueda" name="texto" id="search">
+					<div class="input-group-btn">
+						<button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+					</div>
+				</div>
+			</form>
 		</div>
 	</div>
 </nav>

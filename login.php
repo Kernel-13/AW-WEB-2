@@ -71,7 +71,7 @@ require('includes/db.php');
 								Inicio de Sesión
 							</div>
 							<div class="panel-body">
-								<form class="form-horizontal" action="" method="post">
+								<form <?php echo 'class="form-horizontal" action="'.$_SERVER['PHP_SELF'].'" method="post"'; ?>>
 									<div class="form-group">
 										<div class="col-sm-12">
 											<label class="sr-only" for="username">Email</label>

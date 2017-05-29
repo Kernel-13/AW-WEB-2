@@ -130,7 +130,7 @@ require "includes/db.php";
 		} elseif ($ok == 1) {
 			?>
 
-			<form class="form-horizontal" enctype="multipart/form-data" method="post" action="">
+			<form class="form-horizontal" enctype="multipart/form-data" method="post" <?php echo 'action="'.$_SERVER['PHP_SELF'].'"'; ?>>
 				<div class="row">
 					<div class="col-md-12">
 						<div class="panel panel-info">

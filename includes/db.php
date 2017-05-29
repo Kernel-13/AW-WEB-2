@@ -1,9 +1,9 @@
 <?php 
 
-$localhost = "mysql.hostinger.es";
-$username = "u970602151_lx";
+$localhost = "localhost";
+$username = "eiki";
 $password = "yamaxanadu";
-$db = "u970602151_lx";
+$db = "lastxanadu";
 
 $mysqli = new mysqli( $localhost, $username, $password,	$db);
 if ( mysqli_connect_errno() ) {

@@ -40,8 +40,7 @@ require "includes/db.php";
 			echo '
 			<div class="row section">
 				<div class="col-md-12">
-					<h2 class="title-header">Mis '.$titulo.' Subidas</h2>'
-					;
+					<h2 class="title-header">Mis '.$titulo.' Subidas</h2>';
 
 					$i = $_SESSION['user_id'];
 					$music_query = "SELECT * FROM posts WHERE post_owner='$i' AND post_type='$tipo' ORDER BY post_date";
@@ -104,20 +103,20 @@ require "includes/db.php";
 								';
 							}
 							echo '
-						</table>
-					</div>
-				</div>';
-			} else {
-				echo '
-				<div class="row section something-bad">
-					<p> No has subido nada por ahora </p>
-				</div>
-				';
-			}
+						</table>';
+					} else {
+						echo '
+						<div class="row section something-bad">
+							<p> No has subido nada por ahora </p>
+						</div>
+						';
+					}
 
-			echo '
-		</div>
-		';	} 
+					echo '
+				</div>
+			</div>
+			';	
+		} 
 		?>
 
 	</div>
@@ -125,6 +124,5 @@ require "includes/db.php";
 	<?php 
 	mysqli_close($mysqli);
 	?>
-</div>
 </body>
 </html>

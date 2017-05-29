@@ -153,7 +153,7 @@ require('includes/db.php');
 								Registro
 							</div>
 							<div class="panel-body">
-								<form class="form-horizontal" action="" method="post" enctype="multipart/form-data">
+								<form class="form-horizontal" <?php echo 'action="'.$_SERVER['PHP_SELF'].'"'; ?> method="post" enctype="multipart/form-data">
 									<div class="row">
 
 										<div class="col-md-6">

@@ -72,7 +72,7 @@ require('includes/db.php');
 				<div class="col-lg-12">
 					<h3>Enviar Mensaje</h3>
 				</div>
-				<form class="form-horizontal" method="post" action="">
+				<form <?php echo 'class="form-horizontal" action="'.$_SERVER['PHP_SELF'].'" method="post"'; ?>>
 					<div class="col-lg-12">
 						<div class="form-group">
 							<div class="col-md-12">

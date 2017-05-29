@@ -87,7 +87,7 @@ require "includes/db.php";
 														</div>
 														<div class="media-right media-body">
 															<h3 class="media-heading"> <a href="song.php?id='.$post['post_id'].'">'.$post['post_title'].'</a> </h3>
-															<h4 class="media-heading"> <a href="user.php?id='.$user_data['user_id'].'" ">By '.$user_data['user_name'].'</a></h4>
+															<h4 class="media-heading"> <a href="user.php?id='.$user_data['user_id'].'">By '.$user_data['user_name'].'</a></h4>
 															<p class="tags"> Tags: ';
 
 																$tags = $post['post_tags'];

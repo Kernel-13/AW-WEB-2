@@ -83,7 +83,7 @@ require "includes/db.php";
 								$tags = explode(",", $array);
 								if (count($tags) > 0) {
 									foreach ($tags as $tag) {
-										echo '<a href="search.php?texto='.$tag.'">'.$tag.'</a> ';
+										echo '<a href="search.php?texto='.trim($tag).'">'.$tag.'</a> ';
 									}
 								} else {
 									echo 'No Tags';
@@ -115,8 +115,8 @@ require "includes/db.php";
 										';
 									} else {
 
-										if ($_SESSION['isAdmin'] == TRUE) {
-											$ok = FALSE;
+
+										if ($_SESSION['isAdmin'] == TRUE || $post["post_owner"] == $_SESSION['user_id']) {
 											echo '
 											<a class="btn btn-danger" href="delete.php?id='.$post["post_id"].'"> <span class="glyphicon glyphicon glyphicon-trash"></span> Borrar esta publicación</a>
 											';
@@ -192,7 +192,7 @@ require "includes/db.php";
 						echo '
 						<!-- Post a Comment -->
 						<div class="row section" id="post-a-commment">
-							<form method="post" action="">
+							<form method="post" action="'.$_SERVER["PHP_SELF"].'">
 								<div class="col-md-2">
 									<label for="make-comment">Publica un Comentario:</label>
 								</div>

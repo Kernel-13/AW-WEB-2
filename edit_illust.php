@@ -60,7 +60,7 @@ require "includes/db.php";
 				$ok = FALSE;
 				echo '
 				<div class="row section something-bad">
-				<p> Los administradores no editar editar ningún tipo de Contenido. </p>
+					<p> Los administradores no editar editar ningún tipo de Contenido. </p>
 					<p> Solo pueden administrarlo. </p>
 				</div>
 				';
@@ -122,7 +122,7 @@ require "includes/db.php";
 			?>
 
 			<div class="row">
-				<form class="form-horizontal" method="post" action="">
+				<form <?php echo 'class="form-horizontal" action="'.$_SERVER['PHP_SELF'].'" method="post"'; ?>>
 					<div class="col-md-12">
 						<div class="panel panel-info">
 							<div class="panel-heading">
