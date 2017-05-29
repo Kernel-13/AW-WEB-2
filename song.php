@@ -73,17 +73,17 @@ require "includes/db.php";
 								<h3>'.$post["post_views"].' Visitas</h3>
 							</div>	
 							<div id="author-info">
-								<h2>'.$post["post_title"].'</h2>
+								<h2>'.$post["post_title"].'</h2><br>
 								<p><a href="user.php?id='.$post["post_owner"].'">by '.$us["user_name"].'</a></p>
 							</div>
-							<p>	'.nl2br($post["post_description"]).'</p>
+							<p>	'.nl2br($post["post_description"]).'</p><br>
 							<p class="gray-text">Tags: ';
 
 								$array = $post["post_tags"];
 								$tags = explode(",", $array);
 								if (count($tags) > 0) {
 									foreach ($tags as $tag) {
-										echo '<a href="search.php?texto='.trim($tag).'">'.$tag.'</a> ';
+										echo '<a href="search.php?texto='.urlencode(trim($tag)).'">'.$tag.'</a> ';
 									}
 								} else {
 									echo 'No Tags';
