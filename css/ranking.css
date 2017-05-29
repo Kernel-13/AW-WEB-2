@@ -47,7 +47,7 @@ img{
 
 .row{
     margin: 1px;
-    margin-top: 80px;
+    margin-top: 40px;
 }
 
 .headercomentario{
@@ -57,7 +57,7 @@ img{
 }
 
 #cabecera {
-    margin-top: 80px;
+    margin-top: 40px;
 }
 
 #subt {
@@ -105,9 +105,7 @@ h1{
 }
 
 .top{
-    width: 670px;
-    height: 60px;
-    text-align: center;
+    
     padding-top: 13px;
     color:#DAA520;
     font-size: 3em;
@@ -130,7 +128,6 @@ h1{
 	width:300px"
 }
 
-
 #foto{
 	display: block;
       margin-left: auto;
@@ -140,4 +137,14 @@ h1{
 
 .centrar{
 	text-align:center;
+}
+
+.ilust {
+    /*max-width: 300px;*/
+    /*height: 300px;*/
+    display: block; 
+    margin: auto;
+    background-color: black;
+    width: 50%;/*con estos parámetros*/
+    height: auto; /*hacemos que sea responsive*/
 }
