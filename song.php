@@ -114,6 +114,14 @@ require "includes/db.php";
 										<a class="btn btn-follow" href="follow.php?id='.$us["user_id"].'"> <span class="glyphicon glyphicon-eye-open"></span>  Seguir a '.$us["user_name"].'</a>
 										';
 									} else {
+
+										if ($_SESSION['isAdmin'] == TRUE) {
+											$ok = FALSE;
+											echo '
+											<a class="btn btn-danger" href="delete.php?id='.$post["post_id"].'"> <span class="glyphicon glyphicon glyphicon-trash"></span> Borrar esta publicación</a>
+											';
+										}
+
 										if (!is_following($mysqli, $us["user_id"] ,$_SESSION['user_id'])) {
 											echo '
 											<a class="btn btn-follow" href="follow.php?id='.$us["user_id"].'"> <span class="glyphicon glyphicon-eye-open"></span>  Seguir a '.$us["user_name"].'</a>
@@ -149,7 +157,7 @@ require "includes/db.php";
 
 							$query = "SELECT * FROM comments WHERE comment_post='".$post['post_id']."' ORDER BY comment_date DESC";
 							$resultado = $mysqli->query($query) or die ($mysqli->error. " en la línea ".(__LINE__-1));
-							if (is_null($resultado)) {
+							if (is_null($resultado) || mysqli_num_rows($resultado)==0) {
 								echo '
 								<div class="row section something-bad">
 									<p> No existen comentarios para esta canción</p>

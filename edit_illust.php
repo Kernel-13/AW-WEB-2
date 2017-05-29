@@ -56,6 +56,16 @@ require "includes/db.php";
 				';
 			}
 
+			if ($_SESSION['isAdmin'] == TRUE) {
+				$ok = FALSE;
+				echo '
+				<div class="row section something-bad">
+				<p> Los administradores no editar editar ningún tipo de Contenido. </p>
+					<p> Solo pueden administrarlo. </p>
+				</div>
+				';
+			}
+
 		}
 
 
@@ -126,8 +136,8 @@ require "includes/db.php";
 										<div class="col-lg-12">
 											<h4>Ilustración que vas a modificar:</h4>
 											<?php 
-												echo '<img class="img-responsive img-rounded" src="'.$post['post_illust'].'" alt="Tu Ilustración"/>';
-											 ?>
+											echo '<img class="img-responsive img-rounded" src="'.$post['post_illust'].'" alt="Tu Ilustración"/>';
+											?>
 										</div>
 									</div>
 

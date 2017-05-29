@@ -122,11 +122,20 @@ require "includes/db.php";
 										<div>
 											<hr>';
 
+
 											if (!isset($_SESSION['user_id'])) {
 												echo '
 												<a class="btn btn-follow" href="follow.php?id='.$us["user_id"].'"> <span class="glyphicon glyphicon-eye-open"></span>  Seguir a '.$us["user_name"].'</a><br>
 												';
 											} else {
+
+												if ($_SESSION['isAdmin'] == TRUE) {
+													$ok = FALSE;
+													echo '
+													<a class="btn btn-danger" href="delete.php?id='.$post["post_id"].'"> <span class="glyphicon glyphicon glyphicon-trash"></span> Borrar esta publicación</a><br>
+													';
+												}
+
 												if (!is_following($mysqli, $us["user_id"] ,$_SESSION['user_id'])) {
 													echo '
 													<a class="btn btn-follow" href="follow.php?id='.$us["user_id"].'"> <span class="glyphicon glyphicon-eye-open"></span>  Seguir a '.$us["user_name"].'</a><br>

@@ -23,6 +23,17 @@ require "includes/db.php";
 			if (is_null($user_info)) {
 				$ok = FALSE;
 			} else {
+
+				if ($_SESSION['isAdmin'] == TRUE) {
+					$ok = FALSE;
+					echo '
+					<div class="row section something-bad">
+						<p> Los administradores no pueden subir ningún tipo de Contenido. </p>
+						<p> Solo pueden administrarlo. </p>
+					</div>
+					';
+				}
+
 				if ($user_info["user_type"] != 'Composer') {
 					$ok = FALSE;
 					echo '
@@ -163,10 +174,18 @@ require "includes/db.php";
 											';
 
 											$q = "SELECT * FROM posts WHERE post_title='$title' aND post_views=0 AND post_owner='".$_SESSION["user_id"]."'";
-											if ($mysqli->query($q) === TRUE) {
+											$resultado = $mysqli->query($q);
+
+											if (mysqli_num_rows($resultado) == 1) {
+												$post = $resultado->fetch_assoc();
 												header("Location: song.php?id=".$post['post_id']."");
 											} else {
-												header("Location: index.php");
+												echo '
+												<div class="row section something-bad">
+													<p> Algo ha interrumpido la subida del archivo </p>
+													<p> Por favor, intentalo de nuevo </p>
+												</div>
+												';
 											}
 
 										// Si no se ha podido guardar
@@ -283,7 +302,7 @@ require "includes/db.php";
 											<div class="col-md-12">
 												<label for="cover">Escoge una imagen para usarla como 'cover' (Debe ser cuadrada)</label>
 												<div class="new-input">
-													<input id="cover" type="file" name="pic" accept="image/*" onchange="previewFile()">
+													<input id="cover" type="file" required="required" name="pic" accept="image/*" onchange="previewFile()">
 												</div>
 											</div>
 										</div>

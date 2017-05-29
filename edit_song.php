@@ -57,6 +57,16 @@ require "includes/db.php";
 				';
 			}
 
+			if ($_SESSION['isAdmin'] == TRUE) {
+				$ok = FALSE;
+				echo '
+				<div class="row section something-bad">
+				<p> Los administradores no pueden editar ningún tipo de Contenido. </p>
+					<p> Solo pueden administrarlo. </p>
+				</div>
+				';
+			}
+
 		}
 
 		if (isset($_POST['submit']) && $ok === TRUE) {
@@ -202,7 +212,7 @@ require "includes/db.php";
 												<div class="col-md-12">
 													<label for="cover">Escoge un 'cover' (Imagen cuadrada)</label>
 													<div class="new-input">
-														<input id="cover" type="file" name="pic" accept="image/*" onchange="previewFile()">
+														<input id="cover" required="required" type="file" name="pic" accept="image/*" onchange="previewFile()">
 													</div>
 												</div>
 												<div class="row section">

@@ -21,6 +21,17 @@ require "includes/db.php";
 		$post = "";
 
 		if(isset($_SESSION['username'])){
+
+			if ($_SESSION['isAdmin'] == TRUE) {
+				$ok = FALSE;
+				echo '
+				<div class="row section something-bad">
+					<p> Los administradores no pueden subir ningún tipo de Contenido. </p>
+					<p> Solo pueden administrarlo. </p>
+				</div>
+				';
+			}
+
 			if ($_SESSION['user_type'] != 'Illustrator') {
 				$ok = FALSE;
 
@@ -83,10 +94,18 @@ require "includes/db.php";
 						if ($mysqli->query($query2) === TRUE) {
 
 							$q = "SELECT * FROM posts WHERE post_title='$title' aND post_views=0 AND post_owner='".$_SESSION["user_id"]."'";
-							if ($mysqli->query($q) === TRUE) {
+							$resultado = $mysqli->query($q);
+
+							if (mysqli_num_rows($resultado) == 1) {
+								$post = $resultado->fetch_assoc();
 								header("Location: illust.php?id=".$post['post_id']."");
 							} else {
-								header("Location: index.php");
+								echo '
+								<div class="row section something-bad">
+									<p> Algo ha interrumpido la subida del archivo </p>
+									<p> Por favor, intentalo de nuevo </p>
+								</div>
+								';
 							}
 
 						} else {
