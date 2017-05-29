@@ -13,19 +13,10 @@
 				<li><a href="index.php">Inicio</a></li>
 				<li><a href="novedades.php">Novedades</a></li>
 				<li class="dropdown">
-					<a class="dropdown-toggle" data-toggle="dropdown" href="#">Música <span class="caret"></span></a>
+					<a class="dropdown-toggle" data-toggle="dropdown" href="#">Nuestros Usuarios <span class="caret"></span></a>
 					<ul class="dropdown-menu">
-						<li><a href="#">Nuestros Músicos</a></li>
-						<li><a href="#">Biblioteca de Canciones</a></li>
-						<li><a href="song.php">Canción Aleatoria</a></li>
-					</ul>
-				</li>
-				<li class="dropdown">
-					<a class="dropdown-toggle" data-toggle="dropdown" href="#">Ilustraciones <span class="caret"></span></a>
-					<ul class="dropdown-menu">
-						<li><a href="#">Nuestros Ilustradores</a></li>
-						<li><a href="#">Galeria de Imagenes</a></li>
-						<li><a href="illust.php">Ilustración Aleatoria</a></li>
+						<li><a href="nuestrosMusicos.php">Músicos</a></li>
+						<li><a href="nuestrosIlustradores.php">Ilustradores</a></li>
 					</ul>
 				</li>
 				<li class="dropdown">
