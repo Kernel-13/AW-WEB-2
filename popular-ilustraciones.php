@@ -1,4 +1,3 @@
-<?php
 	session_start();
 ?>
 <!DOCTYPE html>
@@ -21,45 +20,44 @@
 	
     <!--AQUI-->  
     <div class="container">
-		<div class="col-sm-8">
-			<div id="cabecera" class="row"> 
-				<div class="col-lg-12">
-					<h1>Top 10 Ilustraciones más populares </h1>
-				</div>
-			</div>
-			<hr>
+		<div class="col-md-8 col-xs-12">
+			<div class="row"> 
 
-		<?php
-		$consulta = "SELECT * FROM users, posts where users.user_id=posts.post_owner and posts.post_type='Picture' order by posts.post_views DESC limit 10";
-		$resultado = $mysqli->query($consulta) or die ($mysqli->error."en la linea".(__LINE__-1));
-		$cont = 1;
-			if($cont<10){
-			echo "NO EXISTEN SUFICIENTES ILUSTRACIONES";
-		}
-		else{
-			while ($row = mysqli_fetch_row($resultado)){
-				echo '<div class="row">
-					<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-						<div class="top">'.$cont.'</div>
-					</div>
-					<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-						<img class="img-responsive" src="'.$row[15].'" alt="">
-					</div>
-					
-					<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-						<h4 class="centar">'.$row[11].'</h4>
-						<h5 class="media-heading"><a href="user.php?user='.$row[0].'">'.$row[1].'</a></h5>
-						<a class="btn btn-primary" href="song.php">Más información<span class="glyphicon glyphicon-chevron-right"></span></a>
-							<h5>'.$row[16].' Visualizaciones</h5>
-					</div>
+				<div id= "cabecera">
+					<h1>Top 10 Ilustraciones más populares </h1>
+					<hr>
 				</div>
-				<hr>';
+		<?php
+			$consulta = "SELECT * FROM users, posts where users.user_id=posts.post_owner and posts.post_type='Picture' order by posts.post_views DESC limit 10";
+			$resultado = $mysqli->query($consulta) or die ($mysqli->error."en la linea".(__LINE__-1));
+			$cont = 1;
+		
+				while ($row = mysqli_fetch_row($resultado)){
+					echo "<div class='ficha'>
+						<div class='col-md-6 col-xs-12'>
+							<div class='col-md-2'>
+								<p class='top'>$cont</p>
+							</div>
+							<div class='col-md-10'>
+								<img class='imgEstilo' src=$row[15] alt=''>
+							</div>
+						</div>
+						
+						<div class='col-md-6 col-xs-12 box-text'>
+							<h4>$row[11]</h4>
+							<h5><a href='user.php?id=$row[0]'>$row[1]</a></h5>
+							<a class='btn btn-primary' href='illust.php?id=$row[0]'>Más información<span class='glyphicon glyphicon-chevron-right'></span></a>
+								<h5>$row[16] Reproducciones</h5>
+						</div>
+					  </div>
+					<hr>
+				";
 				$cont++;
 			}
-		}
 
-	$mysqli->close();
+		$mysqli->close();
 		?>
+			</div>
 		</div>
 
 		<!--Ultimos comentarios-->
@@ -76,7 +74,7 @@
 			</div>
 		</div>
 	
-
+	<?php require "includes/PiePagina.php"; ?>
     
 </body>
 </html>
