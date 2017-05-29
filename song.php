@@ -5,14 +5,9 @@ require "includes/db.php";
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="css/body-style.css">
+	<?php require "includes/head.php"; ?>
 	<link rel="stylesheet" type="text/css" href="css/post-style.css">
-	<link rel="icon" href="img/hecate.ico" type="image/x-icon" />
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/buttons.css">
 	<script type="text/javascript" src="js/main.js"></script>
 	<title>LastXanadu</title>
 </head>
@@ -48,9 +43,8 @@ require "includes/db.php";
 
 				if(isset($_POST["comment"]) && isset($_SESSION['username'])){
 					$i = $post["post_id"];
-					$o = $_SESSION['id'];
-					$b = mysqli_real_escape_string($mysqli,stripslashes($_POST["comment"]));
-
+					$o = $_SESSION['user_id'];
+					$b = mysqli_real_escape_string($mysqli,htmlspecialchars(trim(strip_tags($_POST["comment"]))));
 
 					$query = "INSERT INTO comments(comment_post, comment_owner, comment_body) VALUES('$i', '$o', '$b')";
 					if ($mysqli->query($query) === TRUE) {
@@ -76,7 +70,7 @@ require "includes/db.php";
 					<div class="row" id="song-info">
 						<div class="col-md-12">	
 							<div class="points">
-								<h3>'.$post["post_favourites"].' Likes</h3>
+								<h3>'.$post["post_views"].' Visitas</h3>
 							</div>	
 							<div id="author-info">
 								<h2>'.$post["post_title"].'</h2>
@@ -89,7 +83,7 @@ require "includes/db.php";
 								$tags = explode(",", $array);
 								if (count($tags) > 0) {
 									foreach ($tags as $tag) {
-										echo '<a href="search.php">'.$tag.'</a> ';
+										echo '<a href="search.php?texto='.$tag.'">'.$tag.'</a> ';
 									}
 								} else {
 									echo 'No Tags';
@@ -113,10 +107,28 @@ require "includes/db.php";
 						if (isset($_SESSION['username'])) {
 							echo '
 							<div class="col-md-12">
-								<div class="ratings">
-									<a class="btn btn-warning" href=""> <span class="glyphicon glyphicon-star"></span> Marcar como Favorito</a>
-									<a class="btn btn-success" href=""> <span class="glyphicon glyphicon-thumbs-up"></span> Like </a>
-									<a class="btn btn-danger" href=""> <span class="glyphicon glyphicon-flag"></span> Marcar como Ofensivo</a>
+								<div class="ratings">';
+
+									if (!isset($_SESSION['user_id'])) {
+										echo '
+										<a class="btn btn-follow" href="follow.php?id='.$us["user_id"].'"> <span class="glyphicon glyphicon-eye-open"></span>  Seguir a '.$us["user_name"].'</a>
+										';
+									} else {
+										if (!is_following($mysqli, $us["user_id"] ,$_SESSION['user_id'])) {
+											echo '
+											<a class="btn btn-follow" href="follow.php?id='.$us["user_id"].'"> <span class="glyphicon glyphicon-eye-open"></span>  Seguir a '.$us["user_name"].'</a>
+											';
+										} else {
+											echo '
+											<a class="btn btn-flag" href="follow.php?id='.$us["user_id"].'"> <span class="glyphicon glyphicon-eye-open"></span>  Dejar de Seguir a '.$us["user_name"].'</a>
+											';
+										}
+									}
+
+									echo'
+									<!--<a class="btn btn-warning" href=""> <span class="glyphicon glyphicon-star"></span> Marcar como Favorito</a>	-->
+
+									<a class="btn btn-danger" href="flagging.php?id='.$post["post_id"].'"> <span class="glyphicon glyphicon-flag"></span> Marcar como Ofensivo</a>
 								</div>
 							</div>
 							';
@@ -137,8 +149,7 @@ require "includes/db.php";
 
 							$query = "SELECT * FROM comments WHERE comment_post='".$post['post_id']."' ORDER BY comment_date DESC";
 							$resultado = $mysqli->query($query) or die ($mysqli->error. " en la línea ".(__LINE__-1));
-							$comentarios = $resultado->fetch_assoc();
-							if (is_null($comentarios)) {
+							if (is_null($resultado)) {
 								echo '
 								<div class="row section something-bad">
 									<p> No existen comentarios para esta canción</p>
@@ -147,7 +158,7 @@ require "includes/db.php";
 								</div>
 								';
 							} else {
-								foreach ($comentarios as $comment) {
+								while ($comment = $resultado->fetch_assoc()) {
 									$owner = get_user_from_id($mysqli, $comment["comment_owner"]);
 									echo '
 									<div class="row">
@@ -157,8 +168,8 @@ require "includes/db.php";
 													<a href="user.php?id='.$owner["user_id"].'"><img alt="Imagen de Usuario" class="media-object img-rounded user-avatar-comment" src="'.$owner["user_avatar"].'"></a>
 												</div>
 												<div class="media-body">
-													<h4 class="media-heading"> '.$owner["user_name"].' </h4>
-													<p>	'.$comment["comment_body"].' </p>
+													<h4 class="media-heading"> <a href="user.php?id='.$owner["user_id"].'">'.$owner["user_name"].'</a> </h4>
+													<p>	'.nl2br($comment["comment_body"]).' </p>
 												</div>
 											</div>
 										</div>
@@ -173,7 +184,7 @@ require "includes/db.php";
 						echo '
 						<!-- Post a Comment -->
 						<div class="row section" id="post-a-commment">
-							<form method="post" action="song.php">
+							<form method="post" action="">
 								<div class="col-md-2">
 									<label for="make-comment">Publica un Comentario:</label>
 								</div>
@@ -196,6 +207,9 @@ require "includes/db.php";
 		}
 		?>
 	</div>
+	<?php 
+	mysqli_close($mysqli);
+	?>
 
 </body>
 </html>

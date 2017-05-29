@@ -53,18 +53,15 @@ require('includes/db.php');
 							}
 							header("Location: user.php?id=".$_SESSION['user_id']."");
 						} else {
+
 							echo '
-							<div class="panel panel-info" style="text-align: center;">
-								<div class="panel-heading">
-									Intento Fallido
-								</div>
-								<div class="panel-body" style="color: gray;">
-									<h3>El usuario o contraseña introducido son incorrectos!</h3><br>
-									<h4>Por favor, intenta iniciar sesion de nuevo visitando <a href="login.php">esta pagina</a></h4>
-									<h4>O bien, si no estas registrado, registrate en <a href="register.php">este enlace</a></h4>
-								</div>
+							<div class="row section something-bad">
+								<h3>El usuario o contraseña introducido son incorrectos!</h3><br>
+								<h4>Por favor, intenta iniciar sesion de nuevo visitando <a href="login.php">esta pagina</a></h4>
+								<h4>O bien, si no estas registrado, registrate en <a href="register.php">este enlace</a></h4>
 							</div>
 							';
+
 						}
 					} else { 
 						?>
@@ -87,31 +84,33 @@ require('includes/db.php');
 											<input type="password" class="form-control" name="password" required="required" id="pass" placeholder="Password">
 										</div>
 									</div>
+									<!--						
 									<div>
 										<div class="g-recaptcha" data-sitekey="6LcofhsUAAAAAOJ-p5clDHz38mzOHn4Ixicg5aeh"></div>
 									</div>
-									<div class="form-group"> 
-										<div class="col-sm-12 submitButton">
-											<button type="submit" class="btn btn-success">Iniciar Sesión</button>
-										</div>
+								-->
+								<div class="form-group"> 
+									<div class="col-sm-12 submitButton">
+										<button type="submit" class="btn btn-success">Iniciar Sesión</button>
 									</div>
-								</form>
-							</div>
-						</div>	
-						<?php 
-					} 
-					?>
-				</div>
-			</div>			
-		</div>
-
-		<?php 
-	} ?>
-
+								</div>
+							</form>
+						</div>
+					</div>	
+					<?php 
+				} 
+				?>
+			</div>
+		</div>			
+	</div>
 
 	<?php 
-	mysqli_close($mysqli);
-	?>
+} ?>
+
+
+<?php 
+mysqli_close($mysqli);
+?>
 
 	<!--
 

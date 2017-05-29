@@ -17,9 +17,21 @@ body h1, h2, h3 {
 	margin-bottom: 40px;
 }
 
+#author-info h2, h3 {
+	margin: 0;
+}
+
 #author-info h2, p{
-	margin-right: 10px;
 	display: inline-block;
+}
+
+.text-change{
+	font-size: 18px;
+	color: #FFE8D1;
+}
+
+.text-change a{
+	color: #FFE8D1;
 }
 
 #illust {
@@ -27,15 +39,20 @@ body h1, h2, h3 {
 	display: block; 
 	margin: auto;
 	background-color: black;
-	/*
-	font-family: 'Fira Sans', sans-serif;
-	font-family: 'Oxygen', sans-serif;
-	*/
+}
+
+.illust-text a{
+	font-weight: bolder;
+	 
 }
 
 .comment {
 	margin: 10px 0 10px 0;
 	padding-right: 10px;
+}
+
+.bigger-text {
+	font-size: 16px;
 }
 
 #post-a-commment textarea {
@@ -79,6 +96,16 @@ body h1, h2, h3 {
 .points {
 	float: right;
 	color: peachpuff;
+	margin-top: 20px;
+}
+
+.illust-text .col-md-4 .btn {
+	margin-top: 10px;
+	width: 100%;
+}
+
+hr {
+	margin: 20px;
 }
 
 audio {

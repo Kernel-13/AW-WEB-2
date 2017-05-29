@@ -9,7 +9,7 @@ require('includes/db.php');
 	<script src='https://www.google.com/recaptcha/api.js'></script>
 	<script type="text/javascript" src="js/codigos.js" ></script>
 	<link rel="stylesheet" type="text/css" href="css/session-style.css">
-	<title>Registro - 1er Paso</title>
+	<title>Registro</title>
 </head>
 <body>
 	<?php require "includes/navbar.php"; ?>
@@ -30,9 +30,9 @@ require('includes/db.php');
 
 					if (isset($_POST['username'])){
 
-						$username = mysqli_real_escape_string($mysqli,stripslashes($_POST['username']));
-						$email = mysqli_real_escape_string($mysqli,stripslashes($_POST['email']));
-						$description = mysqli_real_escape_string($mysqli,stripslashes($_POST['description']));
+						$username = mysqli_real_escape_string($mysqli,htmlspecialchars(trim(strip_tags($_POST["username"]))));
+						$email = mysqli_real_escape_string($mysqli,htmlspecialchars(trim(strip_tags($_POST["email"]))));
+						$description = mysqli_real_escape_string($mysqli,htmlspecialchars(trim(strip_tags($_POST["description"]))));
 						$password = mysqli_real_escape_string($mysqli,stripslashes($_POST['password']));
 
 						$secure_password=password_hash($password, PASSWORD_BCRYPT);
@@ -46,61 +46,47 @@ require('includes/db.php');
 
 						// Si ya existe el usuario
 						if($rows1==1){
+
 							echo '
-							<div class="panel panel-info" style="text-align: center;">
-								<div class="panel-heading">
-									Registro Fallido
-								</div>
-								<div class="panel-body" style="color: gray;">
-									<h3>El nombre de usuario introducido ya ha sido registrado!</h3><br>
-									<h4>Por favor, intenta registrarte con un nuevo nombre de usuario visitando <a href="register.php">esta pagina</a></h4>
-									<h4>O bien, si ya estas registrado, inicia sesión en <a href="login.php">este enlace</a></h4>
-								</div>
+							<div class="row section something-bad">
+								<h3>El nombre de usuario introducido ya ha sido registrado!</h3><br>
+								<h4>Por favor, intenta registrarte con un nuevo nombre de usuario visitando <a href="register.php">esta pagina</a></h4>
+								<h4>O bien, si ya estas registrado, inicia sesión en <a href="login.php">este enlace</a></h4>
 							</div>
 							';
 						// Si ya existe el email
 						} elseif ($rows2==1) {
+
 							echo '
-							<div class="panel panel-info" style="text-align: center;">
-								<div class="panel-heading">
-									Registro Fallido
-								</div>
-								<div class="panel-body" style="color: gray;">
-									<h3>El email introducido ya ha sido registrado!</h3><br>
-									<h4>Por favor, intenta registrarte con un nuevo email visitando <a href="register.php">esta pagina</a></h4>
-									<h4>O bien, si ya estas registrado, inicia sesión en <a href="login.php">este enlace</a></h4>
-								</div>
+							<div class="row section something-bad">
+								<h3>El email introducido ya ha sido registrado!</h3><br>
+								<h4>Por favor, intenta registrarte con un nuevo email visitando <a href="register.php">esta pagina</a></h4>
+								<h4>O bien, si ya estas registrado, inicia sesión en <a href="login.php">este enlace</a></h4>
 							</div>
 							';
 						} elseif (!isset($_POST['kind'])) {
+
 							echo '
-							<div class="panel panel-info" style="text-align: center;">
-								<div class="panel-heading">
-									Registro Fallido
-								</div>
-								<div class="panel-body" style="color: gray;">
-									<h3>No has seleccionado el tipo de usuario que quieres ser!</h3><br>
-									<h4>Por favor, intenta registrarte con un nuevo email visitando <a href="register.php">esta pagina</a></h4>
-									<h4>O bien, si ya estas registrado, inicia sesión en <a href="login.php">este enlace</a></h4>
-								</div>
+							<div class="row section something-bad">
+								<h3>No has seleccionado el tipo de usuario que quieres ser!</h3><br>
+								<h4>Por favor, intenta registrarte con un nuevo email visitando <a href="register.php">esta pagina</a></h4>
+								<h4>O bien, si ya estas registrado, inicia sesión en <a href="login.php">este enlace</a></h4>
 							</div>
 							';
+
 						} else {
 
 							$maxsize = 5297152;
 							if(($_FILES['avatar']['size'] >= $maxsize) || ($_FILES["avatar"]["size"] == 0)) {
+
 								echo '
-								<div class="panel panel-info" style="text-align: center;">
-									<div class="panel-heading">
-										Registro Fallido
-									</div>
-									<div class="panel-body" style="color: gray;">
-										<h3>La imagen que subas no debe superar los 4.5 MB! </h3><br>
-										<h4>Por favor, intentalo de nuevo visitando <a href="register.php">esta pagina</a></h4>
-										<h4>O bien, si ya estas registrado, inicia sesión en <a href="login.php">este enlace</a></h4>
-									</div>
+								<div class="row section something-bad">
+									<h3>La imagen que subas no debe superar los 4.5 MB! </h3><br>
+									<h4>Por favor, intentalo de nuevo visitando <a href="register.php">esta pagina</a></h4>
+									<h4>O bien, si ya estas registrado, inicia sesión en <a href="login.php">este enlace</a></h4>
 								</div>
 								';
+
 							} else {
 
 								$permitido = array('image/jpeg', 'image/png');
@@ -109,18 +95,15 @@ require('includes/db.php');
 								list($width, $height) = getimagesize($filename);
 								$sub = abs($width - $height);
 								if ($sub > 10 || $width < 250 || $height < 250){
+
 									echo '
-									<div class="panel panel-info" style="text-align: center;">
-										<div class="panel-heading">
-											Registro Fallido
-										</div>
-										<div class="panel-body" style="color: gray;">
-											<h3>La imagen que subas debe ser cuadrada y tener un tamaño minimo de 250x250 </h3><br>
-											<h4>Por favor, intentalo de nuevo visitando <a href="register.php">esta pagina</a></h4>
-											<h4>O bien, si ya estas registrado, inicia sesión en <a href="login.php">este enlace</a></h4>
-										</div>
+									<div class="row section something-bad">
+										<h3>La imagen que subas debe ser cuadrada y tener un tamaño minimo de 250x250 </h3><br>
+										<h4>Por favor, intentalo de nuevo visitando <a href="register.php">esta pagina</a></h4>
+										<h4>O bien, si ya estas registrado, inicia sesión en <a href="login.php">este enlace</a></h4>
 									</div>
 									';
+
 								} else {
 
 									if (in_array($_FILES["avatar"]["type"], $permitido)) {
@@ -128,11 +111,11 @@ require('includes/db.php');
 										$info = pathinfo($_FILES["avatar"]["name"]);
 										$extension = $info["extension"]; 
 										$name = "avatar_".$username.".".$extension; 
-										$path = 'img/'.$username.'/posts/'.$name;
+										$path = 'posts/'.$username.'/'.$name;
 
-										if (!is_dir('img/'.$username.'/posts')) {
+										if (!is_dir('posts/'.$username)) {
 											echo "CREATING PATH";
-											mkdir('img/'.$username.'/posts', 0777, true);
+											mkdir('posts/'.$username, 0777, true);
 										}
 
 										move_uploaded_file( $_FILES['avatar']['tmp_name'], $path);
@@ -148,16 +131,12 @@ require('includes/db.php');
 
 											header("Location: user.php?id=".$_SESSION['user_id']."");
 										} else {
+
 											echo '
-											<div class="panel panel-info" style="text-align: center;">
-												<div class="panel-heading">
-													Registro Fallido
-												</div>
-												<div class="panel-body" style="color: gray;">
-													<h3> Algo bizarro ha ocurrido al intetar registrate</h3><br>
-													<h4>Por favor, intentalo de nuevo visitando <a href="register.php">esta pagina</a></h4>
-													<h4>O bien, si ya estas registrado, inicia sesión en <a href="login.php">este enlace</a></h4>
-												</div>
+											<div class="row section something-bad">
+												<h3> Algo bizarro ha ocurrido al intetar registrate</h3><br>
+												<h4>Por favor, intentalo de nuevo visitando <a href="register.php">esta pagina</a></h4>
+												<h4>O bien, si ya estas registrado, inicia sesión en <a href="login.php">este enlace</a></h4>
 											</div>
 											';
 										}
@@ -236,41 +215,44 @@ require('includes/db.php');
 													<label class="sr-only" for="avatar"> Escoge tu avatar </label>
 													<input type="file" name="avatar" class="form-control" required="required" id="avatar">
 												</div>
-											</div>							
+											</div>	
+											<!--						
 											<div>
 												<div class="g-recaptcha" data-sitekey="6LcofhsUAAAAAOJ-p5clDHz38mzOHn4Ixicg5aeh"></div>
 											</div>
-										</div>
-
-									</div>
-
-									<div class="row">
-										<div class="col-md-12">
-											<div class="form-group"> 
-												<div class="col-sm-12 submitButton">
-													<button type="submit" class="btn btn-warning">Registrarse</button>
+										-->
+										<div class="row">
+											<div class="col-md-12">
+												<div class="form-group"> 
+													<div class="col-sm-12 submitButton">
+														<button type="submit" class="btn btn-warning">Registrarse</button>
+													</div>
 												</div>
 											</div>
 										</div>
 									</div>
 
-								</form>
-							</div>
+								</div>
+
+								
+
+							</form>
 						</div>
-						<?php 
-					} 
-					?>
+					</div>
+					<?php 
+				} 
+				?>
 
-				</div>
-			</div>			
-		</div>
-
-		<?php 
-	} ?>
+			</div>
+		</div>			
+	</div>
 
 	<?php 
-	mysqli_close($mysqli);
-	?>
+} ?>
+
+<?php 
+mysqli_close($mysqli);
+?>
 	<!--
 	<a href="https://icons8.com/web-app/13114/Cancel">Cancel icon credits</a>
 	<a href="https://icons8.com/web-app/13115/Ok">Ok icon credits</a>

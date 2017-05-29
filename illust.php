@@ -1,120 +1,235 @@
 <?php
 session_start();
+require "includes/db.php";
 ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	
-	<link rel="icon" href="img/hecate.ico" type="image/x-icon" />
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="css/body-style.css">
+	<?php require "includes/head.php"; ?>
 	<link rel="stylesheet" type="text/css" href="css/post-style.css">
+	<link rel="stylesheet" type="text/css" href="css/buttons.css">
 	<title>LastXanadu</title>
 </head>
 <body>
 	<?php require "includes/navbar.php"; ?>
+	<?php require "includes/functions.php"; ?>
 
 	<div class="container">
-		<div class="row">
-			<!-- Illust, Description and Tags-->
-			<div class="col-md-8 col-sm-6 illust-text">
-				<div>
-					<div class="points">
-						<h3>495 Likes</h3>
-					</div>
-					<div id="author-info">
-						<h2>Illustration Title</h2>
-						<p><a href="user.php">by KilloveFP</a></p>
-					</div>
-					<p>No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure.</p>
-					<p class="gray-text">Tags: <a href="">this</a>, <a href="">will</a>, <a href="">be</a>, <a href="">a</a>, <a href="">list</a>, <a href="">of</a>, <a href="">tags</a></p>
-				</div>
-				<div>
-					<img alt="Ilustración" id="illust" class="img-rounded img-responsive" src="img/a.jpg">
-				</div>
-				<div class="ratings">
-					<a class="btn btn-warning" href=""> <span class="glyphicon glyphicon-star"></span> Marcar como Favorito</a>
-					<a class="btn btn-success" href=""> <span class="glyphicon glyphicon-thumbs-up"></span> Like </a>
-					<a class="btn btn-danger" href=""> <span class="glyphicon glyphicon-flag"></span> Marcar como Ofensivo</a>
-				</div>
+
+		<?php 
+
+		// Si el ID no se ha pasado por GET
+		if (!isset($_GET['id'])) {
+			echo '
+			<div class="row section something-bad">
+				<p> No se ha introducido ningun ID </p>
 			</div>
+			';
 
-			<!-- Comment Section -->
-			<aside class="col-md-4 col-sm-6">
-				<h3>Comentarios</h3>
-				<div class="comment">
-					<div class="media">
-						<div class="media-left">
-							<a href="user.php"><img alt="Imagen de Usuario" class="media-object img-rounded user-avatar-comment" src="img/solid.png"></a>
-						</div>
-						<div class="media-body">
-							<h4 class="media-heading"> User #1 </h4>
-							<p>	What I love and what I believe rots away; even what was broken before. Even if I held it close it’d turn to ashes. Is dead salvation? Is dead compensation? Living can also be a curse after all. I mean, people are born while crying, aren’t they?
-							</p>
-						</div>
-					</div>
-				</div>
-				<div class="comment">
-					<div class="media">
-						<div class="media-left">
-							<a href="user.php"><img alt="Imagen de Usuario" class="media-object img-rounded user-avatar-comment" src="img/solid3.png"></a>
-						</div>
-						<div class="media-body">
-							<h4 class="media-heading"> User #2 </h4>
-							<p>	I’m falling endlessly. They are lined up, with their needle blades over their heads.
-								They twist around my body. Ah, their bodies are burning with real love…
-								They are my soul. Myself in my cursed dolls…
-							</p>
-						</div>
-					</div>
-				</div>
-				<div class="comment">
-					<div class="media">
-						<div class="media-left">
-							<a href="user.php"><img alt="Imagen de Usuario" class="media-object img-rounded user-avatar-comment" src="img/solid2.png"></a>
-						</div>
-						<div class="media-body">
-							<h4 class="media-heading"> User #3 </h4>
-							<p>	Ah, can’t you see it? Can’t you feel it?
-								If that’s the worst end, kneel down and pray.
-								It’s too late for regrets, repentance and the like now.
-								Hell is not just one place – where do you want to go?
-							</p>
-						</div>
-					</div>
-				</div>
-				<div class="comment">
-					<div class="media">
-						<div class="media-left">
-							<a href="user.php"><img alt="Imagen de Usuario" class="media-object img-rounded user-avatar-comment" src="img/solid4.png"></a>
-						</div>
-						<div class="media-body">
-							<h4 class="media-heading"> User #4 </h4>
-							<p>	Yeah, It's Lunatic Time! Welcome to the Madness World!
-							</p>
-						</div>
-					</div>
-				</div>
-			</aside>
-		</div>
+		// Si el ID SI se ha pasado por GET
+		} else { 
+			$secure_id = mysqli_real_escape_string($mysqli,stripslashes( $_GET['id']));
+			$post = get_post($mysqli, $secure_id);
 
-		<!-- Posting a Comment -->
-		<div class="row section" id="post-a-commment">
-			<form method="post" action="illust.php">
-				<div class="col-md-2">
-					<label for="make-comment">Publica un Comentario:</label>
+
+			// Si el ID no existe
+			if (is_null($post)) {
+				echo '
+				<div class="row section something-bad">
+					<p> La Ilustración con el ID intoducido no existe o ha sido eliminada </p>
 				</div>
-				<div class="col-md-10">
-					<textarea id="make-comment" class="form-control" required="required" placeholder="Escribe aqui tu comentario..." maxlength="500"></textarea>
-					<input class="btn btn-danger" type="submit" name="submit" value="Publicar comentario">
-				</div>
-			</form>
-		</div>
+				';
+
+
+			// Si el ID SI existe
+			} else {
+				
+				if ($mysqli->query("UPDATE posts SET post_views = post_views + 1 WHERE post_id='".$post['post_id']."'") === TRUE) {
+					// views + 1
+				}
+
+				// Si se ha enviado un comentario
+				if(isset($_POST["comment"]) && isset($_SESSION['username'])){
+					$i = $post["post_id"];
+					$o = $_SESSION['user_id'];
+					$b = mysqli_real_escape_string($mysqli,htmlspecialchars(trim(strip_tags($_POST["comment"]))));
+
+
+					$query = "INSERT INTO comments(comment_post, comment_owner, comment_body) VALUES('$i', '$o', '$b')";
+					if ($mysqli->query($query) === TRUE) {
+						echo '
+						<div class="row section something-bad">
+							<p> El comentario se ha publicado con exito! </p>
+						</div>
+						';
+					} else {
+						echo '
+						<div class="row section something-bad">
+							<p> Hubo un problema a la hora de publicar tu comentario </p>
+						</div>
+						';
+					}
+				}
+
+				if ($post['post_type'] == 'Picture') {
+					$us = get_user_from_id($mysqli, $post["post_owner"]);
+					echo '
+					<div class="row">
+
+						<!-- Illust, Description and Tags-->
+						<div class="col-md-12 illust-text">
+							<div class="row">
+								<div class="col-md-8">
+
+									<!-- Illust Display -->
+									<div>
+										<img alt="Ilustración" id="illust" class="img-rounded img-responsive" src="'.$post["post_illust"].'">
+									</div>
+
+								</div>
+
+								<div class="col-md-4">
+									<div>
+										
+										<!-- Title / Author -->
+										<div id="author-info">
+											<h2>'.$post["post_title"].'</h2><br>
+											<p class="text-change"><a href="user.php?id='.$us["user_id"].'">by '.$us["user_name"].'</a></p>
+										</div>
+
+										<!-- Description -->
+										<p class="bigger-text"> '.nl2br($post["post_description"]).' </p><br
+
+										<!-- Tags -->
+										<p class="text-change">Tags: ';
+
+											$array = $post["post_tags"];
+											$tags = explode(",", $array);
+											if (count($tags) > 0) {
+												foreach ($tags as $tag) {
+													echo '<a href="search.php?texto='.$tag.'">'.$tag.'</a> ';
+												}
+											} else {
+												echo 'No Tags';
+											}
+
+											echo '
+										</p>
+
+										
+
+										<!-- Rating Buttons -->
+										<div>
+											<hr>';
+
+											if (!isset($_SESSION['user_id'])) {
+												echo '
+												<a class="btn btn-follow" href="follow.php?id='.$us["user_id"].'"> <span class="glyphicon glyphicon-eye-open"></span>  Seguir a '.$us["user_name"].'</a><br>
+												';
+											} else {
+												if (!is_following($mysqli, $us["user_id"] ,$_SESSION['user_id'])) {
+													echo '
+													<a class="btn btn-follow" href="follow.php?id='.$us["user_id"].'"> <span class="glyphicon glyphicon-eye-open"></span>  Seguir a '.$us["user_name"].'</a><br>
+													';
+												} else {
+													echo '
+													<a class="btn btn-flag" href="follow.php?id='.$us["user_id"].'"> <span class="glyphicon glyphicon-eye-open"></span>  Dejar de Seguir a '.$us["user_name"].'</a><br>
+													';
+												}
+											}
+											echo'
+											<!-- <a class="btn btn-fav" href=""> <span class="glyphicon glyphicon-star"></span> Marcar como Favorito</a><br>-->
+											<a class="btn btn-flag" href="flagging.php?id='.$post["post_id"].'"> <span class="glyphicon glyphicon-flag"></span> Marcar como Ofensivo</a><br>
+										</div>
+
+										<!-- Favourite Count -->
+										<div class="points">
+											<h3>'.$post["post_views"].' Visitas</h3>
+										</div>
+
+									</div>
+								</div>
+							</div>
+						</div>	
+					</div>
+					';
+
+					echo '
+
+					<!-- Song Comments -->
+					<div class="row section">
+
+						<div class="col-md-12">
+							<div class="row">
+								<div class="col-md-12">
+									<h3>Comentarios</h3>
+								</div>
+							</div>';
+
+							$query = "SELECT * FROM comments WHERE comment_post='".$post['post_id']."' ORDER BY comment_date DESC";
+							$resultado = $mysqli->query($query) or die ($mysqli->error. " en la línea ".(__LINE__-1));
+							if (is_null($resultado) || mysqli_num_rows($resultado)==0) {
+								echo '
+								<div class="row section something-bad">
+									<p> No existen comentarios para esta canción</p>
+									<br>
+									<p> Se el primero en comentar! </p>
+								</div>
+								';
+							} else {
+								while ($comment = $resultado->fetch_assoc()) {
+									$owner = get_user_from_id($mysqli, $comment["comment_owner"]);
+									echo '
+									<div class="row">
+										<div class="col-md-12 comment">
+											<div class="media">
+												<div class="media-left">
+													<a href="user.php?id='.$owner["user_id"].'"><img alt="Imagen de Usuario" class="media-object img-rounded user-avatar-comment" src="'.$owner["user_avatar"].'"></a>
+												</div>
+												<div class="media-body">
+													<h4 class="media-heading"> <a href="user.php?id='.$owner["user_id"].'">'.$owner["user_name"].'</a> </h4>
+													<p>	'.nl2br($comment["comment_body"]).' </p>
+												</div>
+											</div>
+										</div>
+									</div>';
+								}
+							}
+							echo '
+						</div>
+					</div>';
+
+					if (isset($_SESSION['username'])) {
+						echo '
+						<!-- Post a Comment -->
+						<div class="row section" id="post-a-commment">
+							<form method="post" action="">
+								<div class="col-md-2">
+									<label for="make-comment">Publica un Comentario:</label>
+								</div>
+								<div class="col-md-10">
+									<textarea id="make-comment" name="comment" class="form-control" required="required" placeholder="Escribe tu comentario aqui..." maxlength="500"></textarea>
+									<input class="btn btn-flag" type="submit" name="submit" value="Publicar comentario">
+								</div>
+							</form>
+						</div>
+						';
+					}
+				} else {
+					echo '
+					<div class="row section something-bad">
+						<p> El ID introducido no es de tipo "Ilustración" </p>
+					</div>
+					';
+				}
+			}
+		}
+
+		?>
 	</div>
+	<?php 
+	mysqli_close($mysqli);
+	?>
 
 </body>
 </html>

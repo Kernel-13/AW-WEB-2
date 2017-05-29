@@ -7,7 +7,7 @@ require "includes/db.php";
 <head>
 	<?php require "includes/head.php"; ?>
 	<link rel="stylesheet" type="text/css" href="css/flagged.css">
-	<title>LastXanadu</title>
+	<title>Contenido Ofensivo</title>
 </head>
 <body>
 	<?php require "includes/navbar.php"; ?>
@@ -57,9 +57,9 @@ require "includes/db.php";
 										<div>';
 
 											if ($post["post_type"] == 'Song') {
-												echo '<a class="btn btn-info" href="song.php?id='.$post["post_id"].'">Ir a Publicación</a>';
+												echo '<a class="btn btn-info" href="song.php?id='.$post["post_id"].'">Ir a Publicación</a><br>';
 											} else {
-												echo '<a class="btn btn-info" href="illust.php?id='.$post["post_id"].'">Ir a Publicación</a>';
+												echo '<a class="btn btn-info" href="illust.php?id='.$post["post_id"].'">Ir a Publicación</a><br>';
 											}
 											
 											echo 
@@ -93,5 +93,8 @@ require "includes/db.php";
 
 		?>
 	</div>
+	<?php 
+	mysqli_close($mysqli);
+	?>
 </body>
 </html>

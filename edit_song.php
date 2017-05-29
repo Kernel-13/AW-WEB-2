@@ -6,8 +6,9 @@ require "includes/db.php";
 <html lang="es">
 <head>
 	<?php require "includes/head.php"; ?>
+	<script type="text/javascript" src="js/codigos.js" ></script>
 	<link rel="stylesheet" type="text/css" href="css/upload-style.css">
-	<title>LastXanadu</title>
+	<title>Editar una Canción</title>
 </head>
 <body>
 	<?php require "includes/navbar.php"; ?>
@@ -155,6 +156,8 @@ require "includes/db.php";
 				}						
 			}
 
+			echo $path_pic;
+
 			$q = "UPDATE posts SET post_title='$title', post_description='$description', post_tags='$tags', post_illust='$path_pic' 
 			WHERE post_id='".$post['post_id']."'";
 
@@ -165,6 +168,7 @@ require "includes/db.php";
 					<p> La cancion se ha modificado exitosamente! </p>
 				</div>
 				';
+				echo $path_pic;
 				header("Location: song.php?id=".$post['post_id']."");
 
 			// Si no se ha podido guardar
@@ -249,6 +253,8 @@ require "includes/db.php";
 			<?php 
 		} ?>
 	</div>
-
+	<?php 
+	mysqli_close($mysqli);
+	?>
 </body>
 </html>

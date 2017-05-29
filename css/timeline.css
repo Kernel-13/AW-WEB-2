@@ -5,7 +5,7 @@ body {
 }
 
 .media {
-	border-radius: 100px;
+	border-radius: 95px;
 }
 
 .media:hover {
@@ -24,7 +24,7 @@ body {
 	padding: 10px;
 }
 
-.media-body p{
+.media-body .tags{
 	color: gray;
 	font-family: 'Open Sans', sans-serif;
 	font-size: 14px;

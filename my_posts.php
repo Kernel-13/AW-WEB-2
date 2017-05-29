@@ -8,7 +8,7 @@ require "includes/db.php";
 	<?php require "includes/head.php"; ?>
 	<link rel="stylesheet" type="text/css" href="css/profile-view.css">
 	<link rel="stylesheet" type="text/css" href="css/flagged.css">	
-	<title>LastXanadu</title>
+	<title>Mis Subidas</title>
 </head>
 <body>
 	<?php require "includes/navbar.php"; ?>
@@ -89,9 +89,9 @@ require "includes/db.php";
 										<div>';
 
 											if ($post["post_type"] == 'Song') {
-												echo '<a class="btn btn-info" href="song.php?id='.$post["post_id"].'">Ir a Publicación</a>';
+												echo '<a class="btn btn-info" href="edit_song.php?id='.$post["post_id"].'">Editar Publicación</a>';
 											} else {
-												echo '<a class="btn btn-info" href="illust.php?id='.$post["post_id"].'">Ir a Publicación</a>';
+												echo '<a class="btn btn-info" href="edit_illust.php?id='.$post["post_id"].'">Editar Publicación</a>';
 											}
 											
 											echo 
@@ -117,15 +117,14 @@ require "includes/db.php";
 
 			echo '
 		</div>
-		';
-	} 
+		';	} 
+		?>
+
+	</div>
+
+	<?php 
+	mysqli_close($mysqli);
 	?>
-
-</div>
-
-<?php 
-mysqli_close($mysqli);
-?>
 </div>
 </body>
 </html>

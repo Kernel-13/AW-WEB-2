@@ -5,17 +5,10 @@ require "includes/db.php";
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	
-	<link rel="stylesheet" type="text/css" href="css/body-style.css">
-	<link rel="stylesheet" type="text/css" href="css/upload-style.css">
-	<link rel="icon" href="img/hecate.ico" type="image/x-icon" />
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<?php require "includes/head.php"; ?>
 	<script type="text/javascript" src="js/codigos.js" ></script>
-	<title>LastXanadu</title>
+	<link rel="stylesheet" type="text/css" href="css/upload-style.css">
+	<title>Subir una Canción</title>
 </head>
 <body>
 	<?php require "includes/navbar.php"; ?>
@@ -32,11 +25,18 @@ require "includes/db.php";
 			} else {
 				if ($user_info["user_type"] != 'Composer') {
 					$ok = FALSE;
+					echo '
+					<div class="row section something-bad">
+						<p> Solo puedes subir Ilustraciones , no Música </p>
+					</div>
+					';
 				}
 			}
+		} else {
+			header("Location: login.php");
 		}
 
-		if (isset($_POST['submit']) && $ok == TRUE) {
+		if (isset($_POST['submit']) && $ok === TRUE) {
 
 			$title = mysqli_real_escape_string($mysqli,stripslashes(htmlspecialchars(trim(strip_tags($_POST['title'])))));
 			$description = mysqli_real_escape_string($mysqli,stripslashes(htmlspecialchars(trim(strip_tags($_POST['description'])))));
@@ -162,7 +162,7 @@ require "includes/db.php";
 											</div>
 											';
 
-											$q = "SELECT * FROM posts WHERE post_title='$title' aND post_views=0 AND post_owner='".$_SESSION["user_id"]."'"
+											$q = "SELECT * FROM posts WHERE post_title='$title' aND post_views=0 AND post_owner='".$_SESSION["user_id"]."'";
 											if ($mysqli->query($q) === TRUE) {
 												header("Location: song.php?id=".$post['post_id']."");
 											} else {
@@ -201,7 +201,7 @@ require "includes/db.php";
 								</div>
 								';
 
-								$q = "SELECT * FROM posts WHERE post_title='$title' aND post_views=0 AND post_owner='".$_SESSION["user_id"]."'"
+								$q = "SELECT * FROM posts WHERE post_title='$title' aND post_views=0 AND post_owner='".$_SESSION["user_id"]."'";
 								if ($mysqli->query($q) === TRUE) {
 									header("Location: song.php?id=".$post['post_id']."");
 								} else {
@@ -233,7 +233,7 @@ require "includes/db.php";
 				}
 			}
 
-		} else {
+		} elseif ($ok == TRUE) {
 
 			?>
 

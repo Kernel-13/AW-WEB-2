@@ -6,9 +6,9 @@ require "includes/db.php";
 <html lang="es">
 <head>
 	<?php require "includes/head.php"; ?>
-	<link rel="stylesheet" type="text/css" href="css/profile-view.css">	
 	<link rel="stylesheet" type="text/css" href="css/timeline.css">	
-	<title>LastXanadu</title>
+	<link rel="stylesheet" type="text/css" href="css/profile-view.css">	
+	<title>Mi Timeline</title>
 </head>
 <body>
 	<?php require "includes/navbar.php"; ?>
@@ -77,7 +77,7 @@ require "includes/db.php";
 										while ($post = $resultado->fetch_assoc()) {
 											if (in_array($post['post_owner'], $array)) {
 
-												$user_data = get_user_from_id($post['post_owner']);
+												$user_data = get_user_from_id($mysqli, $post['post_owner']);
 
 												echo '
 												<div class="col-md-6">
@@ -87,15 +87,15 @@ require "includes/db.php";
 														</div>
 														<div class="media-right media-body">
 															<h3 class="media-heading"> <a href="song.php?id='.$post['post_id'].'">'.$post['post_title'].'</a> </h3>
-															<h4 class="media-heading"> <a href="user.php?id='.$user_data['user_id'].'" ">By '.$user_data['user_id'].'</a></h4>
-															<p> Tags: ';
+															<h4 class="media-heading"> <a href="user.php?id='.$user_data['user_id'].'" ">By '.$user_data['user_name'].'</a></h4>
+															<p class="tags"> Tags: ';
 
 																$tags = $post['post_tags'];
 																$tag_list = explode(",", $tags);
 
 																if (count($tag_list) > 0) {
 																	foreach ($tag_list as $tag) {
-																		echo '<a href="search.php?text='.$tag.'">'.$tag.'</a> ';
+																		echo '<a href="search.php?texto='.trim($tag).'">'.$tag.'</a> ';
 																	}
 																} else {
 																	echo "No Tags";
@@ -161,12 +161,12 @@ require "includes/db.php";
 										while ($post = $resultado->fetch_assoc()) {
 											if (in_array($post['post_owner'], $array)) {
 
-												$user_data = get_user_from_id($post['post_owner']);
+												$user_data = get_user_from_id($mysqli, $post['post_owner']);
 
 												echo '
-												<div class="col-md-3">
+												<div class="col-md-4">
 													<div class="friend-illust miniatura">
-														<img src="'.$post.'" alt="Avatar" class="image img-responsive img-rounded">
+														<img src="'.$post["post_illust"].'" alt="Avatar" class="image img-responsive img-rounded">
 														<div class="middle">
 															<div class="text">
 																<h3><a href="illust.php?id='.$post['post_id'].'">'.$post['post_title'].'</a></h3>
