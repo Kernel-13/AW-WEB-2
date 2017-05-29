@@ -35,30 +35,26 @@
             $cont = 1;
             while ($row = mysqli_fetch_row($resultado)){                                          
             	echo '<div class="row">
-				<div class="col-xs-12 col-sm-12 col-md-4 col-lg-12">
-					<img class="img-responsive" src="'.$row[15].'" alt="">
-				</div>
-				<br/>
-				<div class="col-xs-12 col-sm-12 col-md-4 col-lg-12">
-					<div class="top">'.$cont.'</div>
-					<h4>'.$row[11].'</h4>				
-					 <h5 class="media-heading"><a href="user.php?user='.$row[0].'">'.$row[1].'</a></h5>
-					 <a class="btn btn-primary" href="song.php">Más información<span class="glyphicon glyphicon-chevron-right"></span></a>
-						<h5>'.$row[16].' Reproducciones</h5>
-				</div>
-			</div>
-            <br>';
-            	
-            	echo '<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width:90%">
-            	<span class="sr-only">9/10</span>
-            	puntuacion: '.$row[17].'/10
-            	</div>';
-            	
-            	echo '<br>';
-            	
-            	echo '<hr class="lineapunteada">';
-            	
-            	$cont++;
+                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-12">            
+                    <img class="ilust" src="'.$row[15].'" alt="">
+                </div>      
+                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-12">                    
+                
+                <div class="centrar">
+                    <div class="top">'.$cont.'</div>
+                    <h4>'.$row[11].'</h4>               
+                       <h5 class="centrar"><a href="user.php?user='.$row[0].'">'.$row[1].'</a></h5>
+                       <a class="btn btn-primary" href="song.php">Más información<span class="glyphicon glyphicon-chevron-right"></span></a>
+                        <h5>'.$row[16].' Reproducciones</h5>
+                        <h5>'.$row[17].' Puntos</h5>
+                    </div>
+                </div>
+
+            </div>';        
+                
+                echo '<hr class="lineapunteada">';              
+                        
+                $cont++;
             }
             
             $mysqli->close();
@@ -68,20 +64,32 @@
                 <!--Acontecimientos-->
                 <div id="cabecera" class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                      <div>
-                        <h3 id="acont">Pr&oacute;ximos eventos...</h3>
-
+                       <h3 id="acont">Pr&oacute;ximos eventos...</h3>
                         <h4 class="headercomentario">Madrid</h4>
                         <p>Julian castillo ha publicado este mes de Abril un nuevo cover.</p>                        
-                       	<img alt="madrid" src="img/madrid.jpg" height="200" width="350">
+                        <img class="ilust" alt="madrid" src="img/madrid.jpg" height="200" width="350">
                        
                         <h4 class="headercomentario">Barcelona</h4>
                         <p>En el palacio de San Jordi van ha reunirse fans de Laura Sanz para no te lo puedes perder.</p>
-                        <img alt="barcelona" src="img/barcelona.jpg" height="200" width="350">
+                        <img class="ilust" alt="barcelona" src="img/barcelona.jpg" height="200" width="350">
 
                         <h4 class="headercomentario">Valencia</h4>
                         <p>Nuevo disco de Santiago Lorenzo un nuevo tema que te gustar&aacute;, pasat&eacute; a escucharlo.</p>
-						<img alt="valencia" src="img/valencia.jpg" height="200" width="350">
-						<p>Puedes seguirnos en nuestras redes sociales y compartirlo...</p>                      
+                        <img class="ilust" alt="valencia" src="img/valencia.jpg" height="200" width="350">  
+
+                        <h4 class="headercomentario">Bilbao</h4>                
+                        <img class="ilust" alt="bilbao" src="img/bilbao.jpg" height="200" width="350">
+                        <p>Nuevo disco de Santiago Lorenzo un nuevo tema que te gustar&aacute;, pasat&eacute; a escucharlo</p>
+
+                        <h4 class="headercomentario">Málaga</h4>                
+                        <img class="ilust" alt="malaga" src="img/malaga.jpg" height="200" width="350">
+                        <p>Nuevo disco de Santiago Lorenzo un nuevo tema que te gustar&aacute;, pasat&eacute; a escucharlo</p>
+
+                        <h4 class="headercomentario">Vigo</h4>                
+                        <img class="ilust" alt="vigo" src="img/vigo.jpg" height="200" width="350">
+                        <p>Nuevo disco de Santiago Lorenzo un nuevo tema que te gustar&aacute;, pasat&eacute; a escucharlo</p>
+                        <p>A que esperas a buscar dasdasdasdadsadasdasdasdasdasdasdasdad</p>
+                        <p>Puedes seguirnos en nuestras redes sociales y compartirlo...</p>                
 
                     </div>
                 </div> 
