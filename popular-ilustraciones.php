@@ -47,7 +47,7 @@
 							<h4>$row[11]</h4>
 							<h5><a href='user.php?id=$row[0]'>$row[1]</a></h5>
 							<a class='btn btn-primary' href='illust.php?id=$row[0]'>Más información<span class='glyphicon glyphicon-chevron-right'></span></a>
-								<h5>$row[16] Reproducciones</h5>
+								<h5>$row[16] Visualizaciones</h5>
 						</div>
 					  </div>
 					<hr>
