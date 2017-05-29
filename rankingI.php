@@ -33,28 +33,26 @@
             $consulta = "SELECT * FROM users, posts where users.user_id=posts.post_owner and posts.post_type='Picture' order by posts.post_favourites DESC limit 10";
             $resultado = $mysqli->query($consulta) or die ($mysqli->error."en la linea".(__LINE__-1));
             $cont = 1;
-            while ($row = mysqli_fetch_row($resultado)){                                          
+            while ($row = $resultado->fetch_assoc()){                                          
             	echo '<div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-12">            
-                    <img class="ilust" src="'.$row[15].'" alt="">
-                </div>      
-                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-12">                    
-                
-                <div class="centrar">
-                    <div class="top">'.$cont.'</div>
-                    <h4>'.$row[11].'</h4>               
-                       <h5 class="centrar"><a href="user.php?user='.$row[0].'">'.$row[1].'</a></h5>
-                       <a class="btn btn-primary" href="song.php">Más información<span class="glyphicon glyphicon-chevron-right"></span></a>
-                        <h5>'.$row[16].' Reproducciones</h5>
-                        <h5>'.$row[17].' Puntos</h5>
-                    </div>
-                </div>
-
-            </div>';        
-                
-                echo '<hr class="lineapunteada">';              
-                        
-                $cont++;
+						<p class="centrar titulobonito">'.$row["post_title"].'</p>
+						<div class="col-xs-12 col-sm-12 col-md-12">
+							<img class="ilust" src="'.$row["post_illust"].'" alt="imagen de musica">
+						</div>
+						<div class="col-xs-12 col-sm-12 col-md-12">
+		                <div class="centrar">
+		                    <div class="top">'.$cont.'</div>
+							<h4><a href="user.php?id='.$row["user_id"].'">'.$row["user_name"].'</a></h4>
+							    <a class="btn btn-primary" href="illust.php?id='.$row["post_id"].'">Más información<span class="glyphicon glyphicon-chevron-right"></span></a>
+								<h5>'.$row["post_views"].' Reproducciones</h5>
+		                        <h5>'.$row["post_favourites"].' Puntos</h5>
+		                    </div>
+						</div>
+					 </div>';
+            	
+            	echo '<hr class="lineapunteada">';
+            	
+            	$cont++;
             }
             
             $mysqli->close();
@@ -93,38 +91,7 @@
 
                     </div>
                 </div> 
-            </div>     
-
-                          
-        
-        <table class="botones-tabla">
-            <tbody>
-                <tr>
-                    <td>
-                        <ul class="pager">
-                            <!--<li class="previous"><a href="novedades.html">Previous</a></li>-->
-                        </ul>
-                    </td>
-                    <td id="botones-numericos">
-                        <ul class="pagination pagination-sm pager">
-                            <li class="active"><a href="novedades.html">1</a></li>
-                            <li><a href="novedadesP2.html">2</a></li>
-                            <li><a href="novedadesP3.html">3</a></li>
-                            <li><a href="novedadesP4.html">4</a></li>
-                            <li><a href="novedadesP5.html">5</a></li>
-                            <li><a href="novedadesP6.html">...</a></li>
-                            <li><a href="novedadesP9.html">9</a></li>
-                            <li><a href="novedadesP10.html">10</a></li>
-                        </ul>
-                    </td>
-                    <td>
-                        <ul class="pager">
-                            <li id="boton-next-prev" class="next"><a href="novedadesP2.html">Next</a></li>
-                        </ul>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+            </div>   
 
         <!-- pié -->
         <footer>
