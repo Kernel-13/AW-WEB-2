@@ -192,7 +192,7 @@ require "includes/db.php";
 						echo '
 						<!-- Post a Comment -->
 						<div class="row section" id="post-a-commment">
-							<form method="post" action="'.$_SERVER["PHP_SELF"].'">
+							<form method="post" action="'.$_SERVER["PHP_SELF"].'?id='.$post["post_id"].'">
 								<div class="col-md-2">
 									<label for="make-comment">Publica un Comentario:</label>
 								</div>
