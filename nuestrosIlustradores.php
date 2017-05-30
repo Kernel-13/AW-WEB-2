@@ -3,7 +3,7 @@ session_start();
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
 
     <meta charset = "utf-8"/>
@@ -39,10 +39,10 @@ session_start();
                 echo '
                 <div class="row just-user-list">
                     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">           
-                        <a href="user.php?id='.$row["user_id"].'"><img class="img-responsive img-rounded" src="'.$row["user_avatar"].'" alt=""></a>
+                        <a href="user.php?id='.$row["user_id"].'"><img class="img-responsive img-rounded" src="'.$row["user_avatar"].'" alt="'.$row["user_name"].'"></a>
                     </div>
                     <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">                           
-                        <h5 class = "titulo" ><a href="user.php?id='.$row["user_id"].'">'.$row["user_name"].'</a></h5>
+                        <h4 class = "titulo" ><a href="user.php?id='.$row["user_id"].'">'.$row["user_name"].'</a></h4>
                         <p>'.$row["user_description"].'</p>
 
                     </div>

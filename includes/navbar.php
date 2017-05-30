@@ -76,6 +76,7 @@
 			</ul>
 			<form class="navbar-form" method="get" action="search.php">
 				<div class="input-group">
+					<label class="sr-only" for="search">Busqueda </label>
 					<input type="text" class="form-control" placeholder="Busqueda" name="texto" id="search">
 					<div class="input-group-btn">
 						<button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
