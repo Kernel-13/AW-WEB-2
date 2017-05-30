@@ -28,7 +28,7 @@
                 	<h4 id="rojo">&#33;Tenemos las &uacute;ltimas obras de arte, no te los pierdas!</h4>                                       
             </div>
         </div>
-         <hr class="lineapunteada"/>                      
+         <hr/>                      
             <?php 
             $consulta = "SELECT * FROM users, posts where users.user_id=posts.post_owner and posts.post_type='Picture' order by posts.post_favourites DESC limit 10";
             $resultado = $mysqli->query($consulta) or die ($mysqli->error."en la linea".(__LINE__-1));
@@ -50,7 +50,7 @@
 						</div>
 					 </div>';
             	
-            	echo '<hr class="lineapunteada">';
+            	echo '<hr>';
             	
             	$cont++;
             }
@@ -65,26 +65,26 @@
                        <h3 id="acont">Pr&oacute;ximos eventos...</h3>
                         <h4 class="headercomentario">Madrid</h4>
                         <p>Julian castillo ha publicado este mes de Abril un nuevo cover.</p>                        
-                        <img class="ilust" alt="madrid" src="img/madrid.jpg" height="200" width="350">
+                        <img class="ilustbarralateral" alt="madrid" src="img/madrid.jpg" height="200" width="350">
                        
                         <h4 class="headercomentario">Barcelona</h4>
                         <p>En el palacio de San Jordi van ha reunirse fans de Laura Sanz para no te lo puedes perder.</p>
-                        <img class="ilust" alt="barcelona" src="img/barcelona.jpg" height="200" width="350">
+                        <img class="ilustbarralateral" alt="barcelona" src="img/barcelona.jpg" height="200" width="350">
 
                         <h4 class="headercomentario">Valencia</h4>
                         <p>Nuevo disco de Santiago Lorenzo un nuevo tema que te gustar&aacute;, pasat&eacute; a escucharlo.</p>
-                        <img class="ilust" alt="valencia" src="img/valencia.jpg" height="200" width="350">  
+                        <img class="ilustbarralateral" alt="valencia" src="img/valencia.jpg" height="200" width="350">  
 
                         <h4 class="headercomentario">Bilbao</h4>                
-                        <img class="ilust" alt="bilbao" src="img/bilbao.jpg" height="200" width="350">
+                        <img class="ilustbarralateral" alt="bilbao" src="img/bilbao.jpg" height="200" width="350">
                         <p>Nuevo disco de Santiago Lorenzo un nuevo tema que te gustar&aacute;, pasat&eacute; a escucharlo</p>
 
                         <h4 class="headercomentario">Málaga</h4>                
-                        <img class="ilust" alt="malaga" src="img/malaga.jpg" height="200" width="350">
+                        <img class="ilustbarralateral" alt="malaga" src="img/malaga.jpg" height="200" width="350">
                         <p>Nuevo disco de Santiago Lorenzo un nuevo tema que te gustar&aacute;, pasat&eacute; a escucharlo</p>
 
                         <h4 class="headercomentario">Vigo</h4>                
-                        <img class="ilust" alt="vigo" src="img/vigo.jpg" height="200" width="350">
+                        <img class="ilustbarralateral" alt="vigo" src="img/vigo.jpg" height="200" width="350">
                         <p>Nuevo disco de Santiago Lorenzo un nuevo tema que te gustar&aacute;, pasat&eacute; a escucharlo</p>
                         <p>A que esperas a buscar dasdasdasdadsadasdasdasdasdasdasdasdad</p>
                         <p>Puedes seguirnos en nuestras redes sociales y compartirlo...</p>                
