@@ -72,7 +72,6 @@ h4{
 }
 
 .audio-img-carusel {
-	width: 70%;
 	max-height: 230px;
 	margin: auto;
 	background-color: black;
@@ -134,4 +133,15 @@ h4{
 #botones-numericos{
 	padding-left: 50px;
 	padding-right: 50px;
+}
+
+.carousel-xanadu a:hover{
+	text-decoration: none;
+}
+
+
+.carousel-xanadu span{
+	padding: 5px 10px 5px 10px;
+	background-color: black;
+	color: lightgray;
 }

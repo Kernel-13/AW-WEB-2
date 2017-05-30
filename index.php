@@ -36,7 +36,7 @@
 
 			<div class="col-md-12 col-lg-12">
 
-				<?php require "includes/carusel.php"; ?>
+				<?php require "includes/carrusel.php"; ?>
 
 				<h1 class="tituloColor">Last<span>Xanadu</span></h1>
 				<h2 class="hidden"> Oculto </h2>
@@ -68,7 +68,7 @@
 										</div>
 										<div>
 											<div class='panel panel-default'>
-												<div class='panel-body'><p> $textoRecortado"; if($longitudString == 200){
+												<div class='panel-body'> $textoRecortado"; if($longitudString == 200){
 														echo "... (para seguir leyendo pincha en el titulo)";
 													}
 												echo"</p>
