@@ -1,35 +1,70 @@
+<?php
+	$postsCarusel = "SELECT * FROM posts WHERE `post_tags` = 'carusel'";
+	$resultadoCarusel = $mysqli->query($posts) or die($mysqli->error."en la línea".(_LINE_-1));	
+
+	if($resultadoCarusel->num_rows > 5){
+		$num_entradas = 5;
+	}
+	else{
+		$num_entradas = $resultadoCarusel->num_rows;	
+	}
+?>
+
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
 	<!-- Indicators -->
 	<ol class="carousel-indicators">
-		<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-		<li data-target="#myCarousel" data-slide-to="1"></li>
-		<li data-target="#myCarousel" data-slide-to="2"></li>
-		<li data-target="#myCarousel" data-slide-to="3"></li>
+	<?php
+	if($num_entradas>1){
+		echo"<li data-target='#myCarousel' data-slide-to='0' class='active'></li>";
+	}
+	for($i=2; $i<$num_entradas; $i++){
+		echo"<li data-target='#myCarousel' data-slide-to=$i></li>";
+	}
+	?>
 	</ol>
 
 	<!-- Wrapper for slides -->
 	<div id="carusel" class="carousel-inner" role="listbox">
-		<div class="item active">
-			<img class="audio-img-carusel" src="img/novedades/musica/stormtrooper.jpg" alt="Chania">
-			<audio class="audio-player-carusel" controls="controls"> <source src="novedades/musica/Monster_Cyborg_-_space_troops.mp3" type="audio/mpeg"> </audio>
-			<p>Un stormtrooper triunfa con su cancion "los blasters hacen pium pium"</p>
-		</div>
-
-		<div class="item">
-			<img class="ilust-carusel" src="img/novedades/img/chewaca.jpg" alt="Chania">
-			<p>El garabato de John ¿broma o arte?</p>
-		</div>
-
-		<div class="item">
-			<img class="ilust-carusel" src="img/heca2.jpg" alt="Flower">
-			<p>La primera imagen de LastXanadu</p>
-		</div>
-
-		<div class="item">
-			<img class="audio-img-carusel" src="img/novedades/musica/sparta.jpg" alt="Flower">
-			<audio class="audio-player-carusel" controls="controls"> <source src="resources/newfuries.mp3" type="audio/mpeg"> </audio>
-			<p>"300 ips no entran en 8 bits" de Leonidas.</p>
-		</div>
+	<?php
+	$articulosMostrados=1;
+	while($articulosMostrados < $num_entradas && $registroCarusel = $resultadoCarusel->fetch_array(MYSQLI_BOTH)){
+		if($articulosMostrados==1){
+			if($registroCarusel["post_type"]== 'Song'){
+			echo"
+				<div class='item active'>
+					<img class='audio-img-carusel' src=$registroCarusel[post_illust] alt='Chania'>
+					<audio class='audio-player-carusel' controls='controls'> <source src=$registroCarusel[post_song] type='audio/mpeg'> </audio>
+					<p>$registroCarusel[post_description]</p>
+				</div>";
+			}
+			else{
+				echo"
+				<div class='item active'>
+					<img class='ilust-carusel' src=$registroCarusel[post_illust] alt='Chania'>
+					<p>$registroCarusel[post_description]</p>
+				</div>";
+			}
+		}
+		else{
+			if($registroCarusel["post_type"]== 'Song'){
+			echo"
+			<div class='item'>
+				<img class='audio-img-carusel' src=$registroCarusel[post_illust] alt='Chania'>
+				<audio class='audio-player-carusel' controls='controls'> <source src=$registroCarusel[post_song] type='audio/mpeg'> </audio>
+				<p>$registroCarusel[post_description]</p>
+			</div>";
+		}
+		else{
+			echo"
+			<div class='item'>
+				<img class='ilust-carusel' src=$registroCarusel[post_illust] alt='Chania'>
+				<p>$registroCarusel[post_description]</p>
+			</div>";
+		}
+		}
+		$articulosMostrados++;
+	}
+	?>
 	</div>
 
 	<!-- Left and right controls -->
