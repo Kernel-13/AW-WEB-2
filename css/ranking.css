@@ -6,13 +6,6 @@ body {
     color: white;
 }
 
-
-/*
-body {
-	background-color: #D0D0D0;
-	color: black;
-}*/
-
 .navbar span {
     color: crimson;
 }
@@ -37,7 +30,7 @@ div p {
 
 img:hover {
     /*Cuándo pasas el ratón sale un efecto adelante*/
-    -webkit-transform: scale(1.05);
+    -webkit-transform: scale(1.10);
 }
 
 img{
@@ -83,19 +76,19 @@ footer {
 }
 
 #nomautor{
-	text-align: center;
+   text-align: center;
 }
 
 #nomcancion{
-	text-align: center;
+   text-align: center;
 }
 
 #visu{
-	text-align: center;
+   text-align: center;
 }
 
 #barra{
-	text-align: center;
+   text-align: center;
 }
 
 h1{
@@ -105,16 +98,16 @@ h1{
 }
 
 .top{
-    
+
     padding-top: 13px;
     color:#DAA520;
     font-size: 3em;
-	margin: 0px 0px 10px 10px;
+    margin: 0px 0px 10px 10px;
 }
 
 #rojo{
     font-family: fantasy;
-	color: red;
+    color: red;
 }
 
 #acont{
@@ -129,10 +122,10 @@ h1{
 }
 
 #foto{
-	display: block;
-      margin-left: auto;
-      margin-right: auto;
-      border:none;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border:none;
 }
 
 .centrar{
@@ -152,4 +145,18 @@ h1{
 .titulobonito{
 	color:#DAA520;
     font-size: 3em;
+}
+
+.just-user-list p{
+    font-size: 14px;
+}
+
+.just-user-list a{
+    color: darkgray;
+    font-size: 24px;
+}
+
+.just-user-list img{
+    max-height: 250px;
+    margin: auto;
 }
