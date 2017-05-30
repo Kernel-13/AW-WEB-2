@@ -83,7 +83,7 @@ require "includes/db.php";
 								$tags = explode(",", $array);
 								if (count($tags) > 0) {
 									foreach ($tags as $tag) {
-										echo '<a href="search.php?texto='.urlencode(trim($tag)).'">'.$tag.'</a> ';
+										echo '<a href="search.php?texto='.(trim($tag)).'">'.$tag.'</a> ';
 									}
 								} else {
 									echo 'No Tags';

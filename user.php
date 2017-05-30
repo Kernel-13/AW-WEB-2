@@ -152,7 +152,7 @@ require('includes/db.php');
 
 																if (count($tag_list) > 0) {
 																	foreach ($tag_list as $tag) {
-																		echo '<a href="search.php?texto='.trim(urlencode($tag)).'">'.$tag.'</a> ';
+																		echo '<a href="search.php?texto='.trim(($tag)).'">'.$tag.'</a> ';
 																	}
 																} else {
 																	echo "No Tags";
@@ -389,7 +389,7 @@ require('includes/db.php');
 
 																		if (count($tag_list) > 0) {
 																			foreach ($tag_list as $tag) {
-																				echo '<a href="search.php?texto='.trim(urlencode($tag)).'">'.$tag.'</a> ';
+																				echo '<a href="search.php?texto='.trim(($tag)).'">'.$tag.'</a> ';
 																			}
 																		} else {
 																			echo "No Tags";

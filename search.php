@@ -66,6 +66,7 @@ require "includes/db.php";
 							$rows = mysqli_num_rows($resultado);
 							$count = 0;
 
+							echo $rows;
 							if ($rows == 0) {
 								echo '
 								<div class="row section something-bad">
@@ -94,7 +95,7 @@ require "includes/db.php";
 
 														if (count($tag_list) > 0) {
 															foreach ($tag_list as $tag) {
-																echo '<a href="search.php?texto='.trim(urlencode($tag)).'">'.$tag.'</a> ';
+																echo '<a href="search.php?texto='.trim(($tag)).'">'.$tag.'</a> ';
 															}
 														} else {
 															echo "No Tags";
@@ -110,15 +111,16 @@ require "includes/db.php";
 										$count += 1;
 									} 
 									
-									if ($count == 0)  {
-										echo '
-										<div class="row section something-bad">
-											<h3> No existen canciones que contengan "'.$busqueda.'"</h3>
-										</div>
-										';
-									}
-
 								}
+								
+								if ($count == 0)  {
+									echo '
+									<div class="row section something-bad">
+										<h3> No existen canciones que contengan "'.$busqueda.'"</h3>
+									</div>
+									';
+								}
+
 							}
 
 							?>
