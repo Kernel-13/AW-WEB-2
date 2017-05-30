@@ -134,7 +134,7 @@
 										</div>
 										<div class='media-body panel panel-default'>
 											<div class='panel-heading'>
-												<a href=user.html><p>$autor[user_name]</p>
+												<a href='user?id=$registro[post_owner]'><p>$autor[user_name]</p>
 												</a>
 											</div>
 											<div class='panel-body'>
