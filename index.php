@@ -55,14 +55,14 @@
 					 			$textoRecortado = substr($registro['post_description'], 0, 200);
 	                    		$longitudString = strlen ( $textoRecortado );
 								echo "<div class='desc-box-illust'>
-										<h3><a  href='$registro[post_illust]'>$registro[post_title]</a></h3>
+										<h3><a  href='illust.php?id=$registro[post_id]'>$registro[post_title]</a></h3>
 									</div>
 									<div class='box'>
 									<img class='img-rounded img-responsive ilust' alt='John' src=$registro[post_illust]>
 										<div class='col-sm-8'>
 											<p>visitas: $registro[post_views]      favs: $registro[post_favourites]</p>
 										</div>
-										<div class='col-sm-4'><a href='user?$registro[post_owner]'><p>$autor[user_name]</p></a>
+										<div class='col-sm-4'><a href='user.php?id=$registro[post_owner]'><p>$autor[user_name]</p></a>
 										</div>
 										<div>
 											<div class='panel panel-default'>
