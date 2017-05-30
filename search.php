@@ -66,7 +66,6 @@ require "includes/db.php";
 							$rows = mysqli_num_rows($resultado);
 							$count = 0;
 
-							echo $rows;
 							if ($rows == 0) {
 								echo '
 								<div class="row section something-bad">
