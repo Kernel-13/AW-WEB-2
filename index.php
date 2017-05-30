@@ -15,7 +15,7 @@
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -39,6 +39,8 @@
 				<?php require "includes/carusel.php"; ?>
 
 				<h1 class="tituloColor">Last<span>Xanadu</span></h1>
+				<h2 class="hidden"> Oculto </h2>
+				<h3 class="hidden"> Oculto </h3>
 				<h4>Te recomienda... con lo que empezamos la pagina web!</h4>
 				<div class="row">
 					<?php

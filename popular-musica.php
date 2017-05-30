@@ -28,6 +28,8 @@
         
 				<div id="cabecera">
 		                <h1>Top 10 canciones más populares </h1>
+		                <h2 class="hidden"> Oculto </h2>
+		                <h3 class="hidden"> Oculto </h3>
 		                <hr>
 		        </div>
 	<?php
