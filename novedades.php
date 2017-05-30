@@ -127,7 +127,7 @@
 			                    echo "
 	                            	<div class='audio-box media'>
 										<div class='media-left'>
-											<a  href=song.html>
+											<a  href=$registro[post_illust]>
 												<img class='audio-img img-rounded' src=$registro[post_illust] alt='John'>
 											</a>
 										</div>
