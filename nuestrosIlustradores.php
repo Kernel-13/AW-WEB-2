@@ -38,10 +38,10 @@ session_start();
             while ($row = $resultado->fetch_assoc()){                                          
                 echo '
                 <div class="row just-user-list">
-                    <div class="col-xs-8 col-sm-8 col-md-4 col-lg-4">           
+                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">           
                         <a href="user.php?id='.$row["user_id"].'"><img class="img-responsive img-rounded" src="'.$row["user_avatar"].'" alt=""></a>
                     </div>
-                    <div class="col-xs-8 col-sm-8 col-md-4 col-lg-8">                           
+                    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">                           
                         <h5 class = "titulo" ><a href="user.php?id='.$row["user_id"].'">'.$row["user_name"].'</a></h5>
                         <p>'.$row["user_description"].'</p>
 
