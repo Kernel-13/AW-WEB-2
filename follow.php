@@ -95,7 +95,7 @@ require('includes/db.php');
 			echo '
 			<div class="container-fluid">
 				<div class="row section something-bad">
-					<p> Hubo un problema a la hora de publicar tu comentario </p>
+					<p> No existen ningun usuario con ese ID </p>
 				</div>
 			</div>
 			';

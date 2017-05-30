@@ -45,7 +45,7 @@ require('includes/db.php');
 						$post = $resultado->fetch_assoc();
 						if ($post['post_owner'] == $_SESSION['user_id']) {
 							$ok = TRUE;
-						} elseif ($_SESSION['isAdmin'] === TRUE) {
+						} elseif ($_SESSION['user_type'] == 'Admin') {
 							$ok = TRUE;
 						} else {
 							echo '

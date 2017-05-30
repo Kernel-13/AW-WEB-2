@@ -38,6 +38,23 @@ function is_following($mysqli, $id, $me){
 	}
 }
 
+function is_favourite($mysqli, $me, $post){
+	$query = "SELECT * FROM users WHERE user_id='$me'";
+	$resultado = $mysqli->query($query) or die ($mysqli->error. " en la línea ".(__LINE__-1));
+	$yo = $resultado->fetch_assoc();
+
+	if (!is_null($yo)) {
+		$user_favs = $yo['user_favourites'];
+		$favs = explode(",", $user_favs);
+
+		if (in_array($post, $favs)) {
+			return TRUE;
+		} else {
+			return FALSE;
+		}
+	}
+}
+
 function is_valid_user($mysqli, $id){
 	$query = "SELECT * FROM users WHERE user_id='$id'";
 	$resultado = $mysqli->query($query) or die ($mysqli->error. " en la línea ".(__LINE__-1));

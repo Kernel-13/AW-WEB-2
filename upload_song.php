@@ -24,7 +24,7 @@ require "includes/db.php";
 				$ok = FALSE;
 			} else {
 
-				if ($_SESSION['isAdmin'] == TRUE) {
+				if ($_SESSION['user_type'] == 'Admin') {
 					$ok = FALSE;
 					echo '
 					<div class="row section something-bad">
@@ -34,7 +34,7 @@ require "includes/db.php";
 					';
 				}
 
-				if ($user_info["user_type"] != 'Composer') {
+				if ($user_info["user_type"] == 'Illustrator') {
 					$ok = FALSE;
 					echo '
 					<div class="row section something-bad">

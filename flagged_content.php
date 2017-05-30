@@ -17,7 +17,7 @@ require "includes/db.php";
 
 		<?php
 
-		if (isset($_SESSION["username"]) && $_SESSION["isAdmin"] === TRUE){
+		if (isset($_SESSION["username"]) && $_SESSION["user_type"] == 'Admin'){
 
 			$query = "SELECT * FROM posts WHERE post_flags>3 ORDER BY post_flags DESC";
 			$resultado = $mysqli->query($query) or die ($mysqli->error. " en la línea ".(__LINE__-1));;
@@ -83,7 +83,7 @@ require "includes/db.php";
 				<h3> Debes Iniciar Sesión o Registrarte para acceder a esta página! </h3>
 			</div>
 			';
-		} elseif ($_SESSION["isAdmin"] === FALSE) {
+		} elseif ($_SESSION["user_type"] != 'Admin') {
 			echo '
 			<div class="row section something-bad">
 				<h3> Esta pagina solo esta disponible para los administradores </h3>

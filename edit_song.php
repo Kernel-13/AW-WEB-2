@@ -57,7 +57,7 @@ require "includes/db.php";
 				';
 			}
 
-			if ($_SESSION['isAdmin'] == TRUE) {
+			if ($_SESSION['user_type'] == 'Admin') {
 				$ok = FALSE;
 				echo '
 				<div class="row section something-bad">

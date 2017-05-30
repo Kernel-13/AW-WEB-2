@@ -116,7 +116,7 @@ require "includes/db.php";
 									} else {
 
 
-										if ($_SESSION['isAdmin'] == TRUE || $post["post_owner"] == $_SESSION['user_id']) {
+										if ($_SESSION['user_type'] == 'Admin' || $post["post_owner"] == $_SESSION['user_id']) {
 											echo '
 											<a class="btn btn-danger" href="delete.php?id='.$post["post_id"].'"> <span class="glyphicon glyphicon glyphicon-trash"></span> Borrar esta publicación</a>
 											';
@@ -131,12 +131,23 @@ require "includes/db.php";
 											<a class="btn btn-flag" href="follow.php?id='.$us["user_id"].'"> <span class="glyphicon glyphicon-eye-open"></span>  Dejar de Seguir a '.$us["user_name"].'</a>
 											';
 										}
+
+										if (!is_favourite($mysqli, $_SESSION['user_id'], $post["post_id"])) {
+											echo '
+											<a class="btn btn-warning" href="fav.php?id='.$post["post_id"].'"> <span class="glyphicon glyphicon-star"></span> Marcar como Favorito</a>
+											';
+										} else {
+											echo '
+											<a class="btn btn-warning" href="fav.php?id='.$post["post_id"].'"> <span class="glyphicon glyphicon-star"></span> Borrar de Favoritos</a>
+											';
+										}
+										echo'
+										<a class="btn btn-danger" href="flagging.php?id='.$post["post_id"].'"> <span class="glyphicon glyphicon-flag"></span> Marcar como Ofensivo</a>';
 									}
 
-									echo'
-									<!--<a class="btn btn-warning" href=""> <span class="glyphicon glyphicon-star"></span> Marcar como Favorito</a>	-->
+									
 
-									<a class="btn btn-danger" href="flagging.php?id='.$post["post_id"].'"> <span class="glyphicon glyphicon-flag"></span> Marcar como Ofensivo</a>
+									echo'
 								</div>
 							</div>
 							';

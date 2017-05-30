@@ -121,13 +121,12 @@ require('includes/db.php');
 										move_uploaded_file( $_FILES['avatar']['tmp_name'], $path);
 
 										$tipo = $_POST['kind'];
-										$registro = "INSERT INTO users(user_name, user_avatar, user_description, user_type, user_following, user_followers, user_email, user_pass, user_isAdmin) VALUES ('$username', '$path', '$description', '$tipo','0', '0', '$email', '$secure_password', FALSE)";
+										$registro = "INSERT INTO users(user_name, user_avatar, user_description, user_type, user_following, user_followers, user_email, user_pass, user_favourites) VALUES ('$username', '$path', '$description', '$tipo','0', '0', '$email', '$secure_password', '0')";
 										if ($mysqli->query($registro) === TRUE) {
 											$person = get_user_from_username($mysqli, $username);
 											$_SESSION['username'] = $username;
 											$_SESSION['user_id'] = $person["user_id"];
 											$_SESSION['user_type'] = $person['user_type'];
-											$_SESSION['isAdmin'] = FALSE;
 
 											header("Location: user.php?id=".$_SESSION['user_id']."");
 										} else {

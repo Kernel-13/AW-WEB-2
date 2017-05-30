@@ -41,7 +41,7 @@
 					echo '<li><a href="register.php"><span class="glyphicon glyphicon-user"></span> Registrate</a></li>
 					<li><a href="login.php"><span class="glyphicon glyphicon-log-in"></span> Iniciar Sesion</a></li>';
 				} else {
-					if ($_SESSION['isAdmin'] == TRUE) {
+					if ($_SESSION['user_type'] == 'Admin') {
 						echo '
 						<li class="dropdown">
 							<a class="dropdown-toggle" data-toggle="dropdown" href="#">Bienvenid@, '.$_SESSION['username'].' <span class="caret"></span></a>

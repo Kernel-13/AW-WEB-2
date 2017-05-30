@@ -83,7 +83,7 @@ require('includes/db.php');
 								$active_illust = "";
 								$active_music = "";
 								$active_following= "";
-								if ($the_user["user_isAdmin"] == TRUE) {
+								if ($the_user["user_type"] == 'Admin') {
 									echo '
 									<li class="active"><a data-toggle="tab" href="#following">Following</a></li> 
 									<li><a data-toggle="tab" href="#followers">Followers</a></li> 
@@ -109,6 +109,8 @@ require('includes/db.php');
 								
 
 								echo '
+								<li><a data-toggle="tab" href="#fav-music"><span class="glyphicon glyphicon-heart"></span> Musica</a></li> 
+								<li><a data-toggle="tab" href="#fav-illust"><span class="glyphicon glyphicon-heart"></span> Ilustraciones</a></li> 
 							</ul>
 
 							<!-- Tab Content -->
@@ -143,7 +145,6 @@ require('includes/db.php');
 														</div>
 														<div class="media-right media-body">
 															<h3 class="media-heading"> <a href="song.php?id='.$post['post_id'].'">'.$post['post_title'].'</a> </h3>
-															<h4 class="media-heading"> <a href="user.php?id='.$user_data['user_id'].'">By '.$user_data['user_name'].'</a></h4>
 															<p> Tags: ';
 
 																$tags = $post['post_tags'];
@@ -232,10 +233,10 @@ require('includes/db.php');
 											';
 										} else {
 											foreach ($following_array  as $follower) {
-												$friend = get_user_from_id($mysqli, $follower);
 												if ($follower == '0') {
 												# code...
 												} else {
+													$friend = get_user_from_id($mysqli, $follower);
 													echo '
 													<div class="col-md-4">
 														<div class="media">
@@ -273,10 +274,10 @@ require('includes/db.php');
 											';
 										} else {
 											foreach ($followers_array as $follower) {
-												$friend = get_user_from_id($mysqli, $follower);
 												if ($follower == '0') {
 												# code...
 												} else {
+													$friend = get_user_from_id($mysqli, $follower);
 													echo '
 													<div class="col-md-4">
 														<div class="media">
@@ -294,6 +295,128 @@ require('includes/db.php');
 											}
 										}
 										echo'
+									</div>
+								</div>
+
+								<!-- Favs Music -->
+								<div id="fav-illust" class="tab-pane fade user-posts">
+									<div class="row activity">';
+
+										$id = $the_user['user_favourites'];
+										$fav_array = explode(",", $id);
+										$fv_count = count($fav_array);
+										$count_illust = 0;
+										if ($fv_count < 2) {
+											echo '
+											<div class="row section something-bad">
+												<p> Este usuario no ha marcado ninguna ilustración como favorito</p>
+											</div>
+											';
+											$count_illust += 1;
+										} else {
+											foreach ($fav_array as $fav) {
+												if ($fav == '0') {
+												# code...
+												} else {
+													$fav_post = get_post($mysqli, $fav);
+													$user_data = get_user_from_id($mysqli, $fav_post['post_owner']);
+													if ($fav_post['post_type'] == 'Picture') {
+														echo '
+														<div class="col-md-4">
+															<div class="friend-illust miniatura">
+																<img src="'.$fav_post['post_illust'].'" alt="Avatar" class="image img-responsive img-rounded">
+																<div class="middle">
+																	<div class="text">
+																		<h3><a href="illust.php?id='.$fav_post['post_id'].'">'.$fav_post['post_title'].'</a></h3>
+																		<h4><a href="user.php?id='.$user_data['user_id'].'">by '.$user_data['user_name'].'</a></h4>
+																	</div>
+																</div>
+															</div>
+														</div>
+														';
+														$count_illust += 1;
+													}
+												}
+											}
+										}
+										if ($count_illust == 0) {
+											echo '
+											<div class="row section something-bad">
+												<p> Este usuario no ha marcado ninguna ilustración como favorito</p>
+											</div>
+											';
+										}
+										
+										echo '
+									</div>
+								</div>
+
+								<!-- Favs illust -->
+								<div id="fav-music" class="tab-pane fade user-posts">
+									<div class="row activity">';
+
+										$id = $the_user['user_favourites'];
+										$fav_array = explode(",", $id);
+										$fv_count = count($fav_array);
+										$count_music = 0;
+										if ($fv_count < 2) {
+											echo '
+											<div class="row section something-bad">
+												<p> Este usuario no ha marcado nada como favorito</p>
+											</div>
+											';
+											$count_music += 1;
+										} else {
+											foreach ($fav_array as $fav) {
+												if ($fav == '0') {
+												# code...
+												} else {
+													$fav_post = get_post($mysqli, $fav);
+													$user_data = get_user_from_id($mysqli, $fav_post['post_owner']);
+													if ($fav_post['post_type'] == 'Song') {
+														echo '
+														<div class="col-md-6">
+															<div class="media">
+																<div class="media-left">
+																	<a href="song.php?id='.$fav_post['post_id'].'"><img alt="Preview" src="'.$fav_post['post_illust'].'" class="media-object"></a>
+																</div>
+																<div class="media-right media-body">
+																	<h3 class="media-heading"> <a href="song.php?id='.$fav_post['post_id'].'">'.$fav_post['post_title'].'</a> </h3>
+																	<p> Tags: ';
+
+																		$tags = $fav_post['post_tags'];
+																		$tag_list = explode(",", $tags);
+
+																		if (count($tag_list) > 0) {
+																			foreach ($tag_list as $tag) {
+																				echo '<a href="search.php?texto='.trim(urlencode($tag)).'">'.$tag.'</a> ';
+																			}
+																		} else {
+																			echo "No Tags";
+																		}
+
+																		echo 
+																		'
+																	</p>
+																</div>
+															</div>
+														</div>
+														';
+														$count_music += 1;
+													}
+												}
+											}
+										}
+
+										if ($count_music == 0) {
+											echo '
+											<div class="row section something-bad">
+												<p> Este usuario no ha marcado ninguna canción como favorito</p>
+											</div>
+											';
+										}
+										
+										echo '
 									</div>
 								</div>
 							</div>
