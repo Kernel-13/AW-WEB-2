@@ -68,7 +68,7 @@
 										</div>
 										<div>
 											<div class='panel panel-default'>
-												<div class='panel-body'> $textoRecortado"; if($longitudString == 200){
+												<div class='panel-body'><p> $textoRecortado"; if($longitudString == 200){
 														echo "... (para seguir leyendo pincha en el titulo)";
 													}
 												echo"</p>
