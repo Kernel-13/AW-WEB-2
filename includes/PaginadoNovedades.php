@@ -6,10 +6,10 @@
 					<tr>
 						<td>";
 						if($paginaActual>1){
-							$paginaActual--;
+						$paginaDestino = $paginaActual -1;
 						echo "
 							<ul class='pager'>
-								<li class='previous'><a href='novedades.php?paginaActual=$paginaActual'>Previous</a></li>
+								<li class='previous'><a href='novedades.php?paginaActual=$paginaDestino'>Previous</a></li>
 							</ul>";}
 
 						echo"	
@@ -20,9 +20,10 @@
 
 							$cont = 0;
 				 			while($cont<$totalPaginas && $cont<$paginasMax){
-				 				$cont++;
+				 				$cont=$cont+1;
 									if($cont==$paginaActual){
-										echo "<li class='active'><a href='novedades.php?paginaActual=$cont'>$cont</a></li>
+										echo "Pagina actual: $paginaActual $cont
+										<li class='active'><a href='novedades.php?paginaActual=$cont'>$cont</a></li>
 									";}
 									else{
 										echo "<li><a href='novedades.php?paginaActual=$cont'>$cont</a></li>";
@@ -34,10 +35,10 @@
 						</td>
 						<td>";
 						if($paginaActual!=ceil($totalPagAux)){
-							$paginaActual++;
+							$paginaDestino = $paginaActual +1;
 								echo"
 								<ul class='pager'>
-									<li id='boton-next-prev' class='next'><a href='novedades.php?paginaActual=$paginaActual'>Next</a></li>
+									<li id='boton-next-prev' class='next'><a href='novedades.php?paginaActual=$paginaDestino'>Next</a></li>
 								</ul>";}
 
 							echo"
