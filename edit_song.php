@@ -61,7 +61,7 @@ require "includes/db.php";
 				$ok = FALSE;
 				echo '
 				<div class="row section something-bad">
-				<p> Los administradores no pueden editar ningún tipo de Contenido. </p>
+					<p> Los administradores no pueden editar ningún tipo de Contenido. </p>
 					<p> Solo pueden administrarlo. </p>
 				</div>
 				';
@@ -229,19 +229,19 @@ require "includes/db.php";
 										<div class="form-group">
 											<div class="col-md-12">
 												<label class="sr-only" for="Titulo">Titulo </label>
-												<input class="form-control" type="text" id="Titulo" name="title" placeholder="Nuevo Titulo" maxlength="30">
+												<input class="form-control" type="text" id="Titulo" name="title" placeholder="Nuevo Titulo" maxlength="30" <?php echo 'value="'.$post['post_title'].'"'; ?>>
 											</div>
 										</div>
 										<div class="form-group">
 											<div class="col-md-12">
 												<label class="sr-only" for="tags">Etiquetas </label>
-												<input class="form-control" type="text" id="tags" name="tags" placeholder="Nuevas Etiquetas">
+												<input class="form-control" type="text" id="tags" name="tags" placeholder="Nuevas Etiquetas" <?php echo 'value="'.$post['post_tags'].'"'; ?>>
 											</div>
 										</div>
 										<div class="form-group">
 											<div class="col-md-12">
 												<label class="sr-only" for="descBox">Descripción </label>
-												<textarea class="form-control" id="descBox" name="description" placeholder="Nueva Descripción" maxlength="500"></textarea>
+												<textarea class="form-control" id="descBox" name="description" placeholder="Nueva Descripción" maxlength="500"><?php echo $post['post_description']; ?></textarea>
 											</div>
 										</div>
 										<!-- Submit Button -->
