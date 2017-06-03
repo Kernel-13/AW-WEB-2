@@ -1,9 +1,6 @@
-<footer>
+<footer class="docu">
 	<ul class="list-inline">
-		<li><a href="quienesSomos.php">¿Quienes somos?</a></li>
-		<li><a href="contacto.php">Contacta con nosotros</a></li>
-		<li><a href="dondeEncontrarnos.php">Donde encontrarnos</a></li>
-		<li><a href="autoresWeb.php">Autores web</a></li>
-		<li><a href="actualizaciones.php">Actualizaciones y novedades de la pagina</a></li>
+		<li><a href="documentacion.php">Documentacion para el Profesor</a></li>
+		<li><a href="site_map.php">Mapa del Sitio</a></li>
 	</ul>
 </footer>

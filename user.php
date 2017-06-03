@@ -194,6 +194,10 @@ require('includes/db.php');
 											while ($post = $pictures->fetch_assoc()) {
 												$user_data = get_user_from_id($mysqli, $post['post_owner']);
 
+												if ($count%3 == 0) {
+													echo '<div class="row">';
+												}
+
 												echo '
 												<div class="col-md-4">
 													<div class="friend-illust miniatura">
@@ -209,6 +213,13 @@ require('includes/db.php');
 												';
 
 												$count += 1;
+
+												if ($count%3 == 0) {
+													echo '</div>';
+												}
+											}
+											if ($count%3 != 0) {
+												echo '</div>';
 											}
 										}
 
@@ -298,7 +309,7 @@ require('includes/db.php');
 									</div>
 								</div>
 
-								<!-- Favs Music -->
+								<!-- Favs Illust -->
 								<div id="fav-illust" class="tab-pane fade user-posts">
 									<div class="row activity">';
 
@@ -314,6 +325,8 @@ require('includes/db.php');
 											';
 											$count_illust += 1;
 										} else {
+
+											$count = 0;
 											foreach ($fav_array as $fav) {
 												if ($fav == '0') {
 												# code...
@@ -321,6 +334,11 @@ require('includes/db.php');
 													$fav_post = get_post($mysqli, $fav);
 													$user_data = get_user_from_id($mysqli, $fav_post['post_owner']);
 													if ($fav_post['post_type'] == 'Picture') {
+
+														if ($count%3 == 0) {
+															echo '<div class="row">';
+														}
+
 														echo '
 														<div class="col-md-4">
 															<div class="friend-illust miniatura">
@@ -334,9 +352,19 @@ require('includes/db.php');
 															</div>
 														</div>
 														';
+
+														$count += 1;
+
+														if ($count%3 == 0) {
+															echo '</div>';
+														}
+
 														$count_illust += 1;
 													}
 												}
+											}
+											if ($count%3 != 0) {
+												echo '</div>';
 											}
 										}
 										if ($count_illust == 0) {
@@ -351,7 +379,7 @@ require('includes/db.php');
 									</div>
 								</div>
 
-								<!-- Favs illust -->
+								<!-- Favs Music -->
 								<div id="fav-music" class="tab-pane fade user-posts">
 									<div class="row activity">';
 
@@ -362,7 +390,7 @@ require('includes/db.php');
 										if ($fv_count < 2) {
 											echo '
 											<div class="row section something-bad">
-												<p> Este usuario no ha marcado nada como favorito</p>
+												<p> Este usuario no ha marcado ninguna ilustracion como favorito</p>
 											</div>
 											';
 											$count_music += 1;

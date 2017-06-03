@@ -28,7 +28,7 @@ require "includes/db.php";
 		} elseif (!isset($_GET['id'])) {
 			echo '
 			<div class="row section something-bad">
-				<p> No se ha asignado ningun ID para borrar </p>
+				<p> No se ha asignado ningun ID para editar </p>
 			</div>
 			';
 		}

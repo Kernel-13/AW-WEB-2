@@ -11,9 +11,19 @@ p{
 }
 
 footer{
+	font-size: large;	
 	text-align: center;
-	background-color: #303030;
 }
+
+footer a {
+	color: aliceblue;
+}
+
+footer a:hover {
+	text-decoration: none;
+	color: darkgray;
+}
+
 .navbar span {
 	color: crimson; 
 }

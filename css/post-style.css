@@ -111,3 +111,17 @@ hr {
 audio {
 	width: 100%;
 }
+
+.map {
+	font-size: 18px;
+}
+
+.map img {
+	max-height: 250px;
+	margin: auto;
+}
+
+.map .col-md-6 {
+	margin-top: 75px;
+	text-align: center;
+}
