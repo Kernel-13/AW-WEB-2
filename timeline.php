@@ -162,7 +162,9 @@ require "includes/db.php";
 											if (in_array($post['post_owner'], $array)) {
 
 												$user_data = get_user_from_id($mysqli, $post['post_owner']);
-
+												if ($count%3 == 0) {
+													echo '<div class="row">';
+												}
 												echo '
 												<div class="col-md-4">
 													<div class="friend-illust miniatura">
@@ -178,7 +180,15 @@ require "includes/db.php";
 												';
 
 												$count += 1;
+
+												if ($count%3 == 0) {
+													echo '</div>';
+												}
 											}
+										}
+
+										if ($count%3 != 0) {
+											echo '</div>';
 										}
 
 										if ($count == 0) {

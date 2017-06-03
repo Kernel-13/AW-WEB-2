@@ -116,6 +116,10 @@ audio {
 	font-size: 18px;
 }
 
+.map a {
+	color: burlywood;
+}
+
 .map img {
 	max-height: 250px;
 	margin: auto;

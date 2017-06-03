@@ -7,7 +7,7 @@ require "includes/db.php";
 <head>
 	<?php require "includes/head.php"; ?>
 	<link rel="stylesheet" type="text/css" href="css/post-style.css">
-	<title>Mapa del Sitio</title>
+	<title>Documentación</title>
 </head>
 <body>
 	<?php require "includes/navbar.php"; ?>

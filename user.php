@@ -390,7 +390,7 @@ require('includes/db.php');
 										if ($fv_count < 2) {
 											echo '
 											<div class="row section something-bad">
-												<p> Este usuario no ha marcado ninguna ilustracion como favorito</p>
+												<p> Este usuario no ha marcado ninguna canción como favorito</p>
 											</div>
 											';
 											$count_music += 1;

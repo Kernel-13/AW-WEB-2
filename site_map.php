@@ -88,8 +88,8 @@ require "includes/db.php";
 							<li>
 								<h4>Edición</h4>
 								<ul>
-									<li> <p><a href="edit_illust.php">Editar Ilustración</a> / Para Editar una Ilustración, el usuario debera dirigirse a 'Mis Aportaciones', y hacer clic sobre la ilustración que desea editar </p></li>
-									<li> <p><a href="edit_song.php">Editar Canción</a> / Para Editar una Canción, el usuario debera dirigirse a 'Mis Aportaciones', y hacer clic sobre la Canción que desea editar </p></li>
+									<li> <p><a href="edit_illust.php">Editar Ilustración</a> / Para Editar una Ilustración, el usuario debera dirigirse a 'Mis Aportaciones', y hacer clic en 'Editar Publicación' sobre la ilustración que desea editar </p></li>
+									<li> <p><a href="edit_song.php">Editar Canción</a> / Para Editar una Canción, el usuario debera dirigirse a 'Mis Aportaciones', y hacer clic en 'Editar Publicación' sobre la Canción que desea editar </p></li>
 								</ul>
 							</li>
 						</ul>
