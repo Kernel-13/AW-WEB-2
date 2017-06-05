@@ -140,6 +140,14 @@ require('includes/db.php');
 											';
 										}
 
+									} else {
+										echo '
+										<div class="row section something-bad">
+											<h3>La imagen que has subido no es JPEG o PNG</h3><br>
+											<h4>Por favor, intentalo de nuevo visitando <a href="register.php">esta pagina</a></h4>
+											<h4>O bien, si ya estas registrado, inicia sesión en <a href="login.php">este enlace</a></h4>
+										</div>
+										';
 									}
 								}
 							}

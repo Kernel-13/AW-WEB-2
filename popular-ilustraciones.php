@@ -50,7 +50,7 @@ session_start();
 						<div class="col-md-6 col-xs-12 box-text">
 							<h4>'.$row["post_title"].'</h4>
 							<h5><a href="user.php?id='.$row["user_id"].'">'.$row["user_name"].'</h5>
-							<a class="btn btn-primary" href="song.php?id='.$row["post_id"].'">Más información<span class="glyphicon glyphicon-chevron-right"></span></a>
+							<a class="btn btn-primary" href="illust.php?id='.$row["post_id"].'">Más información<span class="glyphicon glyphicon-chevron-right"></span></a>
 							<h5>'.$row["post_views"].' Visualizaciones</h5>
 						</div>
 					</div>
