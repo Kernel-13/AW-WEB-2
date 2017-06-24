@@ -8,6 +8,9 @@ require('includes/db.php');
 	<?php require "includes/head.php"; ?>
 	<link rel="stylesheet" type="text/css" href="css/profile-view.css">
 	<link rel="stylesheet" type="text/css" href="css/messages.css">
+	<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/themes/base/minified/jquery-ui.min.css" type="text/css" />
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="http://code.jquery.com/ui/1.10.1/jquery-ui.min.js"></script>   
 	<title>Mis Mensajes</title>
 </head>
 <body>
@@ -77,7 +80,7 @@ require('includes/db.php');
 						<div class="form-group">
 							<div class="col-md-12">
 								<label class="sr-only" for="receptor"> Destinatario </label>
-								<input class="form-control" type="text" id="receptor" name="receptor" required="required" placeholder="Destinatario" maxlength="20">
+								<input class="form-control auto" type="text" id="receptor" name="receptor" required="required" placeholder="Destinatario" maxlength="20">
 							</div>
 						</div>
 						<div class="form-group">
@@ -128,5 +131,19 @@ require('includes/db.php');
 		mysqli_close($mysqli);
 		?>
 	</div>
+
+
+
+	<script type="text/javascript">
+		$(function() {
+			$( ".auto" ).autocomplete({
+				source: 'includes/autofill.php',
+				data: { 
+					'term' : $('.auto').val()
+				},
+				type: "GET"
+			});
+		});
+	</script>
 </body>
 </html>

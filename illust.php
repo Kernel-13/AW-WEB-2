@@ -136,7 +136,11 @@ require "includes/db.php";
 													';
 												}
 
-												if (!is_following($mysqli, $us["user_id"] ,$_SESSION['user_id'])) {
+												if($us["user_id"] == $_SESSION['user_id']){
+													echo '
+													<a class="btn btn-info" href="edit_illust.php?id='.$post["post_id"].'"> <span class="glyphicon glyphicon glyphicon-pencil"></span> Editar esta publicación</a><br>
+													';
+												} elseif (!is_following($mysqli, $us["user_id"] ,$_SESSION['user_id'])) {
 													echo '
 													<a class="btn btn-follow" href="follow.php?id='.$us["user_id"].'"> <span class="glyphicon glyphicon-eye-open"></span>  Seguir a '.$us["user_name"].'</a><br>
 													';
@@ -155,8 +159,12 @@ require "includes/db.php";
 													<a class="btn btn-warning" href="fav.php?id='.$post["post_id"].'"> <span class="glyphicon glyphicon-star"></span> Borrar de Favoritos</a>
 													';
 												}
-												echo'
-												<a class="btn btn-danger" href="flagging.php?id='.$post["post_id"].'"> <span class="glyphicon glyphicon-flag"></span> Marcar como Ofensivo</a>';
+
+												if($us["user_id"] != $_SESSION['user_id']){
+													echo'
+													<a class="btn btn-danger" href="flagging.php?id='.$post["post_id"].'"> <span class="glyphicon glyphicon-flag"></span> Marcar como Ofensivo</a>';
+												} 
+												
 											}
 											echo'
 										</div>

@@ -188,6 +188,15 @@ require('includes/db.php');
 											</div>
 											<div class="form-group">
 												<div class="col-sm-12"> 
+													<label class="sr-only" for="pass"> Repita la Contraseña </label>
+													<input type="password" onchange="correctPassword()" class="form-control" required="required" id="pass2" name="password2" placeholder="Repita la contraseña">
+												</div>
+											</div>
+											<div class="col-sm-12 form-group" id="wrongPass" style="display: none">
+												<h4>Las contraseñas no son iguales!</h4>
+											</div>
+											<div class="form-group">
+												<div class="col-sm-12"> 
 													<label class="sr-only" for="descBox"> Descripcion </label>
 													<textarea class="form-control" id="descBox" name="description" required="required" placeholder="Describete a ti mismo en menos de 500 caracteres" maxlength="500"></textarea>
 												</div>
@@ -232,7 +241,7 @@ require('includes/db.php');
 											<div class="col-md-12">
 												<div class="form-group"> 
 													<div class="col-sm-12 submitButton">
-														<button type="submit" class="btn btn-warning">Registrarse</button>
+														<button type="submit" disabled="true" id="submit-button" class="btn btn-warning">Registrarse</button>
 													</div>
 												</div>
 											</div>
@@ -240,9 +249,6 @@ require('includes/db.php');
 									</div>
 
 								</div>
-
-								
-
 							</form>
 						</div>
 					</div>
@@ -257,12 +263,29 @@ require('includes/db.php');
 	<?php 
 } ?>
 
+<script type="text/javascript">
+	function correctPassword(){
+		var pass1 = document.getElementById("pass");
+		var pass2 = document.getElementById("pass2");
+		var helpText = document.getElementById("wrongPass");
+		if(pass1.value == pass2.value){
+			pass1.style.background = "lightgreen";
+			pass2.style.background = "lightgreen";
+			helpText.style.display = "none";
+			helpText.style.color = "red";
+			helpText.style.margin = "5px";
+			document.getElementById("submit-button").disabled = false;
+		} else {
+			pass1.style.background = "navajowhite";
+			pass2.style.background = "navajowhite";
+			helpText.style.display = "initial";
+			document.getElementById("submit-button").disabled = true;
+		}
+	}
+</script>
+
 <?php 
 mysqli_close($mysqli);
 ?>
-	<!--
-	<a href="https://icons8.com/web-app/13114/Cancel">Cancel icon credits</a>
-	<a href="https://icons8.com/web-app/13115/Ok">Ok icon credits</a>
--->
 </body>
 </html>

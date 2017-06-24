@@ -50,20 +50,24 @@ require('includes/db.php');
 						<div class="col-md-9 col-sm-8 col-xs-10">
 							<div class="media-body">
 								<h2 class="media-heading"> '.$the_user["user_name"].' </h2>
-								<p class="description-p">	'.$the_user["user_description"].' </p>
-								<hr>';
+								<p class="description-p">	'.$the_user["user_description"].' </p>';
 
 								if (!isset($_SESSION['user_id'])) {
 									echo '
+									<hr>
 									<a class="btn btn-follow" href="follow.php?id='.$the_user["user_id"].'"> <span class="glyphicon glyphicon-eye-open"></span>  Seguir a '.$the_user["user_name"].'</a><br>
 									';
 								} else {
-									if (!is_following($mysqli, $the_user["user_id"] ,$_SESSION['user_id'])) {
+									if($_GET['id'] == $_SESSION['user_id']){
+
+									} elseif (!is_following($mysqli, $the_user["user_id"] ,$_SESSION['user_id'])) {
 										echo '
+										<hr>
 										<a class="btn btn-follow" href="follow.php?id='.$the_user["user_id"].'"> <span class="glyphicon glyphicon-eye-open"></span>  Seguir a '.$the_user["user_name"].'</a><br>
 										';
 									} else {
 										echo '
+										<hr>
 										<a class="btn btn-flag" href="follow.php?id='.$the_user["user_id"].'"> <span class="glyphicon glyphicon-eye-open"></span>  Dejar de Seguir a '.$the_user["user_name"].'</a><br>
 										';
 									}
